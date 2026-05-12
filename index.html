@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shubham Aludecor | Aluminum Doors & Windows</title>
+    <style>
+        /* ADDED: Smooth scrolling for navigation links */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            color: #333; 
+            background-color: #f8f9fa;
+        }
+        header { 
+            background-color: #1a252c; 
+            color: white; 
+            padding: 1.5rem 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            flex-wrap: wrap; /* Helps with smaller screens */
+        }
+        header h1 { margin: 0; font-size: 1.8rem; letter-spacing: 1px; }
+        nav { margin-top: 10px; }
+        nav a { color: white; text-decoration: none; margin-left: 1.5rem; font-weight: 500; transition: color 0.3s; }
+        nav a:hover { color: #4da6ff; }
+        
+        .nav-location { color: #4da6ff; font-weight: bold; }
+        
+        .hero { 
+            background-color: #e2e8f0; 
+            padding: 6rem 5%; 
+            text-align: center; 
+            border-bottom: 4px solid #0056b3;
+        }
+        .hero h2 { font-size: 3rem; color: #1a252c; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; color: #555; max-width: 600px; margin: 0 auto 2rem auto; line-height: 1.6; }
+        .btn { background-color: #0056b3; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; transition: background 0.3s;}
+        .btn:hover { background-color: #004494; }
+        .btn-small { padding: 0.6rem 1.2rem; font-size: 0.95rem; margin-top: 10px; }
+        
+        .products-title { text-align: center; margin-top: 4rem; font-size: 2.2rem; color: #1a252c; }
+        .products { display: flex; justify-content: space-around; padding: 2rem 5% 4rem 5%; flex-wrap: wrap; gap: 20px;}
+        
+        .card { 
+            background: white; 
+            border-top: 4px solid #0056b3;
+            border-radius: 8px; 
+            padding: 1.5rem; 
+            width: 28%; 
+            margin-bottom: 2rem; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05); 
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* ADDED: Smooth transition */
+        }
+        
+        /* ADDED: Hover effect for cards */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        .card h3 { color: #1a252c; font-size: 1.4rem; margin-top: 0;}
+        footer { background-color: #1a252c; color: white; text-align: center; padding: 3rem 5%; }
+        footer p { margin: 0.5rem 0; color: #ccc; }
+        
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+        .whatsapp-btn:hover { transform: scale(1.1); }
+        .whatsapp-btn img { width: 35px; height: 35px; }
+
+        details {
+            margin-top: 1rem;
+            background: #f1f5f9;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        summary {
+            font-weight: bold;
+            color: #0056b3;
+            cursor: pointer;
+            outline: none;
+        }
+        details ul {
+            padding-left: 20px;
+            margin-top: 10px;
+            color: #444;
+            font-size: 0.95rem;
+        }
+        details li {
+            margin-bottom: 8px;
+        }
+
+        /* ADDED: Mobile Responsiveness */
+        @media (max-width: 900px) {
+            .card {
+                width: 45%; /* Two cards per row on tablets */
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                justify-content: center;
+            }
+            nav a {
+                margin: 0 10px;
+                display: inline-block;
+                margin-top: 10px;
+            }
+            .card {
+                width: 100%; /* One card per row on phones */
+            }
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="Shubham Aludecor Logo" class="logo-img">
+            <h1>Shubham Aludecor</h1>
+        </div>
+        
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#products">Our Products</a>
+            <a href="#contact">Contact Us</a>
+            <a href="https://maps.app.goo.gl/SZkPXY2w3YZgbwCL8" target="_blank" class="nav-location">📍 Location</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h2>Premium Aluminum Doors & Windows</h2>
+        <p>Expert manufacturing and precise installation for modern residential and commercial spaces. Built for durability, designed for elegance.</p>
+        <br>
+        <a href="#contact" class="btn">Get a Free Consultation</a>
+    </section>
+
+    <h2 class="products-title">What We Manufacture</h2>
+
+    <section class="products" id="products">
+        
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=500&q=80" alt="Aluminum Sliding Windows">
+            <h3>Sliding Windows</h3>
+            <p>Sleek, space-saving aluminum sliding windows designed for maximum natural light and smooth operation.</p>
+            
+            <details>
+                <summary>Click to View Options</summary>
+                <ul>
+                    <li><strong>25mm Sliding Window:</strong> Sleek and lightweight frame ideal for standard residential openings.</li>
+                    <li><strong>30mm Sliding Window:</strong> Sturdier profile designed for larger glass panes and higher wind resistance.</li>
+                </ul>
+            </details>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=500&q=80" alt="Aluminum Doors">
+            <h3>Casement & Hinged Doors</h3>
+            <p>Robust and highly secure aluminum doors perfect for main entrances, balconies, washrooms, and commercial storefronts.</p>
+            
+            <details>
+                <summary>Click to View Options</summary>
+                <ul>
+                    <li><strong>80mm Casement Window:</strong> Premium thickness for enhanced structural strength and durability.</li>
+                    <li><strong>100mm Casement Window:</strong> Maximum strength profile for large commercial or high-end architectural use.</li>
+                    <li><strong>40mm Casement Door:</strong> Heavy-duty hinged door ideal for main entrances and high-traffic areas.</li>
+                </ul>
+            </details>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1600566753086-00f18efc2291?auto=format&fit=crop&w=500&q=80" alt="Aluminum Glass Partitions">
+            <h3>Custom Partitions</h3>
+            <p>Modern office and home aluminum glass partitions built exactly to your architectural specifications to maximize your space.</p>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h2>Contact Shubham Aludecor</h2>
+        <p>Ready to upgrade your space? Get in touch with us today for custom measurements and quotes.</p>
+        <br>
+        <p><strong>Email:</strong> info@shubhamaludecor.com</p>
+        <p><strong>Phone:</strong> +91 6356561410</p> 
+        <p><strong>Location:</strong> Gujarat, India</p>
+        
+        <a href="https://maps.app.goo.gl/SZkPXY2w3YZgbwCL8" target="_blank" class="btn btn-small">Get Directions on Google Maps</a>
+        
+        <br><br>
+        <p>© 2026 Shubham Aludecor. All rights reserved.</p>
+    </footer>
+
+    <a href="https://wa.me/919586232321" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Chat on WhatsApp">
+    </a>
+
+</body>
+</html>
