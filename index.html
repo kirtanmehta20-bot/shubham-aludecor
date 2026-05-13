@@ -153,6 +153,74 @@
                 font-size: 2.2rem;
             }
         }
+       /* --- Add this at the bottom of your existing CSS --- */
+
+/* Modern Glass Header */
+header {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Premium Hero Section */
+.hero {
+    position: relative;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background: url('https://images.unsplash.com/photo-1503387762-592dea58ef21?auto=format&fit=crop&q=80&w=2000') no-repeat center center/cover;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto 2.5rem auto;
+}
+
+.btn {
+    background-color: #4da6ff;
+    color: white;
+    padding: 1.2rem 2.5rem;
+    text-decoration: none;
+    letter-spacing: 2px;
+    display: inline-block;
+    transition: all 0.4s ease;
+}
+
+.btn:hover {
+    background-color: white;
+    color: #000;
+    transform: translateY(-3px);
+} 
     </style>
 </head>
 <body>
@@ -170,11 +238,13 @@
         </nav>
     </header>
     <section class="hero" id="home">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
         <h2>Premium Aluminum Doors & Windows</h2>
-        <p>Expert manufacturing and precise installation for modern residential and commercial spaces. Built for durability, designed for elegance.</p>
-        <br>
+        <p>Expert manufacturing and precise installation for modern residential and commercial spaces.</p>
         <a href="#contact" class="btn">Get a Free Consultation</a>
-    </section>
+    </div>
+</section>
 
     <h2 class="products-title">What We Manufacture</h2>
 
