@@ -160,6 +160,16 @@
         overflow: hidden;
         width: 320px;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
+        /* NEW ALIGNMENT RULES */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    /* This forces the image and text to stick to the top, and pushes the dropdown to the bottom */
+    .card details {
+        margin-top: auto; 
+        padding: 0 1.5rem 1.5rem;
     }
 
     .card:hover {
@@ -298,10 +308,18 @@
         </div>
 
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1600566753086-00f18efc2291?auto=format&fit=crop&w=500&q=80" alt="Aluminum Glass Partitions">
-            <h3>Custom Partitions</h3>
-            <p>Modern office and home aluminum glass partitions built exactly to your architectural specifications to maximize your space.</p>
-        </div>
+    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=500&q=80" alt="Aluminum Glass Partitions">
+    <h3>Custom Partitions</h3>
+    <p>Modern office and home aluminum glass partitions built exactly to your architectural specifications.</p>
+    
+    <details>
+        <summary>Click to View Options</summary>
+        <ul>
+            <li><strong>Frameless Glass:</strong> Sleek, edge-to-edge glass for a minimalist aesthetic.</li>
+            <li><strong>Grid Partitions:</strong> Industrial-style aluminum grid frames for modern office spaces.</li>
+        </ul>
+    </details>
+</div>
     </section>
 
     <footer id="contact">
