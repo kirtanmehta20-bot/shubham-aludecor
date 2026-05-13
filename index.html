@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shubham Aludecor | Aluminum Doors & Windows</title>
   <style>
-    /* Smooth scrolling for navigation links */
+    /* --- 1. BASE STYLES --- */
     html { scroll-behavior: smooth; }
     
     body {
@@ -16,7 +16,7 @@
         background-color: #f8f9fa;
     }
 
-    /* --- 1. NEW PREMIUM HEADER --- */
+    /* --- 2. PREMIUM HEADER --- */
     header {
         background: rgba(0, 0, 0, 0.85);
         backdrop-filter: blur(15px);
@@ -32,8 +32,8 @@
         flex-wrap: wrap;
     }
 
-    .logo-container { display: flex; align-items: center; }
-    .logo-img { height: 80px; width: auto; }
+    .logo-container { display: flex; align-items: center; gap: 15px; }
+    .logo-img { height: 60px; width: auto; }
     
     header h1 {
         margin: 0;
@@ -53,9 +53,8 @@
     }
 
     nav a:hover { color: #4da6ff; }
-    .nav-location { color: #4da6ff; font-weight: bold; }
 
-    /* --- 2. NEW PREMIUM HERO SECTION --- */
+    /* --- 3. PREMIUM HERO SECTION --- */
     .hero {
         position: relative;
         height: 85vh;
@@ -75,7 +74,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.5); /* The dark tint */
+        background: rgba(0, 0, 0, 0.6); 
         z-index: 1;
     }
 
@@ -101,7 +100,7 @@
         line-height: 1.6;
     }
 
-    /* --- 3. BUTTONS & PRODUCTS --- */
+    /* --- 4. BUTTONS --- */
     .btn {
         background-color: #4da6ff;
         color: white;
@@ -110,8 +109,10 @@
         letter-spacing: 2px;
         display: inline-block;
         transition: all 0.4s ease;
-        border-radius: 0; /* Sharp architectural corners */
+        border-radius: 0; 
         font-weight: bold;
+        text-transform: uppercase;
+        font-size: 0.9rem;
     }
 
     .btn:hover {
@@ -120,32 +121,86 @@
         transform: translateY(-3px);
     }
 
-    .btn-small {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.95rem;
-        margin-top: 10px;
-        border-radius: 5px;
-        background-color: #0056b3;
-        color: white;
-        text-decoration: none;
-        display: inline-block;
+    /* --- 5. PRODUCTS SECTION --- */
+    .products-section {
+        padding: 5rem 5%;
+        background-color: #ffffff;
     }
 
     .products-title {
         text-align: center;
-        margin-top: 4rem;
+        margin-bottom: 3rem;
         font-size: 2.2rem;
         color: #1a252c;
     }
 
     .products {
         display: flex;
-        justify-content: space-around;
-        padding: 2rem 5% 4rem 5%;
+        justify-content: center;
+        gap: 30px;
         flex-wrap: wrap;
-        gap: 20px;
     }
-</style>  
+
+    /* Upgraded Product Cards */
+    .card {
+        background: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        overflow: hidden;
+        width: 320px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+    }
+
+    .card h3 {
+        padding: 1.5rem 1.5rem 0.5rem;
+        margin: 0;
+        color: #1a252c;
+    }
+
+    .card p {
+        padding: 0 1.5rem 1.5rem;
+        color: #666;
+        line-height: 1.5;
+    }
+
+    /* --- 6. CONTACT SECTION --- */
+    .contact {
+        background-color: #1a252c;
+        color: white;
+        padding: 5rem 5%;
+        text-align: center;
+    }
+
+    .contact h2 {
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+    }
+
+    .contact p {
+        color: #a0aec0;
+        margin-bottom: 2rem;
+    }
+
+    /* --- 7. FOOTER --- */
+    footer {
+        background-color: #0d1317;
+        color: #718096;
+        text-align: center;
+        padding: 1.5rem;
+        font-size: 0.9rem;
+    }
+</style>
 </head>
 <body>
 
