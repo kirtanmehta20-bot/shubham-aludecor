@@ -311,84 +311,131 @@
         </p>
     </div>
 </section>
-    <section class="products" id="products">
-        
-      <div class="card">
-    <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=500&q=80" alt="Aluminum Sliding Windows">
-    <h3>Sliding Windows</h3>
-    <p>Sleek, space-saving aluminum sliding windows designed for maximum natural light and smooth operation.</p>
+    <style>
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+    grid-auto-flow: dense;
+  }
+  .bento-item {
+    background: #f8f9fa;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .bento-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  }
+  .bento-item img {
+    width: 100%;
+    object-fit: cover;
+  }
+  /* Specific Image Heights for Bento Shapes */
+  .feature-box img { height: 350px; }
+  .wide-box img { height: 250px; }
+  .standard-box img { height: 200px; }
+
+  .bento-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+  }
+  .bento-content h3 { margin: 0 0 10px 0; font-size: 1.5rem; color: #1a252c; }
+  .bento-content p { margin: 0 0 20px 0; color: #666; font-size: 0.95rem; line-height: 1.5; }
+
+  /* The Bento Layout Magic */
+  .feature-box { grid-column: span 2; grid-row: span 2; }
+  .wide-box { grid-column: span 2; }
+  .standard-box { grid-column: span 1; }
+
+  .bento-btn {
+    display: block; text-align: center; background-color: #1a252c; color: white; padding: 12px; text-decoration: none; border-radius: 8px; font-weight: bold; transition: background 0.3s;
+  }
+  .bento-btn:hover { background-color: #4da6ff; color: white; }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 900px) {
+    .bento-grid { grid-template-columns: repeat(2, 1fr); }
+    .feature-box { grid-column: span 2; grid-row: span 1; }
+    .feature-box img { height: 250px; }
+    .wide-box { grid-column: span 2; }
+  }
+  @media (max-width: 600px) {
+    .bento-grid { grid-template-columns: 1fr; }
+    .feature-box, .wide-box, .standard-box { grid-column: span 1; grid-row: span 1; }
+  }
+</style>
+
+<section id="products">
+  <div class="bento-grid">
     
-    <div style="padding: 0 1.5rem 1.5rem;">
-        <a href="sliding-windows.html" style="display: block; text-align: center; background-color: #1a252c; color: white; padding: 10px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: background 0.3s;">View Sliding Windows</a>
-    </div>
-</div> 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=500&q=80" alt="Aluminum Doors">
-            <h3>Hinged Doors</h3>
-            <p>Robust and highly secure aluminum doors perfect for main entrances, balconies, washrooms, and commercial storefronts.</p>
-            
-            <details>
-                <summary>Click to View Options</summary>
-                <ul>
-                    <li><strong>80mm Casement Window:</strong> Premium thickness for enhanced structural strength and durability.</li>
-                    <li><strong>100mm Casement Window:</strong> Maximum strength profile for large commercial or high-end architectural use.</li>
-                    <li><strong>40mm Casement Door:</strong> Heavy-duty hinged door ideal for main entrances and high-traffic areas.</li>
-                </ul>
-            </details>
+    <div class="bento-item feature-box">
+      <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=800&q=80" alt="Aluminum Sliding Windows">
+      <div class="bento-content">
+        <div>
+          <h3>Sliding Windows</h3>
+          <p>Sleek, space-saving aluminum sliding windows designed for maximum natural light and smooth operation. Perfect for modern residential and commercial spaces.</p>
         </div>
+        <a href="sliding-windows.html" class="bento-btn">View Sliding Windows</a>
+      </div>
+    </div>
 
-        <div class="card">
-    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=500&q=80" alt="Aluminum Glass Partitions">
-    <h3>Custom Partitions</h3>
-    <p>Modern office and home aluminum glass partitions built exactly to your architectural specifications.</p>
-    
-    <details>
-        <summary>Click to View Options</summary>
-        <ul>
-            <li><strong>Frameless Glass:</strong> Sleek, edge-to-edge glass for a minimalist aesthetic.</li>
-            <li><strong>Grid Partitions:</strong> Industrial-style aluminum grid frames for modern office spaces.</li>
-        </ul>
-    </details>
-</div>
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-150ee85a73041-2a6288590623?auto=format&fit=crop&w=500&q=80" alt="Aluminum Sliding Doors">
-    <h3>Premium Sliding Doors</h3>
-    <p>Effortless operation and expansive views, perfect for connecting indoor and outdoor spaces seamlessly.</p>
-    <details>
-        <summary>Click to View Options</summary>
-        <ul>
-            <li><strong>2-Track Sliding Door:</strong> Standard smooth-gliding door for patios and balconies.</li>
-            <li><strong>3-Track with Mesh:</strong> Includes an integrated aluminum mosquito net track.</li>
-        </ul>
-    </details>
-</div>
+    <div class="bento-item standard-box">
+      <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=500&q=80" alt="Hinged Doors">
+      <div class="bento-content">
+        <div>
+          <h3>Hinged Doors</h3>
+          <p>Robust and highly secure aluminum doors perfect for main entrances and washrooms.</p>
+        </div>
+        <a href="hinged-doors.html" class="bento-btn">View Hinged Doors</a>
+      </div>
+    </div>
 
-<div class="card">
-    <img src="https://images.unsplash.com/photo-1540932239986-30128078f3c5?auto=format&fit=crop&w=500&q=80" alt="Casement Windows">
-    <h3>Casement Windows</h3>
-    <p>Classic outward-opening windows offering maximum ventilation and an airtight, waterproof seal.</p>
-    <details>
-        <summary>Click to View Options</summary>
-        <ul>
-            <li><strong>Standard Casement:</strong> Single or double-panel outward opening.</li>
-            <li><strong>Top-Hung Window:</strong> Awning style perfect for bathrooms and kitchens.</li>
-        </ul>
-    </details>
-</div>
+    <div class="bento-item standard-box">
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=500&q=80" alt="Custom Partitions">
+      <div class="bento-content">
+        <div>
+          <h3>Custom Partitions</h3>
+          <p>Modern office and home aluminum glass partitions built exactly to your specifications.</p>
+        </div>
+        <a href="custom-partitions.html" class="bento-btn">View Partitions</a>
+      </div>
+    </div>
 
-<div class="card">
-    <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=500&q=80" alt="Glass Partitions">
-    <h3>Architectural Glass Partitions</h3>
-    <p>Elegant, modern glass dividers to create separate, distinct zones without blocking natural light.</p>
-    <details>
-        <summary>Click to View Options</summary>
-        <ul>
-            <li><strong>10mm Toughened Glass:</strong> High-strength clear glass for residential and standard office use.</li>
-            <li><strong>12mm Acoustic Glass:</strong> Sound-dampening glass ideal for meeting rooms and private cabins.</li>
-        </ul>
-    </details>
-</div>
-    </section>
+    <div class="bento-item wide-box">
+      <img src="https://images.unsplash.com/photo-150ee85a73041-2a6288590623?auto=format&fit=crop&w=800&q=80" alt="Premium Sliding Doors">
+      <div class="bento-content">
+        <div>
+          <h3>Premium Sliding Doors</h3>
+          <p>Effortless operation and expansive views, perfect for connecting indoor and outdoor spaces seamlessly.</p>
+        </div>
+        <a href="sliding-doors.html" class="bento-btn">View Sliding Doors</a>
+      </div>
+    </div>
+
+    <div class="bento-item standard-box">
+      <img src="https://images.unsplash.com/photo-1540932239986-30128078f3c5?auto=format&fit=crop&w=500&q=80" alt="Casement Windows">
+      <div class="bento-content">
+        <div>
+          <h3>Casement Windows</h3>
+          <p>Classic outward-opening windows offering maximum ventilation and an airtight, waterproof seal.</p>
+        </div>
+        <a href="casement-windows.html" class="bento-btn">View Casement Windows</a>
+      </div>
+    </div>
+
+  </div>
+</section>
 
     <footer id="contact">
         <h2>Contact Shubham Aludecor</h2>
