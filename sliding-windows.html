@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     
     <style>
-        /* --- BASE STYLES (Matching index.html) --- */
+        /* --- BASE STYLES --- */
         html { scroll-behavior: smooth; }
         body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; color: #333; background-color: #f8f9fa; line-height: 1.6; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; letter-spacing: 0.5px; }
@@ -32,14 +32,23 @@
         .page-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.65); }
         .page-hero h1 { position: relative; z-index: 1; font-size: 3.5rem; margin: 0; text-shadow: 0px 4px 15px rgba(0,0,0,0.6); }
         
-        .content-section { padding: 5rem 5%; max-width: 1200px; margin: 0 auto; }
-        .layout-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 5rem; }
+        .content-section { padding: 4rem 5%; max-width: 1200px; margin: 0 auto; }
         
-        .specs-card { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-        .specs-card h3 { color: #1a252c; border-bottom: 2px solid #4da6ff; padding-bottom: 0.5rem; display: inline-block; font-size: 1.8rem; margin-top: 0;}
-        .specs-list { list-style: none; padding: 0; margin: 0; }
-        .specs-list li { padding: 1rem 0; border-bottom: 1px solid #eee; display: flex; align-items: flex-start; gap: 15px; font-size: 1.05rem; color: #555; }
-        .specs-list li:last-child { border-bottom: none; padding-bottom: 0; }
+        /* --- PROFILES GRID (New Section) --- */
+        .profiles-section { margin: 3rem 0 5rem 0; }
+        .profiles-section h2 { text-align: center; color: #1a252c; margin-bottom: 2.5rem; font-size: 2.5rem; }
+        .profiles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .profile-card { background: white; padding: 2.5rem 2rem; border-radius: 12px; border-top: 5px solid #4da6ff; box-shadow: 0 10px 25px rgba(0,0,0,0.06); text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .profile-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        .profile-size { font-size: 3rem; font-weight: bold; color: #4da6ff; font-family: 'Playfair Display', serif; margin-bottom: 0.5rem; line-height: 1; }
+        .profile-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem; color: #1a252c; letter-spacing: 1px; text-transform: uppercase; }
+        .profile-desc { font-size: 0.95rem; color: #555; line-height: 1.6; }
+
+        /* --- SPECS SECTION --- */
+        .specs-container { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); margin-bottom: 5rem; }
+        .specs-container h3 { color: #1a252c; border-bottom: 2px solid #4da6ff; padding-bottom: 0.5rem; display: inline-block; font-size: 1.8rem; margin-top: 0;}
+        .specs-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .specs-list li { padding: 1rem; background: #f8f9fa; border-radius: 8px; display: flex; align-items: flex-start; gap: 15px; font-size: 1.05rem; color: #555; }
         
         /* --- GALLERY --- */
         .gallery-title { text-align: center; margin-bottom: 1rem; font-size: 2.5rem; color: #1a252c; }
@@ -47,10 +56,6 @@
         .gallery-grid img { width: 100%; height: 280px; object-fit: cover; border-radius: 8px; transition: transform 0.4s ease, box-shadow 0.4s ease; cursor: pointer; }
         .gallery-grid img:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
 
-        /* Mobile Adjustments */
-        @media (max-width: 900px) {
-            .layout-grid { grid-template-columns: 1fr; gap: 2rem; }
-        }
     </style>
 </head>
 <body>
@@ -71,33 +76,56 @@
 
     <div class="content-section">
         
-        <div class="layout-grid">
-            <div>
-                <h2>Sleek, Space-Saving & Modern</h2>
-                <p style="font-size: 1.1rem; color: #555;">Our aluminum sliding windows are designed to offer maximum natural light and effortless operation without taking up valuable interior space. They are the perfect functional upgrade for modern residential homes and high-end commercial spaces.</p>
+        <div style="text-align: center; max-width: 800px; margin: 0 auto 4rem auto;">
+            <p style="font-size: 1.15rem; color: #555;">Our aluminum sliding windows offer maximum natural light and effortless operation without taking up valuable interior space. Perfect for modern homes and commercial spaces.</p>
+            <div style="margin-top: 1.5rem; display: inline-block; padding: 0.5rem 1.5rem; border-left: 4px solid #4da6ff; border-right: 4px solid #4da6ff; background: #eef6ff; border-radius: 4px;">
+                <p style="font-weight: bold; font-size: 1.2rem; color: #1a252c; margin: 0; letter-spacing: 2px;">JAY BABA SWAMI</p>
+            </div>
+        </div>
+
+        <div class="profiles-section">
+            <h2>Our Thickness Profiles</h2>
+            <div class="profiles-grid">
                 
-                <div style="margin-top: 2rem; padding-left: 1rem; border-left: 4px solid #4da6ff;">
-                    <p style="font-weight: bold; font-size: 1.2rem; color: #1a252c; margin: 0;"></p>
+                <div class="profile-card">
+                    <div class="profile-size">25mm</div>
+                    <div class="profile-title">Standard Series</div>
+                    <div class="profile-desc">Lightweight and highly economical. The perfect choice for standard residential windows with typical wind loads.</div>
                 </div>
+
+                <div class="profile-card">
+                    <div class="profile-size">27mm</div>
+                    <div class="profile-title">Premium Series</div>
+                    <div class="profile-desc">A step up in strength. Ideal for slightly larger residential windows requiring better stability and smoother operation.</div>
+                </div>
+
+                <div class="profile-card">
+                    <div class="profile-size">29mm</div>
+                    <div class="profile-title">Elite Series</div>
+                    <div class="profile-desc">Superior frame rigidity. Designed for luxury homes, high-end apartments, and light commercial spaces.</div>
+                </div>
+
+                <div class="profile-card">
+                    <div class="profile-size">30mm</div>
+                    <div class="profile-title">Heavy-Duty Series</div>
+                    <div class="profile-desc">Maximum durability and wind resistance. Best suited for high-rise buildings, very large spans, and heavy commercial use.</div>
+                </div>
+
             </div>
-            
-            <div class="specs-card">
-                <h3>Technical Options</h3>
-                <ul class="specs-list">
-                    <li>
-                        <span>📏</span>
-                        <div><strong>Thickness Profiles:</strong><br>Available in sturdy <strong>25mm</strong> and heavy-duty <strong>30mm</strong> series depending on your architectural needs.</div>
-                    </li>
-                    <li>
-                        <span>🛤️</span>
-                        <div><strong>Track Systems:</strong><br>Choose between <strong>2-Track</strong> and <strong>3-Track</strong> frames (with provisions for mosquito mesh).</div>
-                    </li>
-                    <li>
-                        <span>⚙️</span>
-                        <div><strong>Hardware:</strong><br>Fitted with premium, noise-reducing rollers and secure locking mechanisms.</div>
-                    </li>
-                </ul>
-            </div>
+        </div>
+        
+        <div class="specs-container">
+            <h3>Additional Specifications</h3>
+            <ul class="specs-list">
+                <li>
+                    <span style="font-size: 1.5rem;">🛤️</span>
+                    <div><strong>Track Systems:</strong><br>Choose between <strong>2-Track</strong> and <strong>3-Track</strong> framing options, with built-in provisions for mosquito mesh.</div>
+                </li>
+                <li>
+                    <span style="font-size: 1.5rem;">⚙️</span>
+                    <div><strong>Hardware:</strong><br>Equipped with premium concealed locks, touch locks, and noise-reducing heavy-duty bearing rollers.</div>
+                </li>
+            </ul>
         </div>
 
         <h2 class="gallery-title">Project Gallery</h2>
