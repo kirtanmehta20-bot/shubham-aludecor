@@ -7,13 +7,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
-    
     <style>
         /* --- BASE STYLES --- */
         html { scroll-behavior: smooth; }
         body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; color: #333; background-color: #f8f9fa; line-height: 1.6; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; letter-spacing: 0.5px; }
-        
+
         /* --- HEADER --- */
         header { background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); position: sticky; top: 0; z-index: 1000; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); flex-wrap: wrap; }
         .logo-container { display: flex; align-items: center; gap: 15px; }
@@ -21,7 +20,7 @@
         nav { margin-top: 10px; }
         nav a { color: white; text-decoration: none; margin-left: 1.5rem; font-weight: 500; transition: color 0.3s; }
         nav a:hover { color: #4da6ff; }
-        
+
         /* --- BUTTONS & FOOTER --- */
         .btn { background-color: #4da6ff; color: white; padding: 1.2rem 2.5rem; text-decoration: none; letter-spacing: 2px; display: inline-block; transition: all 0.4s ease; font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
         .btn:hover { background-color: white; color: #000; transform: translateY(-3px); }
@@ -31,10 +30,9 @@
         .page-hero { background: url('https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=2000&q=80') no-repeat center center/cover; height: 45vh; display: flex; align-items: center; justify-content: center; position: relative; color: white; text-align: center; }
         .page-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.65); }
         .page-hero h1 { position: relative; z-index: 1; font-size: 3.5rem; margin: 0; text-shadow: 0px 4px 15px rgba(0,0,0,0.6); }
-        
         .content-section { padding: 4rem 5%; max-width: 1200px; margin: 0 auto; }
-        
-        /* --- PROFILES GRID (New Section) --- */
+
+        /* --- PROFILES GRID --- */
         .profiles-section { margin: 3rem 0 5rem 0; }
         .profiles-section h2 { text-align: center; color: #1a252c; margin-bottom: 2.5rem; font-size: 2.5rem; }
         .profiles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
@@ -49,78 +47,118 @@
         .specs-container h3 { color: #1a252c; border-bottom: 2px solid #4da6ff; padding-bottom: 0.5rem; display: inline-block; font-size: 1.8rem; margin-top: 0;}
         .specs-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
         .specs-list li { padding: 1rem; background: #f8f9fa; border-radius: 8px; display: flex; align-items: flex-start; gap: 15px; font-size: 1.05rem; color: #555; }
-        
+
         /* --- GALLERY --- */
         .gallery-title { text-align: center; margin-bottom: 1rem; font-size: 2.5rem; color: #1a252c; }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top: 2rem; }
         .gallery-grid img { width: 100%; height: 280px; object-fit: cover; border-radius: 8px; transition: transform 0.4s ease, box-shadow 0.4s ease; cursor: pointer; }
         .gallery-grid img:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
-
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo-container">
-            <img src="https://i.postimg.cc/NLqWq7mW/logo.png" alt="Shubham Aludecor Logo" class="logo-img">
-        </div>
-        <nav>
-            <a href="index.html">⬅ Back to Home</a>
-            <a href="index.html#contact">Contact Us</a>
-        </nav>
-    </header>
+<header>
+    <div class="logo-container">
+        <img src="https://i.postimg.cc/NLqWq7mW/logo.png" alt="Shubham Aludecor Logo" class="logo-img">
+    </div>
+    <nav>
+        <a href="index.html">⬅ Back to Home</a>
+        <a href="index.html#contact">Contact Us</a>
+    </nav>
+</header>
 
-    <div class="page-hero">
-        <h1>Premium Sliding Windows</h1>
+<div class="page-hero">
+    <h1>Premium Sliding Windows</h1>
+</div>
+
+<div class="content-section">
+    <div style="text-align: center; max-width: 800px; margin: 0 auto 4rem auto;">
+        <p style="font-size: 1.15rem; color: #555;">Our aluminum sliding windows offer maximum natural light and effortless operation without taking up valuable interior space. Perfect for modern homes and commercial spaces.</p>
+        
+        <div style="margin-top: 1.5rem; display: inline-block; padding: 0.5rem 1.5rem; border-left: 4px solid #4da6ff; border-right: 4px solid #4da6ff; background: #eef6ff; border-radius: 4px;">
+            <p style="font-weight: bold; font-size: 1.2rem; color: #1a252c; margin: 0; letter-spacing: 2px;">ELEVATING MODERN SPACES</p>
+        </div>
     </div>
 
-    <div class="content-section">
-        
-        <div style="text-align: center; max-width: 800px; margin: 0 auto 4rem auto;">
-            <p style="font-size: 1.15rem; color: #555;">Our aluminum sliding windows offer maximum natural light and effortless operation without taking up valuable interior space. Perfect for modern homes and commercial spaces.</p>
-            <div style="margin-top: 1.5rem; display: inline-block; padding: 0.5rem 1.5rem; border-left: 4px solid #4da6ff; border-right: 4px solid #4da6ff; background: #eef6ff; border-radius: 4px;">
-                <p style="font-weight: bold; font-size: 1.2rem; color: #1a252c; margin: 0; letter-spacing: 2px;"><p style="font-weight: bold; font-size: 1.2rem; color: #1a252c; margin: 0; letter-spacing: 2px;">ELEVATING MODERN SPACES</p></p>
-            </div>
-        </div>
+    <div class="profiles-section">
+        <h2>Our Thickness Profiles</h2>
+        <div class="profiles-grid">
+            
+            <a href="27mm-series.html" style="text-decoration: none; color: inherit;">
+                <div class="profile-card" style="cursor: pointer;">
+                    <div class="profile-size">27mm</div>
+                    <div class="profile-title">Standard Series</div>
+                    <div class="profile-desc">Lightweight and highly economical. The perfect choice for standard residential windows with typical wind loads.</div>
+                    <div style="margin-top: 1.5rem; color: #4da6ff; font-weight: bold; font-size: 0.9rem;">VIEW CONFIGURATIONS ➔</div>
+                </div>
+            </a>
 
-        <div class="profiles-section">
-            <h2>Our Thickness Profiles</h2>
-          <div class="profiles-grid">
+            <a href="25mm-series.html" style="text-decoration: none; color: inherit;">
+                <div class="profile-card" style="cursor: pointer;">
+                    <div class="profile-size">25mm</div>
+                    <div class="profile-title">Premium Series</div>
+                    <div class="profile-desc">A step up in strength. Ideal for slightly larger residential windows requiring better stability and smoother operation.</div>
+                    <div style="margin-top: 1.5rem; color: #4da6ff; font-weight: bold; font-size: 0.9rem;">VIEW CONFIGURATIONS ➔</div>
+                </div>
+            </a>
 
-    <a href="27mm-series.html" style="text-decoration: none; color: inherit;">
-        <div class="profile-card" style="cursor: pointer;">
-            <div class="profile-size">27mm</div>
-            <div class="profile-title">Standard Series</div>
-            <div class="profile-desc">Lightweight and highly economical. The perfect choice for standard residential windows with typical wind loads.</div>
-            <div style="margin-top: 1.5rem; color: #4da6ff; font-weight: bold; font-size: 0.9rem;">VIEW CONFIGURATIONS ➔</div>
-        </div>
-    </a>
+            <a href="29mm-series.html" style="text-decoration: none; color: inherit;">
+                <div class="profile-card" style="cursor: pointer;">
+                    <div class="profile-size">29mm</div>
+                    <div class="profile-title">Elite Series</div>
+                    <div class="profile-desc">Superior frame rigidity. Designed for luxury homes, high-end apartments, and light commercial spaces.</div>
+                    <div style="margin-top: 1.5rem; color: #4da6ff; font-weight: bold; font-size: 0.9rem;">VIEW CONFIGURATIONS ➔</div>
+                </div>
+            </a>
 
-    <a href="25mm-series.html" style="text-decoration: none; color: inherit;">
-        <div class="profile-card" style="cursor: pointer;">
-            <div class="profile-size">25mm</div>
-            <div class="profile-title">Premium Series</div>
-            <div class="profile-desc">A step up in strength. Ideal for slightly larger residential windows requiring better stability and smoother operation.</div>
-            <div style="margin-top: 1.5rem; color: #4da6ff; font-weight: bold; font-size: 0.9rem;">VIEW CONFIGURATIONS ➔</div>
-        </div>
-    </a>
+            <a href="30mm-series.html" style="text-decoration: none; color: inherit;">
+                <div class="profile-card" style="cursor: pointer;">
+                    <div class="profile-size">30mm</div>
+                    <div class="profile-title">Heavy-Duty Series</div>
+                    <div class="profile-desc">Maximum durability and wind resistance. Best suited for high-rise buildings and very large spans.</div>
+                    <div style="margin-top: 1.5rem; color: #4da6ff; font-weight: bold; font-size: 0.9rem;">VIEW CONFIGURATIONS ➔</div>
+                </div>
+            </a>
 
-    <a href="29mm-series.html" style="text-decoration: none; color: inherit;">
-        <div class="profile-card" style="cursor: pointer;">
-            <div class="profile-size">29mm</div>
-            <div class="profile-title">Elite Series</div>
-            <div class="profile-desc">Superior frame rigidity. Designed for luxury homes, high-end apartments, and light commercial spaces.</div>
-            <div style="margin-top: 1.5rem; color: #4da6ff; font-weight: bold; font-size: 0.9rem;">VIEW CONFIGURATIONS ➔</div>
         </div>
-    </a>
+    </div>
 
-    <a href="30mm-series.html" style="text-decoration: none; color: inherit;">
-        <div class="profile-card" style="cursor: pointer;">
-            <div class="profile-size">30mm</div>
-            <div class="profile-title">Heavy-Duty Series</div>
-            <div class="profile-desc">Maximum durability and wind resistance. Best suited for high-rise buildings and very large spans.</div>
-            <div style="margin-top: 1.5rem; color: #4da6ff; font-weight: bold; font-size: 0.9rem;">VIEW CONFIGURATIONS ➔</div>
-        </div>
-    </a>
+    <div class="specs-container">
+        <h3>Additional Specifications</h3>
+        <ul class="specs-list">
+            <li>
+                <span style="font-size: 1.5rem;">🛤️</span>
+                <div>
+                    <strong style="color: #1a252c;">Track Systems:</strong> Choose between 2-Track and 3-Track framing options, with built-in provisions for mosquito mesh.
+                </div>
+            </li>
+            <li>
+                <span style="font-size: 1.5rem;">⚙️</span>
+                <div>
+                    <strong style="color: #1a252c;">Hardware:</strong> Equipped with premium concealed locks, touch locks, and noise-reducing heavy-duty bearing rollers.
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <h2 class="gallery-title">Project Gallery</h2>
+    <p style="text-align: center; color: #555; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Take a look at some of our recent sliding window installations.</p>
+    
+    <div class="gallery-grid">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Sliding Window 1">
+        <img src="https://images.unsplash.com/photo-1600566753086-00f18efc204b?auto=format&fit=crop&w=800&q=80" alt="Sliding Window 2">
+        <img src="https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?auto=format&fit=crop&w=800&q=80" alt="Sliding Window 3">
+    </div>
 
 </div>
+
+<footer>
+    <h3 style="color: white; margin-bottom: 1rem; font-family: 'Playfair Display', serif;">Contact Shubham Aludecor</h3>
+    <p>Ready to upgrade your space? Get in touch with us today for custom measurements and quotes.</p>
+    <p style="font-size: 1.2rem; color: white; margin: 1.5rem 0;">📞 +91 6356561410</p>
+    <a href="index.html" class="btn" style="margin-top: 1rem; padding: 0.8rem 2rem;">RETURN TO MAIN SITE</a>
+    <p style="margin-top: 3rem; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem;">&copy; 2026 Shubham Aludecor. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
