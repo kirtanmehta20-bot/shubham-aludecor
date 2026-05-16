@@ -555,6 +555,13 @@
         <label for="phone">Phone Number:</label>
         <input type="tel" id="phone" name="phone" placeholder="+91" required>
 
+        <label for="location">Location / Address:</label>
+        <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+          <input type="text" id="location" name="location" placeholder="e.g., Bhuj, Ahmedabad" style="margin: 0; flex-grow: 1;" required>
+          <button type="button" id="gpsBtn" style="background-color: #25d366; color: white; border: none; border-radius: 4px; padding: 0 15px; cursor: pointer; font-weight: bold; font-size: 1.1rem;" title="Use Current GPS Location">📍</button>
+        </div>
+        <p id="gpsStatus" style="font-size: 0.85rem; color: #666; margin-top: -15px; margin-bottom: 15px; display: none;"></p>
+
         <label for="message">Project Requirements:</label>
         <textarea id="message" name="message" rows="4" placeholder="Tell us about the doors or windows you need..." required></textarea>
 
@@ -570,7 +577,7 @@
     var span = document.getElementsByClassName("close-button")[0];
 
     btn.onclick = function(event) {
-      event.preventDefault(); // Prevents the page from jumping
+      event.preventDefault();
       modal.style.display = "block";
     }
 
@@ -584,26 +591,69 @@
       }
     }
 
-    // 2. FIXED: WhatsApp Redirect Script
-    document.getElementById('consultationForm').addEventListener('submit', function(e) {
-      e.preventDefault(); // STOPS the 405 error completely
+    // 2. GPS Geolocation Script
+    let googleMapsLink = ""; // To store the coordinate link globally if generated
 
-      // Get values from the modal inputs
+    document.getElementById('gpsBtn').addEventListener('click', function() {
+      const statusText = document.getElementById('gpsStatus');
+      statusText.style.display = "block";
+      statusText.style.color = "#666";
+      statusText.innerText = "Locating you... Please allow location access access if prompted.";
+
+      if (!navigator.geolocation) {
+        statusText.style.color = "red";
+        statusText.innerText = "Geolocation is not supported by your browser.";
+        return;
+      }
+
+      navigator.geolocation.getCurrentPosition(
+        function success(position) {
+          const latitude  = position.coords.latitude;
+          const longitude = position.coords.longitude;
+          
+          // Generate the precise Google Maps pinned link
+          googleMapsLink = `https://www.google.com/maps?q=${latitude},${longitude}`;
+          
+          // Fill text input field visually so they know it worked
+          document.getElementById('location').value = "📍 Current GPS Location Loaded";
+          
+          statusText.style.color = "green";
+          statusText.innerText = "Location successfully linked!";
+        }, 
+        function error(err) {
+          statusText.style.color = "red";
+          if(err.code === 1) {
+            statusText.innerText = "Permission denied. Please type your location manually.";
+          } else {
+            statusText.innerText = "Unable to retrieve your location. Please type it manually.";
+          }
+        }
+      );
+    });
+
+    // 3. WhatsApp Redirect Script
+    document.getElementById('consultationForm').addEventListener('submit', function(e) {
+      e.preventDefault(); 
+
       const name = document.getElementById('name').value;
       const phone = document.getElementById('phone').value;
+      const typedLocation = document.getElementById('location').value;
       const requirements = document.getElementById('message').value;
       
-      // Your primary business WhatsApp number (Matches your floating button)
       const phoneNumber = "919586232321"; 
       
-      // Format the WhatsApp message nicely
-      const textMessage = `Hi, I would like a free consultation.%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Requirements:* ${encodeURIComponent(requirements)}`;
+      // Determine if we should send the generated live coordinates map link or just the text they typed
+      const finalLocation = googleMapsLink && typedLocation === "📍 Current GPS Location Loaded" ? googleMapsLink : typedLocation;
       
-      // Generate URL and open in a new tab
+      // Format the WhatsApp message nicely
+      const textMessage = `Hi, I would like a free consultation.%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Location/Map:* ${encodeURIComponent(finalLocation)}%0A*Requirements:* ${encodeURIComponent(requirements)}`;
+      
       const whatsappURL = `https://wa.me/${phoneNumber}?text=${textMessage}`;
       window.open(whatsappURL, '_blank');
       
-      // Optional: Close the modal after submitting
+      // Reset variables & close modal
+      googleMapsLink = "";
+      document.getElementById('gpsStatus').style.display = "none";
       modal.style.display = "none";
     });
   </script>
