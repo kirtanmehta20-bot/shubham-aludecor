@@ -543,80 +543,69 @@
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Chat on WhatsApp">
     </a>
 <div id="consultationModal" class="modal">
-  <div class="modal-content">
-    <span class="close-button">&times;</span>
-    <h2>Request a Consultation</h2>
-    <p>Leave your details and we will get back to you shortly.</p>
-    
-    <form action="#" method="POST">
-      <label for="name">Full Name:</label>
-      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2>Request a Consultation</h2>
+      <p>Leave your details and we will get back to you shortly.</p>
+      
+      <form id="consultationForm">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
-      <label for="phone">Phone Number:</label>
-      <input type="tel" id="phone" name="phone" placeholder="+91" required>
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" placeholder="+91" required>
 
-      <label for="message">Project Requirements:</label>
-      <textarea id="message" name="message" rows="4" placeholder="Tell us about the doors or windows you need..." required></textarea>
+        <label for="message">Project Requirements:</label>
+        <textarea id="message" name="message" rows="4" placeholder="Tell us about the doors or windows you need..." required></textarea>
 
-      <button type="submit" class="submit-btn">Submit Request</button>
-    </form>
+        <button type="submit" class="submit-btn">Submit Request</button>
+      </form>
+    </div>
   </div>
-</div>
 
-   <script>
-    // Get the modal container
-var modal = document.getElementById("consultationModal");
+  <script>
+    // 1. Modal Toggle Script
+    var modal = document.getElementById("consultationModal");
+    var btn = document.getElementById("consultationBtn");
+    var span = document.getElementsByClassName("close-button")[0];
 
-// Get the button that opens the modal
-var btn = document.getElementById("consultationBtn");
+    btn.onclick = function(event) {
+      event.preventDefault(); // Prevents the page from jumping
+      modal.style.display = "block";
+    }
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close-button")[0];
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
 
-// When the user clicks the button, open the modal 
-btn.onclick = function(event) {
-  event.preventDefault(); // Prevents the page from jumping to the top
-  modal.style.display = "block";
-}
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
+    // 2. FIXED: WhatsApp Redirect Script
+    document.getElementById('consultationForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // STOPS the 405 error completely
 
-// When the user clicks anywhere outside of the modal content, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-   </script>
-<form id="consultationForm">
-    <input type="text" id="userName" placeholder="Your Name" required>
-    <textarea id="userMessage" placeholder="Your Requirement" required></textarea>
-    <button type="submit">Get a Free Consultation</button>
-</form>
-
-<script>
-document.getElementById('consultationForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevents the page from refreshing or throwing a 405 error
-
-    // 1. Get the values from the form inputs
-    const name = document.getElementById('userName').value;
-    const requirements = document.getElementById('userMessage').value;
-    
-    // 2. Put your WhatsApp phone number here (with country code, no + sign)
-    const phoneNumber = "91XXXXXXXXXX"; 
-    
-    // 3. Format the text message
-    const textMessage = `Hi, I would like a free consultation.%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Requirements:* ${encodeURIComponent(requirements)}`;
-    
-    // 4. Create the WhatsApp URL
-    const whatsappURL = `https://wa.me/${phoneNumber}?text=${textMessage}`;
-    
-    // 5. Open WhatsApp in a new tab
-    window.open(whatsappURL, '_blank');
-});
-</script>   
+      // Get values from the modal inputs
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const requirements = document.getElementById('message').value;
+      
+      // Your primary business WhatsApp number (Matches your floating button)
+      const phoneNumber = "919586232321"; 
+      
+      // Format the WhatsApp message nicely
+      const textMessage = `Hi, I would like a free consultation.%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Requirements:* ${encodeURIComponent(requirements)}`;
+      
+      // Generate URL and open in a new tab
+      const whatsappURL = `https://wa.me/${phoneNumber}?text=${textMessage}`;
+      window.open(whatsappURL, '_blank');
+      
+      // Optional: Close the modal after submitting
+      modal.style.display = "none";
+    });
+  </script>
 </body>
 </html>
