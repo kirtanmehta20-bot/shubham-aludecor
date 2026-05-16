@@ -591,6 +591,32 @@ window.onclick = function(event) {
   }
 }
    </script>
-   
+<form id="consultationForm">
+    <input type="text" id="userName" placeholder="Your Name" required>
+    <textarea id="userMessage" placeholder="Your Requirement" required></textarea>
+    <button type="submit">Get a Free Consultation</button>
+</form>
+
+<script>
+document.getElementById('consultationForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevents the page from refreshing or throwing a 405 error
+
+    // 1. Get the values from the form inputs
+    const name = document.getElementById('userName').value;
+    const requirements = document.getElementById('userMessage').value;
+    
+    // 2. Put your WhatsApp phone number here (with country code, no + sign)
+    const phoneNumber = "91XXXXXXXXXX"; 
+    
+    // 3. Format the text message
+    const textMessage = `Hi, I would like a free consultation.%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Requirements:* ${encodeURIComponent(requirements)}`;
+    
+    // 4. Create the WhatsApp URL
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${textMessage}`;
+    
+    // 5. Open WhatsApp in a new tab
+    window.open(whatsappURL, '_blank');
+});
+</script>   
 </body>
 </html>
