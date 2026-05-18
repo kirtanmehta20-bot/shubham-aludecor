@@ -3,336 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FINE 25 Premium Brochure | Shubham Aludecor</title>
+    <title>SHUBHAM ALUDECOR | FINE 25 Premium Brochure</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Base Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-snap-type: y mandatory; /* Creates the "Single Page" snap effect */
+            scroll-behavior: smooth;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0a0a0a; /* Deep Black */
-            color: #e5e5e5;
-            line-height: 1.6;
+            background-color: #000000; /* Pure Black */
+            color: #ffffff;
+            overflow-x: hidden;
         }
 
-        /* Brochure Container */
-        .brochure-container {
-            max-width: 1100px;
-            margin: 40px auto;
-            background: #111111;
-            border: 1px solid #333;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
-            overflow: hidden;
+        /* LIGHT GOLD THEME COLOR */
+        :root {
+            --light-gold: #e5c787;
+            --dark-gold: #b39356;
         }
 
-        /* --- PAGE 1: COVER --- */
-        .cover-page {
-            display: flex;
-            height: 80vh;
-            min-height: 600px;
-            position: relative;
-            border-bottom: 2px solid #d4af37; /* Metallic Gold */
-        }
-
-        .cover-left {
-            flex: 1.2;
-            padding: 80px;
+        section {
+            height: 100vh;
+            width: 100vw;
+            scroll-snap-align: start;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            background-color: #111111;
-        }
-
-        .cover-right {
-            flex: 0.8;
-            background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%); /* Gold Gradient */
-            position: relative;
-            display: flex;
             align-items: center;
-            justify-content: center;
+            padding: 60px;
+            position: relative;
+            border-bottom: 1px solid #1a1a1a;
         }
 
-        .brand-name {
-            font-size: 1.2rem;
-            font-weight: 700;
-            letter-spacing: 4px;
-            color: #d4af37; /* Gold */
-            text-transform: uppercase;
-            margin-bottom: 20px;
+        .page-content {
+            max-width: 1100px;
+            width: 100%;
+            text-align: center;
         }
 
-        .cover-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 5.5rem;
-            line-height: 1;
-            color: #ffffff;
-            margin-bottom: 20px;
-        }
-
-        .cover-subtitle {
-            font-size: 1.4rem;
-            font-weight: 300;
-            color: #a3a3a3;
-        }
-
-        .cover-right h2 {
-            color: #111111;
+        h2 {
             font-family: 'Playfair Display', serif;
             font-size: 3.5rem;
-            text-align: center;
-            line-height: 1.2;
-        }
-
-        /* --- PAGE 2: INTRODUCTION --- */
-        .intro-page {
-            padding: 100px 80px;
-            background-color: #161616;
-            text-align: center;
-        }
-
-        .intro-page h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            color: #d4af37; /* Gold */
-        }
-
-        .intro-page p {
-            font-size: 1.2rem;
-            font-weight: 300;
-            max-width: 700px;
-            margin: 0 auto;
-            color: #cccccc;
-        }
-
-        .gold-line {
-            width: 80px;
-            height: 2px;
-            background-color: #d4af37;
-            margin: 40px auto;
-        }
-
-        /* --- PAGE 3: CONFIGURATIONS GRID --- */
-        .config-page {
-            padding: 100px 80px;
-            background-color: #111111;
-        }
-
-        .section-header {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: #ffffff;
+            color: var(--light-gold);
             margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .section-subheader {
-            text-align: center;
-            color: #a3a3a3;
-            margin-bottom: 60px;
-            font-size: 1.1rem;
         }
 
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
+        p {
+            font-size: 1.2rem;
+            color: #888;
+            max-width: 800px;
+            margin: 0 auto 40px;
         }
 
-        .grid-item {
-            background: #1a1a1a;
-            padding: 40px;
-            border: 1px solid #333;
-            border-left: 4px solid #333;
-            transition: all 0.3s ease;
+        /* --- VIRTUAL IMAGE EDITING --- */
+        .image-container {
+            position: relative;
+            background: #fff; /* Technical drawings look best on white */
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 0 40px rgba(229, 199, 135, 0.1);
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .grid-item:hover {
-            transform: translateY(-5px);
-            border-left: 4px solid #d4af37; /* Gold accent on hover */
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-        }
-
-        .grid-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: #d4af37; /* Gold */
-            margin-bottom: 10px;
-            opacity: 0.7;
-        }
-
-        .grid-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 15px;
-        }
-
-        .grid-desc {
-            color: #a3a3a3;
-            font-size: 1rem;
-        }
-
-        /* --- PAGE 4: TECHNICAL GALLERY --- */
-        .gallery-page {
-            padding: 100px 80px;
-            background-color: #0a0a0a;
-            border-top: 1px solid #333;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
-        }
-
-        .gallery-item {
-            background-color: #ffffff; /* Keeps PDF screenshots crisp and readable */
-            border: 2px solid #333;
-            border-radius: 6px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 15px;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.15);
-            border-color: #d4af37;
-        }
-
-        .gallery-item img {
+        .image-container img {
             width: 100%;
             height: auto;
             display: block;
+            /* MAGIC FILTER: Shifting blue lines to Gold/Brown tones */
+            filter: hue-rotate(170deg) sepia(1) saturate(1.5) brightness(0.8);
         }
 
-        /* --- PAGE 5: CONTACT --- */
-        .contact-page {
-            background-color: #161616;
-            padding: 80px;
-            text-align: center;
-            border-top: 2px solid #d4af37;
+        /* LOGO MASK: Covers "Silver Aluminum" with "Shubham Aludecor" */
+        .logo-mask {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            background-color: var(--light-gold);
+            color: #000;
+            padding: 8px 15px;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 2px;
+            z-index: 10;
         }
 
-        .contact-page h4 {
+        /* Cover Page Specific Styles */
+        .cover-page {
+            background: linear-gradient(to bottom, #000, #0a0a0a);
+        }
+
+        .cover-logo {
+            font-weight: 700;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--light-gold);
+            margin-bottom: 30px;
+        }
+
+        .cover-title {
+            font-size: 7rem;
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: #ffffff;
-            margin-bottom: 20px;
+            line-height: 0.9;
+            color: #fff;
         }
 
-        .contact-page p {
-            color: #a3a3a3;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+        .gold-accent-box {
+            background: var(--light-gold);
+            height: 10px;
+            width: 200px;
+            margin: 40px auto;
         }
 
-        .contact-btn {
+        /* Footer Button */
+        .btn {
             display: inline-block;
-            padding: 18px 40px;
-            background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
-            color: #111111;
+            padding: 15px 40px;
+            background: var(--light-gold);
+            color: #000;
             text-decoration: none;
             font-weight: 700;
-            letter-spacing: 2px;
             text-transform: uppercase;
-            transition: opacity 0.3s;
+            letter-spacing: 2px;
+            margin-top: 30px;
+            transition: 0.3s;
         }
 
-        .contact-btn:hover {
-            opacity: 0.9;
-        }
+        .btn:hover { background: #fff; }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .cover-page { flex-direction: column; }
-            .grid-container, .gallery-grid { grid-template-columns: 1fr; }
-            .cover-left, .intro-page, .config-page, .gallery-page, .contact-page { padding: 40px; }
-        }
     </style>
 </head>
 <body>
 
-    <div class="brochure-container">
-        
-        <div class="cover-page">
-            <div class="cover-left">
-                <div class="brand-name">Shubham Aludecor</div>
-                <h1 class="cover-title">FINE 25</h1>
-                <p class="cover-subtitle">Premium Sliding Fenestration</p>
-            </div>
-            <div class="cover-right">
-                <h2>Product<br>Catalogue</h2>
-            </div>
+    <section class="cover-page">
+        <div class="page-content">
+            <div class="cover-logo">Shubham Aludecor</div>
+            <h1 class="cover-title">FINE 25</h1>
+            <div class="gold-accent-box"></div>
+            <p style="color: var(--light-gold);">PREMIUM SLIDING WINDOW CATALOGUE</p>
         </div>
+    </section>
 
-        <div class="intro-page">
-            <h3>Redefining Architectural Aesthetics</h3>
-            <p>The FINE 25 Series represents the pinnacle of modern aluminum fenestration. Engineered for smooth operation, structural integrity, and maximum natural light, this series is the definitive choice for contemporary homes and premium commercial spaces.</p>
-            <div class="gold-line"></div>
-        </div>
-
-        <div class="config-page">
-            <h2 class="section-header">Series Configurations</h2>
-            <p class="section-subheader">Explore our versatile sliding track options</p>
-            <div class="grid-container">
-                <div class="grid-item">
-                    <div class="grid-number">01</div>
-                    <h3 class="grid-title">2 Track Sliding</h3>
-                    <p class="grid-desc">Our highly space-efficient standard system. Delivers a sleek profile, smooth gliding action, and flawless aesthetics for standard room openings.</p>
-                </div>
-                <div class="grid-item">
-                    <div class="grid-number">02</div>
-                    <h3 class="grid-title">3 Track Sliding</h3>
-                    <p class="grid-desc">Designed for expansive views and wider openings. Three panels allow for greater ventilation control and seamless indoor-outdoor transitions.</p>
-                </div>
-                <div class="grid-item">
-                    <div class="grid-number">03</div>
-                    <h3 class="grid-title">2 Track + Grill / Mesh</h3>
-                    <p class="grid-desc">Combines minimalist design with essential security. Features an integrated track for a seamless mosquito mesh or safety grill.</p>
-                </div>
-                <div class="grid-item">
-                    <div class="grid-number">04</div>
-                    <h3 class="grid-title">3 Track + Grill / Mesh</h3>
-                    <p class="grid-desc">The ultimate configuration. Maximum panel flexibility paired with an integrated security track for uncompromising safety and comfort.</p>
-                </div>
+    <section>
+        <div class="page-content">
+            <h2>System Overview</h2>
+            <p>Precise engineering details for the FINE 25 Series profile.</p>
+            <div class="image-container">
+                <div class="logo-mask">SHUBHAM ALUDECOR</div>
+                <img src="image 1.png" alt="Drawing 1">
             </div>
         </div>
+    </section>
 
-        <div class="gallery-page">
-            <h2 class="section-header">Technical Drawings & Specs</h2>
-            <p class="section-subheader">Detailed profiles and system specifications from the FINE 25 Catalogue</p>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item"><img src="image 1.png" alt="FINE 25 Technical Drawing 1"></div>
-                <div class="gallery-item"><img src="image 2.png" alt="FINE 25 Technical Drawing 2"></div>
-                <div class="gallery-item"><img src="image 3.png" alt="FINE 25 Technical Drawing 3"></div>
-                <div class="gallery-item"><img src="image 4.png" alt="FINE 25 Technical Drawing 4"></div>
-                <div class="gallery-item"><img src="image 5.png" alt="FINE 25 Technical Drawing 5"></div>
+    <section>
+        <div class="page-content">
+            <h2>Track Dimensions</h2>
+            <p>Vertical and Horizontal section details for standard configurations.</p>
+            <div class="image-container">
+                <div class="logo-mask">SHUBHAM ALUDECOR</div>
+                <img src="image 2.png" alt="Drawing 2">
             </div>
         </div>
+    </section>
 
-        <div class="contact-page">
-            <h4>Elevate Your Space</h4>
-            <p>Ready to integrate the FINE 25 series into your next architectural project? Our team at Shubham Aludecor is ready to assist you with custom dimensions and technical details.</p>
-            <a href="index.html" class="contact-btn">Return to Website</a>
+    <section>
+        <div class="page-content">
+            <h2>Glass & Interlock</h2>
+            <p>Showcasing the 20mm slim interlock and glazing options.</p>
+            <div class="image-container">
+                <div class="logo-mask">SHUBHAM ALUDECOR</div>
+                <img src="image 3.png" alt="Drawing 3">
+            </div>
         </div>
+    </section>
 
-    </div>
+    <section>
+        <div class="page-content">
+            <h2>Mounting & Support</h2>
+            <p>Detailed structural support and masonry attachment guides.</p>
+            <div class="image-container">
+                <div class="logo-mask">SHUBHAM ALUDECOR</div>
+                <img src="image 4.png" alt="Drawing 4">
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="page-content">
+            <h2>Hardware Specs</h2>
+            <p>Internal mechanism and roller track assembly details.</p>
+            <div class="image-container">
+                <div class="logo-mask">SHUBHAM ALUDECOR</div>
+                <img src="image 5.png" alt="Drawing 5">
+            </div>
+        </div>
+    </section>
+
+    <section style="background: var(--light-gold); color: #000;">
+        <div class="page-content">
+            <h2 style="color: #000;">Ready to Order?</h2>
+            <p style="color: #444; margin-bottom: 20px;">Contact Shubham Aludecor for custom manufacturing and expert installation services.</p>
+            <a href="index.html" class="btn">Return to Site</a>
+        </div>
+    </section>
 
 </body>
 </html>
