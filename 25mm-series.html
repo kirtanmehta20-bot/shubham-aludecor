@@ -13,13 +13,13 @@
             font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
-            color: #333;
-            background-color: #f8f9fa;
+            color: #1a252c;
+            background-color: #ffffff; /* Clean canvas background */
             line-height: 1.6;
         }
         
         header {
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(0, 0, 0, 0.9);
             padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
@@ -32,127 +32,119 @@
             font-weight: 500;
         }
 
-        .container {
-            max-width: 900px;
+        .showcase-container {
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 50px 20px;
+            text-align: center;
         }
 
         .page-title {
-            text-align: center;
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: #1a252c;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
         }
 
         .page-subtitle {
-            text-align: center;
             color: #666;
-            margin-bottom: 40px;
+            margin-bottom: 45px;
             font-size: 1.1rem;
         }
 
-        /* Options Menu Styling */
+        /* Minimalist Pill-Style Options Menu */
         .options-menu {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 15px;
-            margin-bottom: 40px;
+            gap: 12px;
+            margin-bottom: 50px;
         }
 
         .option-btn {
-            background-color: #ffffff;
-            border: 2px solid #e2e8f0;
-            color: #4a5568;
-            padding: 14px 28px;
+            background-color: transparent;
+            border: 1px solid #cbd5e1;
+            color: #64748b;
+            padding: 10px 24px;
             font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border-radius: 50px; /* Perfect pill shape */
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: all 0.25s ease;
         }
 
         .option-btn:hover {
             border-color: #1a252c;
             color: #1a252c;
-            transform: translateY(-2px);
         }
 
         .option-btn.active {
             background-color: #1a252c;
             border-color: #1a252c;
             color: #ffffff;
-            box-shadow: 0 4px 12px rgba(26, 37, 44, 0.15);
         }
 
-        /* Display Container Layout */
-        .display-container {
-            background: #ffffff;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border: 1px solid #eef2f5;
-            overflow: hidden;
+        /* Full Screen Dynamic Canvas Area */
+        .canvas-area {
+            position: relative;
+            width: 100%;
+            min-height: 500px;
+            margin-top: 20px;
         }
 
-        .config-content {
-            display: none; /* Hidden by default */
-            animation: fadeIn 0.4s ease;
-            padding: 40px;
-            text-align: center; /* Center aligns everything inside */
-        }
-
-        .config-content.active {
-            display: flex;
+        .config-view {
+            display: none;
+            animation: fadeInCanvas 0.5s ease forwards;
             flex-direction: column;
             align-items: center;
-            gap: 25px;
         }
 
-        .content-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin: 0;
-            color: #1a252c;
+        .config-view.active {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
         }
 
-        .content-description {
-            color: #555;
-            font-size: 1.05rem;
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.7;
-        }
-
-        .image-side {
+        /* Massive Configuration Image Focus */
+        .image-wrapper {
             width: 100%;
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
+            max-width: 850px; /* Expanded image width */
+            margin-bottom: 30px;
         }
 
         .config-image {
             width: 100%;
-            max-width: 650px; /* Wider view for better image detail */
             height: auto;
-            min-height: 350px;
-            object-fit: contain; /* Keeps the technical drawing proportions perfect */
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-            background-color: #f8f9fa;
+            max-height: 550px;
+            object-fit: contain;
+            background-color: #fafbfc;
+            border-radius: 4px;
         }
 
-        /* Simple animation swap effect */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Clean Technical Label Overlay/Typography underneath */
+        .details-wrapper {
+            max-width: 750px;
+            margin-top: 10px;
+        }
+
+        .content-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin: 0 0 12px 0;
+            color: #1a252c;
+        }
+
+        .content-description {
+            color: #555;
+            font-size: 1rem;
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        /* Smooth architectural fade transition */
+        @keyframes fadeInCanvas {
+            from { opacity: 0; transform: scale(0.99); }
+            to { opacity: 1; transform: scale(1); }
         }
     </style>
 </head>
@@ -163,9 +155,9 @@
         <a href="https://wa.me/919586232321" target="_blank">Contact Us</a>
     </header>
 
-    <div class="container">
+    <div class="showcase-container">
         <h1 class="page-title">25mm Premium Series</h1>
-        <p class="page-subtitle">Select a track option below to explore its structural configuration.</p>
+        <p class="page-subtitle">Select a specification below to view its full structural configuration.</p>
 
         <div class="options-menu">
             <button class="option-btn active" onclick="switchConfig('track-2')">2 Track</button>
@@ -174,37 +166,45 @@
             <button class="option-btn" onclick="switchConfig('track-3-grill')">3 Track + Grill</button>
         </div>
 
-        <div class="display-container">
+        <div class="canvas-area">
             
-            <div id="track-2" class="config-content active">
-                <h2 class="content-title">2 Track Configuration 🪟</h2>
-                <p class="content-description">Our standard two-panel sliding system. Highly space-efficient, offering smooth operation and maximum natural light for architectural layouts that don't require built-in mosquito screens.</p>
-                <div class="image-side">
-                    <img src="PASTE_YOUR_2_TRACK_IMAGE_URL_HERE" alt="2-Track Configuration Diagram" class="config-image">
+            <div id="track-2" class="config-view active">
+                <div class="image-wrapper">
+                    <img src="PASTE_YOUR_2_TRACK_IMAGE_URL_HERE" alt="2-Track Architectural Section" class="config-image">
+                </div>
+                <div class="details-wrapper">
+                    <h2 class="content-title">2 Track Configuration</h2>
+                    <p class="content-description">Our standard two-panel sliding system. Highly space-efficient, offering smooth operation and maximum natural light for architectural layouts that don't require built-in mosquito screens.</p>
                 </div>
             </div>
 
-            <div id="track-3" class="config-content">
-                <h2 class="content-title">3 Track Configuration 🦟</h2>
-                <p class="content-description">Features two sliding glass panels combined with an independent, dedicated track for a mosquito mesh. This lets you enjoy crisp outdoor ventilation entirely insect-free.</p>
-                <div class="image-side">
-                    <img src="PASTE_YOUR_3_TRACK_IMAGE_URL_HERE" alt="3-Track Configuration Diagram" class="config-image">
+            <div id="track-3" class="config-view">
+                <div class="image-wrapper">
+                    <img src="PASTE_YOUR_3_TRACK_IMAGE_URL_HERE" alt="3-Track Architectural Section" class="config-image">
+                </div>
+                <div class="details-wrapper">
+                    <h2 class="content-title">3 Track Configuration</h2>
+                    <p class="content-description">Features two sliding glass panels combined with an independent, dedicated track for a mosquito mesh. This lets you enjoy crisp outdoor ventilation entirely insect-free.</p>
                 </div>
             </div>
 
-            <div id="track-2-grill" class="config-content">
-                <h2 class="content-title">2 Track + Grill 🛡️</h2>
-                <p class="content-description">Integrates the sleek profile of our 2-Track system alongside a heavy-duty, built-in safety grill. Delivers premium home security features without compromising structural elegance.</p>
-                <div class="image-side">
-                    <img src="PASTE_YOUR_2_TRACK_GRILL_IMAGE_URL_HERE" alt="2-Track with Grill Diagram" class="config-image">
+            <div id="track-2-grill" class="config-view">
+                <div class="image-wrapper">
+                    <img src="PASTE_YOUR_2_TRACK_GRILL_IMAGE_URL_HERE" alt="2-Track with Grill Architectural Section" class="config-image">
+                </div>
+                <div class="details-wrapper">
+                    <h2 class="content-title">2 Track + Grill</h2>
+                    <p class="content-description">Integrates the sleek profile of our 2-Track system alongside a heavy-duty, built-in safety grill. Delivers premium home security features without compromising structural elegance.</p>
                 </div>
             </div>
 
-            <div id="track-3-grill" class="config-content">
-                <h2 class="content-title">3 Track + Grill ⭐</h2>
-                <p class="content-description">The absolute complete configuration. Houses multiple sliding elements for full insect mesh utility alongside an advanced heavy structural grill setup for peak luxury protection.</p>
-                <div class="image-side">
-                    <img src="PASTE_YOUR_3_TRACK_GRILL_IMAGE_URL_HERE" alt="3-Track with Mesh and Grill Diagram" class="config-image">
+            <div id="track-3-grill" class="config-view">
+                <div class="image-wrapper">
+                    <img src="PASTE_YOUR_3_TRACK_GRILL_IMAGE_URL_HERE" alt="3-Track with Grill Architectural Section" class="config-image">
+                </div>
+                <div class="details-wrapper">
+                    <h2 class="content-title">3 Track + Grill</h2>
+                    <p class="content-description">The absolute complete configuration. Houses multiple sliding elements for full insect mesh utility alongside an advanced heavy structural grill setup for peak luxury protection.</p>
                 </div>
             </div>
 
@@ -213,20 +213,20 @@
 
     <script>
         function switchConfig(configId) {
-            // Remove active status from all option buttons
+            // Remove active status from pills
             document.querySelectorAll('.option-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
             
-            // Hide all configuration contents
-            document.querySelectorAll('.config-content').forEach(content => {
-                content.classList.remove('active');
+            // Hide all views
+            document.querySelectorAll('.config-view').forEach(view => {
+                view.classList.remove('active');
             });
             
-            // Add active status to clicked button
+            // Set clicked button to active
             event.target.classList.add('active');
             
-            // Show selected configuration content
+            // Activate target view
             document.getElementById(configId).classList.add('active');
         }
     </script>
