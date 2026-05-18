@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +34,7 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
         }
@@ -53,95 +54,75 @@
             font-size: 1.1rem;
         }
 
-        /* Interactive Accordion/Dropdown Styling */
-        details {
+        /* Grid Layout for Configuration Cards */
+        .config-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .config-card {
             background: #ffffff;
             border-radius: 12px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-            border: 1px solid #eef2f5;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             overflow: hidden;
-            transition: box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        details[open] {
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        .config-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
         }
 
-        summary {
+        .card-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background-color: #e9ecef; /* Fallback placeholder color */
+        }
+
+        .card-content {
             padding: 20px;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #1a252c;
-            cursor: pointer;
-            list-style: none; /* Hide default arrow */
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            outline: none;
-            user-select: none;
+            margin-bottom: 10px;
         }
 
-        /* Custom Dropdown Indicator */
-        summary::after {
-            content: '＋';
-            font-size: 1.2rem;
-            color: #4da6ff;
-            transition: transform 0.3s ease;
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin: 0;
+            color: #1a252c;
         }
 
-        details[open] summary::after {
-            content: '－';
-            color: #ff4d4d;
+        .card-icon {
+            font-size: 1.5rem;
         }
 
-        .dropdown-content {
-            padding: 0 20px 20px 20px;
-            border-top: 1px solid #f1f5f8;
-            background: #fafbfc;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        @media (min-width: 768px) {
-            .dropdown-content {
-                flex-direction: row;
-                align-items: center;
-            }
-        }
-
-        .config-description {
-            flex: 1;
+        .card-description {
             color: #555;
-            font-size: 1rem;
-            line-height: 1.7;
-        }
-
-        .image-wrapper {
-            flex: 1;
-            text-align: center;
-        }
-
-        .config-image {
-            width: 100%;
-            max-width: 400px;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            background-color: #e9ecef; /* Fallback color */
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
         }
 
         .wa-btn {
-            display: inline-block;
-            margin-top: 15px;
+            display: block;
+            text-align: center;
             background-color: #25d366;
             color: white;
-            padding: 10px 20px;
+            padding: 12px;
             text-decoration: none;
-            border-radius: 6px;
+            border-radius: 8px;
             font-weight: bold;
             transition: background 0.3s;
         }
@@ -160,60 +141,57 @@
 
     <div class="container">
         <h1 class="page-title">25mm Premium Series</h1>
-        <p class="page-subtitle">Click on any configuration below to reveal its details and technical images.</p>
+        <p class="page-subtitle">Customizable Track & Grill Configurations tailored to your lifestyle.</p>
 
-        <details>
-            <summary>2-TRACK <span style="font-size: 1.2rem; margin-left: 10px;">🪟</span></summary>
-            <div class="dropdown-content">
-                <div class="config-description">
-                    <p>Our standard two-panel sliding system. Highly space-efficient, offering smooth operation and maximum natural light for areas that don't require built-in mosquito meshes.</p>
-                    <a href="https://wa.me/919586232321?text=Hi,%20I'm%20interested%20in%20the%2025mm%202-Track%20Configuration." target="_blank" class="wa-btn">Inquire for 2-Track</a>
-                </div>
-                <div class="image-wrapper">
-                    <img src="PASTE_YOUR_2_TRACK_IMAGE_URL_HERE" alt="2-Track Configuration Diagram" class="config-image">
+        <div class="config-grid">
+            <div class="config-card">
+                <img src="PASTE_YOUR_IMAGE_URL_HERE" alt="2-Track Sliding Window" class="card-image">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h2 class="card-title">2-TRACK</h2>
+                        <span class="card-icon">🪟</span>
+                    </div>
+                    <p class="card-description">Our standard two-panel sliding system. Highly space-efficient, offering smooth operation and maximum natural light for areas that don't require built-in mosquito meshes.</p>
+                    <a href="https://wa.me/919586232321?text=Hi,%20I'm%20interested%20in%20the%2025mm%202-Track%20Configuration." target="_blank" class="wa-btn">Inquire on WhatsApp</a>
                 </div>
             </div>
-        </details>
 
-        <details>
-            <summary>3-TRACK <span style="font-size: 1.2rem; margin-left: 10px;">🦟</span></summary>
-            <div class="dropdown-content">
-                <div class="config-description">
-                    <p>Features two glass panels and one dedicated track for a mosquito mesh. Enjoy fresh air and uninterrupted ventilation without worrying about insects entering your home.</p>
-                    <a href="https://wa.me/919586232321?text=Hi,%20I'm%20interested%20in%20the%2025mm%203-Track%20Configuration." target="_blank" class="wa-btn">Inquire for 3-Track</a>
-                </div>
-                <div class="image-wrapper">
-                    <img src="PASTE_YOUR_3_TRACK_IMAGE_URL_HERE" alt="3-Track Configuration Diagram" class="config-image">
+            <div class="config-card">
+                <img src="PASTE_YOUR_IMAGE_URL_HERE" alt="3-Track Sliding Window" class="card-image">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h2 class="card-title">3-TRACK</h2>
+                        <span class="card-icon">🦟</span>
+                    </div>
+                    <p class="card-description">Features two glass panels and one dedicated track for a mosquito mesh. Enjoy fresh air and uninterrupted ventilation without worrying about insects entering your home.</p>
+                    <a href="https://wa.me/919586232321?text=Hi,%20I'm%20interested%20in%20the%2025mm%203-Track%20Configuration." target="_blank" class="wa-btn">Inquire on WhatsApp</a>
                 </div>
             </div>
-        </details>
 
-        <details>
-            <summary>2-TRACK + GRILL <span style="font-size: 1.2rem; margin-left: 10px;">🛡️</span></summary>
-            <div class="dropdown-content">
-                <div class="config-description">
-                    <p>Combines the sleek profile of our 2-Track system with a highly durable, integrated safety grill. Offers peace of mind and enhanced security without compromising on modern styling.</p>
-                    <a href="https://wa.me/919586232321?text=Hi,%20I'm%20interested%20in%20the%2025mm%202-Track%20%2B%20Grill%20Configuration." target="_blank" class="wa-btn">Inquire for 2-Track + Grill</a>
-                </div>
-                <div class="image-wrapper">
-                    <img src="PASTE_YOUR_2_TRACK_GRILL_IMAGE_URL_HERE" alt="2-Track + Grill Configuration Diagram" class="config-image">
+            <div class="config-card">
+                <img src="PASTE_YOUR_IMAGE_URL_HERE" alt="2-Track with Safety Grill" class="card-image">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h2 class="card-title">2-TRACK + GRILL</h2>
+                        <span class="card-icon">🛡️</span>
+                    </div>
+                    <p class="card-description">Combines the sleek profile of our 2-Track system with a highly durable, integrated safety grill. Offers peace of mind and enhanced security without compromising on modern styling.</p>
+                    <a href="https://wa.me/919586232321?text=Hi,%20I'm%20interested%20in%20the%2025mm%202-Track%20%2B%20Grill%20Configuration." target="_blank" class="wa-btn">Inquire on WhatsApp</a>
                 </div>
             </div>
-        </details>
 
-        <details>
-            <summary>3-TRACK + GRILL <span style="font-size: 1.2rem; margin-left: 10px;">⭐</span></summary>
-            <div class="dropdown-content">
-                <div class="config-description">
-                    <p>The ultimate all-in-one solution. Get maximum ventilation, dedicated insect protection (mosquito mesh), and top-tier security with an integrated grill, all in one robust frame.</p>
-                    <a href="https://wa.me/919586232321?text=Hi,%20I'm%20interested%20in%20the%2025mm%203-Track%20%2B%20Grill%20Configuration." target="_blank" class="wa-btn">Inquire for 3-Track + Grill</a>
-                </div>
-                <div class="image-wrapper">
-                    <img src="PASTE_YOUR_3_TRACK_GRILL_IMAGE_URL_HERE" alt="3-Track + Grill Configuration Diagram" class="config-image">
+            <div class="config-card">
+                <img src="PASTE_YOUR_IMAGE_URL_HERE" alt="3-Track with Mesh and Grill" class="card-image">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h2 class="card-title">3-TRACK + GRILL</h2>
+                        <span class="card-icon">⭐</span>
+                    </div>
+                    <p class="card-description">The ultimate all-in-one solution. Get maximum ventilation, dedicated insect protection (mosquito mesh), and top-tier security with an integrated grill, all in one robust frame.</p>
+                    <a href="https://wa.me/919586232321?text=Hi,%20I'm%20interested%20in%20the%2025mm%203-Track%20%2B%20Grill%20Configuration." target="_blank" class="wa-btn">Inquire on WhatsApp</a>
                 </div>
             </div>
-        </details>
-
+        </div>
     </div>
 
 </body>
