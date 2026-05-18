@@ -102,95 +102,58 @@
             margin: 0 auto;
         }
 
-        /* Premium Card Grid */
-        .options-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 30px;
-        }
+   /* Container for all cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
 
-        .option-card {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            background: #ffffff;
-            padding: 50px 30px;
-            border-radius: 16px;
-            text-decoration: none;
-            color: #1a252c;
-            border: 1px solid #eef2f5;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            overflow: hidden;
-            z-index: 1;
-        }
+/* Option 1: Architectural Card Styling */
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 40px 30px;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #1a252c;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
 
-        /* The Dark Hover Invert Effect */
-        .option-card::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: #1a252c;
-            z-index: -1;
-            transform: scaleY(0);
-            transform-origin: bottom;
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
+.card:hover {
+  transform: translateX(8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-left: 8px solid #1a252c;
+}
 
-        .option-card:hover {
-            transform: translateY(-10px);
-            border-color: #1a252c;
-            box-shadow: 0 20px 40px rgba(26, 37, 44, 0.15);
-        }
+.card-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #cbd5e1;
+  margin-bottom: 10px;
+}
 
-        .option-card:hover::before {
-            transform: scaleY(1);
-        }
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  flex-grow: 1;
+}
 
-        .option-card:hover .card-number,
-        .option-card:hover .card-title,
-        .option-card:hover .view-btn {
-            color: #ffffff;
-        }
+.view-specs {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #1a252c;
+  text-decoration: none;
+}
 
-        .card-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            font-weight: 700;
-            color: #e2e8f0;
-            margin-bottom: 20px;
-            transition: color 0.4s ease;
-        }
-
-        .card-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin: 0 0 20px 0;
-            transition: color 0.4s ease;
-        }
-
-        .view-btn {
-            margin-top: auto;
-            font-size: 0.9rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: color 0.4s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .view-btn::after {
-            content: '→';
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .option-card:hover .view-btn::after {
-            transform: translateX(5px);
-        }
+.view-specs:hover {
+  color: #64748b;
+}
     </style>
 </head>
 <body>
