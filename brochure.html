@@ -9,15 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;500;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* 1. GLOBAL SETUP & BRAND COLOR PALETTE */
+        /* 1. GLOBAL SETUP & PURE BLACK/GOLD PALETTE */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
         :root {
-            --bg-black: #0a0a0a;
-            --card-black: #121212;
-            --bright-gold: #d4af37;
+            --bg-black: #000000; /* Pure Black Background */
+            --bright-gold: #d4af37; /* Bright Luxury Gold */
             --light-gold: #f4dfa2;
-            --text-gray: #a0a0a0;
+            --text-muted: #888888;
         }
 
         body { 
@@ -31,79 +30,66 @@
             padding: 60px 0;
         }
         
-        /* SHUBHAM PREMIUM BROCHURE SLIDE CONTAINER */
+        /* PREMIUM SLIDE CONTAINER */
         .slide-container {
             width: 1280px; 
             height: 720px;
-            background-color: var(--card-black);
+            background-color: var(--bg-black);
             color: #ffffff;
             position: relative; 
             overflow: hidden;
             display: flex; 
             flex-direction: column;
             padding: 60px;
-            border: 1px solid #222;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            border: 1px solid #111;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.9);
         }
-
-        /* BACKGROUND RADIANCE GLOW */
-        .slide-container::before {
-            content: ''; 
-            position: absolute; 
-            top: -10%; 
-            right: -10%;
-            width: 50%; 
-            height: 70%;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.04) 0%, transparent 70%);
-            z-index: 0;
-        }
-
-        .slide-container > * { z-index: 1; }
 
         /* TYPOGRAPHY */
         h1, h2, h3 { font-family: 'Urbanist', sans-serif; margin: 0; font-weight: 700; }
-        h1 { font-size: 80px; line-height: 1.1; letter-spacing: -1px; color: var(--light-gold); }
+        h1 { font-size: 80px; line-height: 1.1; letter-spacing: -1px; color: var(--bright-gold); }
         h1 span { color: #ffffff; }
-        .slide-title { font-size: 38px; font-weight: 700; color: var(--bright-gold); margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; border-bottom: 2px solid #222; padding-bottom: 10px; }
-        p, li { font-size: 18px; line-height: 1.6; color: var(--text-gray); }
-        .subtitle { font-size: 24px; color: var(--bright-gold); margin-top: 20px; letter-spacing: 1px; }
+        .slide-title { font-size: 38px; font-weight: 700; color: var(--bright-gold); margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; border-bottom: 1px solid #222; padding-bottom: 10px; }
+        p, li { font-size: 18px; line-height: 1.6; color: var(--text-muted); }
+        .subtitle { font-size: 24px; color: var(--light-gold); margin-top: 20px; letter-spacing: 1px; }
 
         .content-area { display: flex; flex-direction: column; flex-grow: 1; width: 100%; justify-content: center; }
 
-        /* MULTI-COLUMN BROCHURE LAYOUTS */
+        /* MULTI-COLUMN LAYOUTS */
         .title-layout { text-align: center; justify-content: center; }
         .section-title-layout { text-align: center; }
-        .section-title-layout hr { border: none; height: 3px; width: 120px; background: var(--bright-gold); margin: 25px auto; }
+        .section-title-layout hr { border: none; height: 2px; width: 120px; background: var(--bright-gold); margin: 25px auto; }
 
         .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; width: 100%; align-items: center; }
         
-        /* IMAGE FRAMES WITH INTEGRATED LOGO ERASERS */
+        /* --- THE MAGIC BRIGHT GOLD DRAWING CONTROLLER --- */
         .image-wrapper { 
             position: relative;
             border-radius: 6px; 
             overflow: hidden; 
-            height: 400px; 
+            height: 440px; 
             width: 100%; 
-            border: 1px solid #333; 
-            background: #ffffff;
+            border: 1px solid #222; 
+            background: var(--bg-black);
         }
         
         .image-wrapper img { 
             width: 100%; 
             height: 100%; 
             object-fit: contain; 
-            background: #ffffff;
-            padding: 10px;
+            padding: 20px;
+            /* Inverts white image backgrounds to black, and transforms lines and blue details to bright architectural gold */
+            filter: invert(1) sepia(1) saturate(6) hue-rotate(10deg) brightness(1.1) contrast(1.1);
         }
 
-        /* DIGITAL BLANKOUT PLATES (Cleans old logos out of images) */
+        /* PURE BLACK MASK PLATES (Erases Silver logos and watermarks cleanly) */
         .eraser-top-left {
             position: absolute;
             top: 0;
             left: 0;
-            width: 24%;
-            height: 16%;
-            background-color: #ffffff;
+            width: 25%;
+            height: 18%;
+            background-color: var(--bg-black);
             z-index: 5;
         }
         
@@ -112,30 +98,30 @@
             top: 0;
             left: 25%;
             width: 50%;
-            height: 16%;
-            background-color: #ffffff;
+            height: 18%;
+            background-color: var(--bg-black);
             z-index: 5;
         }
 
         /* TILED SPEC BLOCKS */
         .tiled-content { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .tile { background: #181818; padding: 40px; border-radius: 6px; border-top: 4px solid var(--bright-gold); border-bottom: 1px solid #222; }
+        .tile { background: #080808; padding: 40px; border-radius: 6px; border-top: 3px solid var(--bright-gold); border: 1px solid #111; }
         .tile .icon { font-size: 40px; color: var(--bright-gold); margin-bottom: 20px; }
         .tile h3 { font-size: 24px; margin-bottom: 15px; color: #fff; }
 
-        /* DATA TABLE */
-        table { width: 100%; border-collapse: collapse; background: #161616; border-radius: 6px; overflow: hidden; border: 1px solid #222; }
-        th, td { padding: 20px; text-align: left; border-bottom: 1px solid #222; }
+        /* DATA SPEC TABLE */
+        table { width: 100%; border-collapse: collapse; background: #050505; border-radius: 6px; overflow: hidden; border: 1px solid #111; }
+        th, td { padding: 20px; text-align: left; border-bottom: 1px solid #111; }
         th { background: var(--bright-gold); color: var(--bg-black); font-family: 'Urbanist'; font-weight: 700; font-size: 20px; }
         td { font-size: 17px; }
-        tr:hover { background: #1e1e1e; }
+        tr:hover { background: #0c0c0c; }
 
-        /* BRIGHT GOLD HIGHLIGHT MARKS */
+        /* HIGHLIGHT ICON LISTS */
         .highlight-list { list-style: none; padding: 0; }
-        .highlight-list li { position: relative; padding-left: 40px; margin-bottom: 18px; }
+        .highlight-list li { position: relative; padding-left: 40px; margin-bottom: 18px; color: #eee; }
         .highlight-list li i { position: absolute; left: 0; top: 4px; color: var(--bright-gold); font-size: 20px; }
 
-        /* FOOTER BRANDING BUTTON */
+        /* INTERACTIVE SYSTEM BUTTON */
         .btn {
             display: inline-block;
             padding: 15px 40px;
@@ -153,7 +139,7 @@
         .btn:hover {
             background: var(--bright-gold);
             color: var(--bg-black);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
         }
     </style>
 </head>
@@ -161,8 +147,9 @@
 
     <div class="slide-container title-layout">
         <div class="content-area">
-            <p style="color: var(--bright-gold); font-weight: 600; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 10px;">Shubham Aludecor</p>
-            <h1>FINE 25 <br><span>Premium Series</span></h1>
+            <p style="color: var(--bright-gold); font-weight: 600; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 15px;">Shubham Aludecor</p>
+            <h1>FINE 25 <br><span style="color: var(--light-gold);">Premium Series</span></h1>
+            <div style="height: 2px; width: 150px; background: var(--bright-gold); margin: 30px auto;"></div>
             <p class="subtitle">Architectural Aluminum Perfection</p>
         </div>
     </div>
@@ -171,7 +158,7 @@
         <div class="section-title-layout content-area">
             <h2 style="font-size: 55px; color: var(--light-gold);">Engineering Redefined</h2>
             <hr>
-            <p style="max-width: 850px; margin: 0 auto; font-size: 20px;">The FINE 25 Sliding Window system offers high-end luxury residential spaces the ultimate combination of structural strength, ultra-slim visibility, and effortless architectural movement.</p>
+            <p style="max-width: 850px; margin: 0 auto; font-size: 20px; color: #bbb;">The FINE 25 Sliding Window system offers high-end luxury residential spaces the ultimate combination of structural strength, ultra-slim visibility, and effortless architectural movement.</p>
         </div>
     </div>
 
@@ -345,8 +332,8 @@
             <p style="color: var(--bright-gold); text-transform: uppercase; letter-spacing: 4px; font-weight: 600; margin-bottom: 15px;">Premium Architectural Fenestration</p>
             <h1 style="font-size: 65px; color: #ffffff;">Elevate Your Structural Canvas</h1>
             <hr>
-            <p style="color: var(--light-gold); font-weight: 500;">Shubham Aludecor | Custom Engineered Elegance</p>
-            <div style="margin-top: 35px; display: flex; flex-direction: column; gap: 8px; font-size: 18px; color: #888;">
+            <p style="color: var(--light-gold); font-weight: 500; font-size: 22px;">Shubham Aludecor | Custom Engineered Elegance</p>
+            <div style="margin-top: 35px; display: flex; flex-direction: column; gap: 8px; font-size: 18px; color: #666;">
                 <span><i class="fa-solid fa-envelope" style="color: var(--bright-gold); margin-right: 10px;"></i> contact@shubhamaludecor.com</span>
                 <span><i class="fa-solid fa-globe" style="color: var(--bright-gold); margin-right: 10px;"></i> www.shubhamaludecor.com</span>
             </div>
