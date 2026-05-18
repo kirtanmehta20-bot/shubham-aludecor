@@ -62,7 +62,6 @@
 
         /* --- VIRTUAL IMAGE EDITING --- */
         .image-container {
-            position: relative;
             background: #fff; 
             padding: 20px;
             border-radius: 4px;
@@ -71,31 +70,29 @@
             margin: 0 auto;
         }
 
-        /* Target ONLY the main technical drawing, not the logo */
-        .image-container > img.technical-drawing {
+        /* The wrapper gets the filter so the eraser block perfectly matches the image background */
+        .filtered-wrapper {
+            position: relative;
             width: 100%;
-            height: auto;
-            display: block;
-            /* MAGIC FILTER: Shifting blue lines to Gold/Brown tones */
             filter: hue-rotate(170deg) sepia(1) saturate(1.5) brightness(0.8);
         }
 
-        /* LOGO MASK: Covers "Silver Aluminum" with your actual logo image */
-        .logo-mask {
-            position: absolute;
-            top: 30px;
-            left: 30px;
-            width: 180px; /* Adjust this to make your logo bigger/smaller to cover the old one */
-            background-color: #ffffff; /* White background hides the old logo completely */
-            padding: 10px;
-            z-index: 10;
-        }
-
-        .logo-mask img {
+        .filtered-wrapper img.technical-drawing {
             width: 100%;
             height: auto;
             display: block;
-            filter: none; /* Ensures your logo keeps its true original colors */
+        }
+
+        /* CSS ERASER: A blank white block positioned over "Silver Aluminium" */
+        /* Because it is inside the filtered-wrapper, it will shift to gold exactly like the image background */
+        .eraser {
+            position: absolute;
+            top: 2%;       /* Adjust this if the logo is higher or lower */
+            left: 30%;     /* Covers the center-left area where Silver is */
+            width: 45%;    /* Wide enough to cover the whole name */
+            height: 16%;   /* Tall enough to cover the logo icon and text */
+            background-color: #ffffff; 
+            z-index: 10;
         }
 
         /* Cover Page Specific Styles */
@@ -158,10 +155,10 @@
             <h2>System Overview</h2>
             <p>Precise engineering details for the FINE 25 Series profile.</p>
             <div class="image-container">
-                <div class="logo-mask">
-                    <img src="logo.png" alt="Shubham Aludecor Logo">
+                <div class="filtered-wrapper">
+                    <div class="eraser"></div>
+                    <img src="image 1.png" alt="Drawing 1" class="technical-drawing">
                 </div>
-                <img src="image 1.png" alt="Drawing 1" class="technical-drawing">
             </div>
         </div>
     </section>
@@ -171,10 +168,10 @@
             <h2>Track Dimensions</h2>
             <p>Vertical and Horizontal section details for standard configurations.</p>
             <div class="image-container">
-                <div class="logo-mask">
-                    <img src="logo.png" alt="Shubham Aludecor Logo">
+                <div class="filtered-wrapper">
+                    <div class="eraser"></div>
+                    <img src="image 2.png" alt="Drawing 2" class="technical-drawing">
                 </div>
-                <img src="image 2.png" alt="Drawing 2" class="technical-drawing">
             </div>
         </div>
     </section>
@@ -184,10 +181,10 @@
             <h2>Glass & Interlock</h2>
             <p>Showcasing the 20mm slim interlock and glazing options.</p>
             <div class="image-container">
-                <div class="logo-mask">
-                    <img src="logo.png" alt="Shubham Aludecor Logo">
+                <div class="filtered-wrapper">
+                    <div class="eraser"></div>
+                    <img src="image 3.png" alt="Drawing 3" class="technical-drawing">
                 </div>
-                <img src="image 3.png" alt="Drawing 3" class="technical-drawing">
             </div>
         </div>
     </section>
@@ -197,10 +194,10 @@
             <h2>Mounting & Support</h2>
             <p>Detailed structural support and masonry attachment guides.</p>
             <div class="image-container">
-                <div class="logo-mask">
-                    <img src="logo.png" alt="Shubham Aludecor Logo">
+                <div class="filtered-wrapper">
+                    <div class="eraser"></div>
+                    <img src="image 4.png" alt="Drawing 4" class="technical-drawing">
                 </div>
-                <img src="image 4.png" alt="Drawing 4" class="technical-drawing">
             </div>
         </div>
     </section>
@@ -210,10 +207,10 @@
             <h2>Hardware Specs</h2>
             <p>Internal mechanism and roller track assembly details.</p>
             <div class="image-container">
-                <div class="logo-mask">
-                    <img src="logo.png" alt="Shubham Aludecor Logo">
+                <div class="filtered-wrapper">
+                    <div class="eraser"></div>
+                    <img src="image 5.png" alt="Drawing 5" class="technical-drawing">
                 </div>
-                <img src="image 5.png" alt="Drawing 5" class="technical-drawing">
             </div>
         </div>
     </section>
