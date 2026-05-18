@@ -3,305 +3,320 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>25mm Premium Series Brochure</title>
+    <title>FINE 25 Premium Brochure | Shubham Aludecor</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;500;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* 1. GLOBAL SETUP */
-        * { box-sizing: border-box; }
-        body { background-color: #121212; display: grid; gap: 40px; margin: 0; padding: 40px 0; place-items: center; }
-        
-        /* SLIDE CONTAINER */
-        .slide-container {
-            width: 1280px; height: 720px;
-            background-color: #1e1e1e;
+        /* Base Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Brochure Container - Styled like a digital booklet */
+        .brochure-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: #ffffff;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* --- PAGE 1: COVER --- */
+        .cover-page {
+            display: flex;
+            height: 80vh;
+            min-height: 600px;
+            background-color: #ffffff;
+            position: relative;
+        }
+
+        .cover-left {
+            flex: 1;
+            padding: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .cover-right {
+            flex: 1;
+            background-color: #dc2626; /* Red accent inspired by the PDF cover */
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .brand-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #1a252c;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .cover-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            line-height: 1;
+            color: #1a252c;
+            margin-bottom: 20px;
+        }
+
+        .cover-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #64748b;
+        }
+
+        .cover-right h2 {
             color: #ffffff;
-            font-family: 'Montserrat', sans-serif;
-            position: relative; overflow: hidden;
-            display: flex; flex-direction: column;
-            padding: 60px;
-            border: 1px solid #333;
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            text-align: center;
+            line-height: 1.2;
         }
 
-        /* BACKGROUND DECORATION */
-        .slide-container::before {
-            content: ''; position: absolute; top: -10%; right: -10%;
-            width: 40%; height: 60%;
-            background: radial-gradient(circle, rgba(224, 122, 95, 0.05) 0%, transparent 70%);
-            z-index: 0;
+        /* --- PAGE 2: INTRODUCTION --- */
+        .intro-page {
+            padding: 100px 80px;
+            background-color: #1a252c;
+            color: #ffffff;
+            text-align: center;
         }
 
-        .slide-container > * { z-index: 1; }
+        .intro-page h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
 
-        /* TYPOGRAPHY */
-        h1, h2, h3 { font-family: 'Urbanist', sans-serif; margin: 0; font-weight: 700; color: #ffffff; }
-        h1 { font-size: 80px; line-height: 1.1; letter-spacing: -2px; }
-        .slide-title { font-size: 42px; font-weight: 700; color: #e07a5f; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; }
-        p, li { font-size: 18px; line-height: 1.6; color: #b0b0b0; }
-        .subtitle { font-size: 24px; color: #888; margin-top: 20px; }
+        .intro-page p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #cbd5e1;
+        }
 
-        .content-area { display: flex; flex-direction: column; flex-grow: 1; width: 100%; justify-content: center; }
+        .red-line {
+            width: 60px;
+            height: 4px;
+            background-color: #dc2626;
+            margin: 40px auto;
+        }
 
-        /* LAYOUTS */
-        .title-layout { text-align: center; justify-content: center; }
-        .section-title-layout { text-align: center; }
-        .section-title-layout hr { border: none; height: 4px; width: 100px; background: #e07a5f; margin: 20px auto; }
+        /* --- PAGE 3: CONFIGURATIONS GRID --- */
+        .config-page {
+            padding: 100px 80px;
+            background-color: #ffffff;
+        }
 
-        .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; width: 100%; }
-        
-        .image-wrapper { border-radius: 4px; overflow: hidden; height: 100%; width: 100%; border: 1px solid #444; }
-        .image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        .section-header {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: #1a252c;
+            margin-bottom: 60px;
+            text-align: center;
+        }
 
-        /* TILED CONTENT */
-        .tiled-content { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .tile { background: #252525; padding: 40px; border-radius: 8px; border-top: 4px solid #e07a5f; }
-        .tile .icon { font-size: 40px; color: #e07a5f; margin-bottom: 20px; }
-        .tile h3 { font-size: 24px; margin-bottom: 15px; color: #fff; }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
 
-        /* TABLE */
-        table { width: 100%; border-collapse: collapse; background: #252525; border-radius: 8px; overflow: hidden; }
-        th, td { padding: 20px; text-align: left; border-bottom: 1px solid #333; }
-        th { background: #e07a5f; color: #1e1e1e; font-family: 'Urbanist'; font-weight: 700; }
+        .grid-item {
+            background: #f8fafc;
+            padding: 40px;
+            border-left: 4px solid #1a252c;
+            transition: transform 0.3s ease;
+        }
 
-        /* BLEED IMAGE */
-        .slide-container.bleed-image-layout { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0; align-items: start; }
-        .bleed-text-side { padding: 80px 60px; display: flex; flex-direction: column; justify-content: center; height: 100%; }
-        .image-container { height: 720px; overflow: hidden; }
-        .bleed-image-side { height: 720px; width: 100%; object-fit: cover; }
+        .grid-item:hover {
+            transform: translateY(-5px);
+            border-left: 4px solid #dc2626;
+        }
 
-        /* HIGHLIGHTS */
-        .highlight-list { list-style: none; padding: 0; }
-        .highlight-list li { position: relative; padding-left: 40px; margin-bottom: 15px; }
-        .highlight-list li i { position: absolute; left: 0; top: 5px; color: #e07a5f; font-size: 20px; }
+        .grid-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #cbd5e1;
+            margin-bottom: 10px;
+        }
 
-        /* CHART MOCK */
-        .bar-container { width: 100%; display: flex; flex-direction: column; gap: 15px; }
-        .bar { background: #333; border-radius: 4px; height: 40px; width: 100%; overflow: hidden; display: flex; align-items: center; }
-        .bar-fill { height: 100%; background: linear-gradient(90deg, #e07a5f, #ff9b85); display: flex; align-items: center; padding-left: 15px; font-weight: bold; color: #1e1e1e; }
+        .grid-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a252c;
+            margin-bottom: 15px;
+        }
+
+        .grid-desc {
+            color: #475569;
+            font-size: 1rem;
+        }
+
+        /* --- PAGE 4: SPECS & CONTACT --- */
+        .specs-page {
+            display: flex;
+            background-color: #f1f5f9;
+        }
+
+        .specs-left {
+            flex: 1;
+            padding: 80px;
+        }
+
+        .specs-right {
+            flex: 1;
+            background-color: #1a252c;
+            padding: 80px;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .specs-list {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .specs-list li {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #cbd5e1;
+            color: #1a252c;
+            font-weight: 600;
+        }
+
+        .specs-list li span {
+            float: right;
+            font-weight: 400;
+            color: #64748b;
+        }
+
+        .specs-right h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .specs-right p {
+            color: #cbd5e1;
+            margin-bottom: 30px;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #dc2626;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: background 0.3s;
+            align-self: flex-start;
+        }
+
+        .contact-btn:hover {
+            background-color: #b91c1c;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .cover-page, .specs-page {
+                flex-direction: column;
+            }
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            .cover-left, .specs-left, .specs-right {
+                padding: 40px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <div class="slide-container title-layout" id="slide1" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('http://googleusercontent.com/image_collection/image_retrieval/165374916634443112'); background-size: cover; background-position: center;">
-        <div class="content-area">
-            <h1>The 25mm <br><span>Premium Series</span></h1>
-            <p class="subtitle">Precision Engineering. Architectural Excellence.</p>
+    <div class="brochure-container">
+        
+        <div class="cover-page">
+            <div class="cover-left">
+                <div class="brand-name">Shubham Aludecor</div>
+                <h1 class="cover-title">FINE 25</h1>
+                <p class="cover-subtitle">Modern & Elegant Sliding Windows</p>
+            </div>
+            <div class="cover-right">
+                <h2>Product<br>Catalogue</h2>
+            </div>
         </div>
-    </div>
 
-    <div class="slide-container" id="slide2">
-        <div class="section-title-layout content-area">
-            <hr>
-            <h2 style="font-size: 60px;">Redefining Modern <br>Fenestration</h2>
-            <p style="max-width: 800px; margin: 30px auto;">Derived from the elite "FINE 25" catalog, this series offers the perfect balance of minimalist design and heavy-duty performance for high-end residential projects.</p>
+        <div class="intro-page">
+            <h3>Redefining Architectural Aesthetics</h3>
+            <p>The FINE 25 Series represents the pinnacle of modern aluminum fenestration. Engineered for smooth operation, structural integrity, and maximum natural light, this series is the definitive choice for contemporary homes and premium commercial spaces.</p>
+            <div class="red-line"></div>
         </div>
-    </div>
 
-    <div class="slide-container" id="slide3">
-        <h2 class="slide-title">Unmatched Performance</h2>
-        <div class="content-area">
-            <div class="tiled-content">
-                <div class="tile">
-                    <div class="icon"><i class="fa-solid fa-wind"></i></div>
-                    <h3>Weather Guard</h3>
-                    <p>Exceptional water tightness and wind load resistance up to 2.5 KPA.</p>
+        <div class="config-page">
+            <h2 class="section-header">Series Configurations</h2>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <div class="grid-number">01</div>
+                    <h3 class="grid-title">2 Track Sliding</h3>
+                    <p class="grid-desc">Our highly space-efficient standard system. Delivers a sleek profile, smooth gliding action, and flawless aesthetics for standard room openings.</p>
                 </div>
-                <div class="tile">
-                    <div class="icon"><i class="fa-solid fa-volume-xmark"></i></div>
-                    <h3>Acoustic Shield</h3>
-                    <p>Advanced sound insulation for quiet, peaceful interior environments.</p>
+                <div class="grid-item">
+                    <div class="grid-number">02</div>
+                    <h3 class="grid-title">3 Track Sliding</h3>
+                    <p class="grid-desc">Designed for expansive views and wider openings. Three panels allow for greater ventilation control and seamless indoor-outdoor transitions.</p>
                 </div>
-                <div class="tile">
-                    <div class="icon"><i class="fa-solid fa-sliders"></i></div>
-                    <h3>Smooth Gliding</h3>
-                    <p>German-precision rollers bear up to 300kg per panel effortlessly.</p>
+                <div class="grid-item">
+                    <div class="grid-number">03</div>
+                    <h3 class="grid-title">2 Track + Grill / Mesh</h3>
+                    <p class="grid-desc">Combines minimalist design with essential security. Features an integrated track for a seamless mosquito mesh or safety grill.</p>
+                </div>
+                <div class="grid-item">
+                    <div class="grid-number">04</div>
+                    <h3 class="grid-title">3 Track + Grill / Mesh</h3>
+                    <p class="grid-desc">The ultimate configuration. Maximum panel flexibility paired with an integrated security track for uncompromising safety and comfort.</p>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="slide-container" id="slide4">
-        <h2 class="slide-title">2 Track Configuration</h2>
-        <div class="content-area">
-            <div class="two-column">
-                <div class="image-wrapper">
-                    <img src="http://googleusercontent.com/image_collection/image_retrieval/9227652961820558716" alt="2 Track Profile">
-                </div>
-                <div style="display: flex; flex-direction: column; justify-content: center;">
-                    <h3>The Compact Choice</h3>
-                    <p>Ideal for standard room openings where space efficiency is paramount. Features a slim interlock of 20mm for maximum glass visibility.</p>
-                    <ul class="highlight-list">
-                        <li><i class="fa-solid fa-check"></i> Slim 20mm Interlocking</li>
-                        <li><i class="fa-solid fa-check"></i> Standard Track Depth: 28mm/72mm</li>
-                        <li><i class="fa-solid fa-check"></i> Max Height up to 2300mm</li>
-                    </ul>
-                </div>
+        <div class="specs-page">
+            <div class="specs-left">
+                <h2 style="font-family: 'Playfair Display'; font-size: 2.5rem; color: #1a252c;">System Specs</h2>
+                <ul class="specs-list">
+                    <li>Profile System <span>25mm Premium</span></li>
+                    <li>Glass Compatibility <span>Single & Double Glazing</span></li>
+                    <li>Hardware <span>Heavy-Duty Rollers</span></li>
+                    <li>Weather Sealing <span>EPDM Gaskets</span></li>
+                    <li>Finishes <span>Powder Coated & Anodized</span></li>
+                </ul>
+            </div>
+            <div class="specs-right">
+                <h4>Elevate Your Space</h4>
+                <p>Ready to integrate the FINE 25 series into your next architectural project? Our team at Shubham Aludecor is ready to assist you with custom dimensions and technical details.</p>
+                <a href="index.html" class="contact-btn">Return to Website</a>
             </div>
         </div>
-    </div>
 
-    <div class="slide-container" id="slide5">
-        <h2 class="slide-title">3 Track Configuration</h2>
-        <div class="content-area">
-            <div class="two-column">
-                <div style="display: flex; flex-direction: column; justify-content: center;">
-                    <h3>Expansive Versatility</h3>
-                    <p>Designed for large balconies and patios. Allows for 66% opening space by stacking three sashes on a wider track system.</p>
-                    <ul class="highlight-list">
-                        <li><i class="fa-solid fa-check"></i> Track Depth: 28mm/112mm</li>
-                        <li><i class="fa-solid fa-check"></i> Multi-sash stackability</li>
-                        <li><i class="fa-solid fa-check"></i> Enhanced ventilation control</li>
-                    </ul>
-                </div>
-                <div class="image-wrapper">
-                    <img src="http://googleusercontent.com/image_collection/image_retrieval/9423299511714754535" alt="3 Track Profile">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="slide-container bleed-image-layout" id="slide6">
-        <div class="bleed-text-side">
-            <h2 class="slide-title">Safety + Style</h2>
-            <h3 style="margin-bottom: 20px;">2 Track with Integrated Grill</h3>
-            <p>Combine the minimalist look of sliding windows with the security of a dedicated insect screen or safety grill track.</p>
-            <p>Seamlessly integrated into the outer frame, ensuring zero visual clutter while providing full ventilation and security.</p>
-        </div>
-        <div class="image-container">
-            <img class="bleed-image-side" src="http://googleusercontent.com/image_collection/image_retrieval/6335103249987503667" alt="Interior view of window with grill">
-        </div>
-    </div>
-
-    <div class="slide-container bleed-image-layout" id="slide7">
-        <div class="image-container">
-            <img class="bleed-image-side" src="http://googleusercontent.com/image_collection/image_retrieval/18375555506866196296" alt="Metallic detail">
-        </div>
-        <div class="bleed-text-side">
-            <h2 class="slide-title">Ultimate Comfort</h2>
-            <h3 style="margin-bottom: 20px;">3 Track + Safety Mesh</h3>
-            <p>Our most comprehensive configuration. Three tracks for glazing plus a fourth track for a high-tensile security mesh.</p>
-            <p>Ideal for high-rise buildings where safety and insect protection are non-negotiable without compromising the view.</p>
-        </div>
-    </div>
-
-    <div class="slide-container" id="slide8">
-        <h2 class="slide-title">Technical Specifications</h2>
-        <div class="content-area">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Parameter</th>
-                        <th>Gulf Series (Standard)</th>
-                        <th>Premium Series (Max)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Maximum Window Height</td>
-                        <td>2300 mm</td>
-                        <td>2500 mm</td>
-                    </tr>
-                    <tr>
-                        <td>Glass Range</td>
-                        <td>5 mm - 12 mm</td>
-                        <td>Single / Double (Up to 18mm)</td>
-                    </tr>
-                    <tr>
-                        <td>Track Depth (2 Track)</td>
-                        <td>72 mm</td>
-                        <td>76 mm (Reinforced)</td>
-                    </tr>
-                    <tr>
-                        <td>Interlock Face Width</td>
-                        <td>20 mm (Slim)</td>
-                        <td>65 mm (Box Type)</td>
-                    </tr>
-                    <tr>
-                        <td>Wind Load Capacity</td>
-                        <td>1.5 KPA</td>
-                        <td>2.5 KPA</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <div class="slide-container" id="slide9">
-        <h2 class="slide-title">Hardware & Security</h2>
-        <div class="content-area">
-            <div class="two-column">
-                <div class="image-wrapper">
-                    <img src="http://googleusercontent.com/image_collection/image_retrieval/12214297411827298576" alt="Window handle detail">
-                </div>
-                <div style="display: flex; flex-direction: column; justify-content: center;">
-                    <h3>Security in Every Turn</h3>
-                    <p>Equipped with European-standard multi-point locking systems and premium ergonomic handles.</p>
-                    <ul class="highlight-list">
-                        <li><i class="fa-solid fa-lock"></i> Multi-Point Concealed Locks</li>
-                        <li><i class="fa-solid fa-shield"></i> Anti-Lift Security Mechanism</li>
-                        <li><i class="fa-solid fa-gear"></i> Heavy Duty Double Rollers</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="slide-container" id="slide10">
-        <h2 class="slide-title">Exquisite Finishes</h2>
-        <div class="content-area">
-            <div class="tiled-content">
-                <div class="tile">
-                    <h3>Powder Coated</h3>
-                    <p>Infinite RAL color possibilities with highly durable textured finishes.</p>
-                </div>
-                <div class="tile">
-                    <h3>Anodized</h3>
-                    <p>Classic metallic tones like Silver, Bronze, and Champagne for a timeless look.</p>
-                </div>
-                <div class="tile">
-                    <h3>Wood Finish</h3>
-                    <p>Natural wood grain textures for the warmth of wood with the strength of aluminum.</p>
-                </div>
-            </div>
-            <div class="bar-container" style="margin-top: 40px;">
-                <p>Popular Finish Demand (Project Stats):</p>
-                <div class="bar"><div class="bar-fill" style="width: 85%;">Charcoal Gray / Black (85%)</div></div>
-                <div class="bar"><div class="bar-fill" style="width: 60%; opacity: 0.8;">Metallic Silver (60%)</div></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="slide-container" id="slide11">
-        <h2 class="slide-title">German Precision</h2>
-        <div class="content-area">
-            <div class="two-column" style="align-items: center;">
-                <div>
-                    <h3>Engineering Excellence</h3>
-                    <p>Every profile is designed according to modern architectural requirements, ensuring lifetime performance without corrosion.</p>
-                    <p>Tested against international standards (EN12207/8/10) for air infiltration and structural stability.</p>
-                </div>
-                <div style="text-align: center;">
-                    <div style="width: 300px; height: 300px; border-radius: 50%; border: 10px solid #e07a5f; margin: 0 auto; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-                        <span style="font-size: 60px; font-weight: 700; color: #e07a5f;">25</span>
-                        <span style="font-size: 20px; text-transform: uppercase;">Years Warranty</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="slide-container section-title-layout" id="slide12">
-        <div class="content-area">
-            <h1>Elevate Your Space</h1>
-            <p class="subtitle" style="color: #e07a5f;">Shubham Aludecor | Premium Fenestration</p>
-            <div style="margin-top: 40px; font-size: 20px;">
-                <p><i class="fa-solid fa-location-dot"></i> Visit our showroom to experience the FINE 25 series.</p>
-                <p><i class="fa-solid fa-envelope"></i> contact@shubhamaludecor.com</p>
-                <p><i class="fa-solid fa-phone"></i> +91 12345 67890</p>
-            </div>
-        </div>
     </div>
 
 </body>
