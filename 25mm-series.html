@@ -33,7 +33,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 40px 20px;
         }
@@ -53,65 +53,114 @@
             font-size: 1.1rem;
         }
 
-        /* Grid Layout for Configuration Cards */
-        .config-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .config-card {
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            overflow: hidden;
+        /* Options Menu Styling */
+        .options-menu {
             display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
         }
 
-        .config-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        .option-btn {
+            background-color: #ffffff;
+            border: 2px solid #e2e8f0;
+            color: #4a5568;
+            padding: 14px 28px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
 
-        .card-image {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            background-color: #e9ecef; /* Fallback placeholder color */
-        }
-
-        .card-content {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .card-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            margin: 0;
+        .option-btn:hover {
+            border-color: #1a252c;
             color: #1a252c;
+            transform: translateY(-2px);
         }
 
-        .card-icon {
-            font-size: 1.5rem;
+        .option-btn.active {
+            background-color: #1a252c;
+            border-color: #1a252c;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(26, 37, 44, 0.15);
         }
 
-        .card-description {
+        /* Display Card Layout */
+        .display-container {
+            position: relative;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid #eef2f5;
+            overflow: hidden;
+        }
+
+        .config-content {
+            display: none; /* Hidden by default */
+            animation: fadeIn 0.4s ease;
+            padding: 40px;
+        }
+
+        .config-content.active {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .config-content.active {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .info-side {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .content-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin: 0 0 15px 0;
+            color: #1a252c;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .content-description {
             color: #555;
-            font-size: 0.95rem;
-            margin-bottom: 10px;
-            flex-grow: 1;
+            font-size: 1.05rem;
+            margin: 0;
+            line-content: 1.7;
+        }
+
+        .image-side {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .config-image {
+            width: 100%;
+            max-width: 450px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            background-color: #e9ecef;
+        }
+
+        /* Simple animation swap effect */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -124,11 +173,79 @@
 
     <div class="container">
         <h1 class="page-title">25mm Premium Series</h1>
-        <p class="page-subtitle">Customizable Track & Grill Configurations tailored to your lifestyle.</p>
+        <p class="page-subtitle">Select a track option below to explore its structural configuration.</p>
 
-        <div class="config-grid">
-            <div class="config-card">
-                <img src="PASTE_YOUR_IMAGE_URL_HERE" alt="2-Track Sliding Window" class="card-image">
-                <div class="card-content">
-                    <div class="card-header">
-                        <h
+        <div class="options-menu">
+            <button class="option-btn active" onclick="switchConfig('track-2')">2 Track</button>
+            <button class="option-btn" onclick="switchConfig('track-3')">3 Track</button>
+            <button class="option-btn" onclick="switchConfig('track-2-grill')">2 Track + Grill</button>
+            <button class="option-btn" onclick="switchConfig('track-3-grill')">3 Track + Grill</button>
+        </div>
+
+        <div class="display-container">
+            
+            <div id="track-2" class="config-content active">
+                <div class="info-side">
+                    <h2 class="content-title">2 Track Configuration 🪟</h2>
+                    <p class="content-description">Our standard two-panel sliding system. Highly space-efficient, offering smooth operation and maximum natural light for architectural layouts that don't require built-in mosquito screens.</p>
+                </div>
+                <div class="image-side">
+                    <img src="PASTE_YOUR_2_TRACK_IMAGE_URL_HERE" alt="2-Track Configuration Diagram" class="config-image">
+                </div>
+            </div>
+
+            <div id="track-3" class="config-content">
+                <div class="info-side">
+                    <h2 class="content-title">3 Track Configuration 🦟</h2>
+                    <p class="content-description">Features two sliding glass panels combined with an independent, dedicated track for a mosquito mesh. This lets you enjoy crisp outdoor ventilation entirely insect-free.</p>
+                </div>
+                <div class="image-side">
+                    <img src="PASTE_YOUR_3_TRACK_IMAGE_URL_HERE" alt="3-Track Configuration Diagram" class="config-image">
+                </div>
+            </div>
+
+            <div id="track-2-grill" class="config-content">
+                <div class="info-side">
+                    <h2 class="content-title">2 Track + Grill 🛡️</h2>
+                    <p class="content-description">Integrates the sleek profile of our 2-Track system alongside a heavy-duty, built-in safety grill. Delivers premium home security features without compromising structural elegance.</p>
+                </div>
+                <div class="image-side">
+                    <img src="PASTE_YOUR_2_TRACK_GRILL_IMAGE_URL_HERE" alt="2-Track with Grill Diagram" class="config-image">
+                </div>
+            </div>
+
+            <div id="track-3-grill" class="config-content">
+                <div class="info-side">
+                    <h2 class="content-title">3 Track + Grill ⭐</h2>
+                    <p class="content-description">The absolute complete configuration. Houses multiple sliding elements for full insect mesh utility alongside an advanced heavy structural grill setup for peak luxury protection.</p>
+                </div>
+                <div class="image-side">
+                    <img src="PASTE_YOUR_3_TRACK_GRILL_IMAGE_URL_HERE" alt="3-Track with Mesh and Grill Diagram" class="config-image">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function switchConfig(configId) {
+            // Remove active status from all option buttons
+            document.querySelectorAll('.option-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Hide all configuration contents
+            document.querySelectorAll('.config-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Add active status to clicked button
+            event.target.classList.add('active');
+            
+            // Show selected configuration content
+            document.getElementById(configId).classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
