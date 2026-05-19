@@ -3,39 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Brochures & Gallery | Shubham Aludecor</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>FINE 25 Catalogue | Shubham Aludecor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #fcfcfc;
-            --surface-bg: #ffffff;
-            --text-primary: #111111;
-            --text-secondary: #666666;
-            --brand-dark: #191919;
-            --border-color: #eeeeee;
+            --primary: #111111;
+            --accent: #bc9c6c; /* Elegant Architectural Gold/Bronze accent */
+            --bg-light: #fdfdfd;
+            --surface: #ffffff;
+            --text-dark: #1a1a1a;
+            --text-muted: #666666;
+            --border: #eaeaea;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Inter', sans-serif;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.6;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.7;
         }
 
-        /* Clean Navigation */
+        /* Luxury Header Navigation */
         header {
-            background: var(--surface-bg);
-            padding: 24px 40px;
+            background: var(--surface);
+            padding: 24px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -43,180 +44,241 @@
 
         .logo {
             font-weight: 700;
-            font-size: 1.15rem;
-            letter-spacing: 1.5px;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
 
         .nav-link {
             text-decoration: none;
-            color: var(--text-secondary);
+            color: var(--text-muted);
             font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s ease;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
         }
 
         .nav-link:hover {
-            color: var(--text-primary);
+            color: var(--accent);
         }
 
-        /* Layout Grid Wrapper */
-        .page-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 24px 100px 24px;
-        }
-
-        .intro-section {
-            margin-bottom: 48px;
+        /* Editorial Hero Banner Section */
+        .hero-banner {
+            background: linear-gradient(135deg, #111111 0%, #222222 100%);
+            color: #ffffff;
+            padding: 100px 5%;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 4px solid var(--accent);
         }
 
-        .intro-section h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 12px;
+        .hero-banner::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 80%, rgba(188, 156, 108, 0.15), transparent 50%);
         }
 
-        .intro-section p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* Catalogue Highlight Section */
-        .catalogue-download-card {
-            background: var(--surface-bg);
-            border: 1px solid var(--border-color);
-            padding: 40px;
-            margin-bottom: 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 30px;
-        }
-
-        .catalogue-info h3 {
-            font-size: 1.5rem;
+        .hero-tag {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--accent);
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 15px;
+            display: block;
         }
 
-        .catalogue-info p {
-            color: var(--text-secondary);
-            font-size: 1rem;
+        .hero-banner h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 20px;
+            line-height: 1.2;
         }
 
-        .btn-action {
-            display: inline-flex;
-            align-items: center;
-            background: var(--brand-dark);
+        .hero-banner p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            max-width: 700px;
+            margin: 0 auto 35px auto;
+            color: #cccccc;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background: var(--accent);
             color: #ffffff;
             text-decoration: none;
-            padding: 14px 32px;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: background 0.2s ease;
-            white-space: nowrap;
-        }
-
-        .btn-action:hover {
-            background: #444444;
-        }
-
-        /* Section Heading */
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 24px;
-            letter-spacing: -0.3px;
+            padding: 14px 36px;
+            font-weight: 600;
+            font-size: 0.9rem;
             text-transform: uppercase;
-            font-size: 1.1rem;
-            color: var(--text-secondary);
+            letter-spacing: 1.5px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--accent);
         }
 
-        /* Dynamic Image Grid Layout */
-        .brochure-gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+        .hero-btn:hover {
+            background: transparent;
+            color: var(--accent);
+            transform: translateY(-2px);
         }
 
-        .gallery-item {
-            background: var(--surface-bg);
-            border: 1px solid var(--border-color);
-            overflow: hidden;
+        /* Brochure Content Container */
+        .brochure-container {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 5%;
+        }
+
+        .section-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-intro h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .section-intro .divider {
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            margin: 0 auto 15px auto;
+        }
+
+        /* Alternating Magazine Layout Blocks */
+        .brochure-row {
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 100px;
         }
 
-        /* Keeps items spanning perfectly for balanced look */
-        .gallery-item.large {
-            grid-column: span 2;
+        .brochure-row:nth-child(even) {
+            flex-direction: row-reverse;
         }
 
-        .image-container {
-            width: 100%;
-            height: 380px;
-            background: #f0f0f0;
-            overflow: hidden;
+        /* Image Display Frame */
+        .brochure-frame {
+            flex: 1.2;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            padding: 24px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.03);
             position: relative;
         }
 
-        .image-container img {
+        .brochure-frame::after {
+            content: "";
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--accent);
+            z-index: -1;
+        }
+
+        .brochure-row:nth-child(odd) .brochure-frame::after { bottom: -10px; right: -10px; border-top: none; border-left: none; }
+        .brochure-row:nth-child(even) .brochure-frame::after { top: -10px; left: -10px; border-bottom: none; border-right: none; }
+
+        .brochure-frame img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
+            height: auto;
+            display: block;
+            object-fit: contain;
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.04);
+        /* Specification Narrative Block */
+        .brochure-text {
+            flex: 1;
         }
 
-        .image-caption {
-            padding: 20px;
-            border-top: 1px solid var(--border-color);
+        .page-num {
+            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            color: rgba(188, 156, 108, 0.25);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 10px;
         }
 
-        .image-caption h4 {
-            font-size: 1.1rem;
+        .brochure-text h3 {
+            font-size: 1.5rem;
             font-weight: 600;
-            margin-bottom: 4px;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+            position: relative;
+            padding-bottom: 10px;
         }
 
-        .image-caption p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
+        .brochure-text h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--accent);
         }
 
-        /* Footer */
+        .brochure-text p {
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        /* Tech Spec Mini Table */
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .spec-table td {
+            padding: 8px 0;
+            font-size: 0.85rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .spec-table td:first-child {
+            font-weight: 600;
+            color: var(--text-dark);
+            width: 40%;
+        }
+
+        .spec-table td:last-child {
+            color: var(--text-muted);
+            text-align: right;
+        }
+
+        /* Premium Brand Footer */
         footer {
-            background: var(--surface-bg);
-            padding: 40px 24px;
+            background: #111111;
+            color: #ffffff;
+            padding: 60px 5% 40px 5%;
             text-align: center;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            font-size: 0.9rem;
+            border-top: 4px solid var(--accent);
         }
 
-        /* Responsive Breakpoints */
-        @media (max-width: 968px) {
-            .brochure-gallery {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .gallery-item.large {
-                grid-column: span 1;
-            }
+        footer p {
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            color: #888888;
         }
 
-        @media (max-width: 768px) {
-            header { padding: 20px; }
-            .catalogue-download-card { flex-direction: column; text-align: center; padding: 30px 20px; }
-            .brochure-gallery { grid-template-columns: 1fr; }
-            .image-container { height: 280px; }
+        /* Responsive Adapting */
+        @media (max-width: 900px) {
+            .brochure-row, .brochure-row:nth-child(even) {
+                flex-direction: column;
+                gap: 30px;
+                margin-bottom: 70px;
+            }
+            .hero-banner h1 { font-size: 2.3rem; }
         }
     </style>
 </head>
@@ -227,80 +289,101 @@
         <a href="index.html" class="nav-link">← Return to Home</a>
     </header>
 
-    <div class="page-wrapper">
-        <section class="intro-section">
-            <h1>Product Brochure Portfolio</h1>
-            <p>Explore architectural design systems, system cross-sections, and premium engineering profiles.</p>
-        </section>
+    <section class="hero-banner">
+        <span class="hero-tag">Architectural Presentation</span>
+        <h1>FINE 25 Series</h1>
+        <p>A comprehensive showcase of structural profiles, precise track blueprints, and high-performance engineering matrices built for luxury spaces.</p>
+        <a href="FINE%2025.pdf" target="_blank" class="hero-btn">Download Full Printable PDF</a>
+    </section>
 
-        <div class="catalogue-download-card">
-            <div class="catalogue-info">
-                <h3>FINE 25 Technical Matrix</h3>
-                <p>Download the complete digital specification handbook for our 25mm sliding series track profiles.</p>
-            </div>
-            <a href="FINE%2025.pdf" target="_blank" class="btn-action">Download PDF Brochure</a>
+    <div class="brochure-container">
+        
+        <div class="section-intro">
+            <h2>System Blueprints & Profiles</h2>
+            <div class="divider"></div>
         </div>
 
-        <h2 class="section-title">System Configurations & Visuals</h2>
-
-        <main class="brochure-gallery">
-            
-            <div class="gallery-item large">
-                <div class="image-container">
-                    <img src="image%201.png" alt="Shubham Aludecor Profile Specification 1">
-                </div>
-                <div class="image-caption">
-                    <h4>Architectural Layout Design</h4>
-                    <p>Premium frame detailing engineered for seamless visual sightlines.</p>
-                </div>
+        <article class="brochure-row">
+            <div class="brochure-frame">
+                <img src="image%201.png" alt="Shubham Aludecor Framing Architecture">
             </div>
-
-            <div class="gallery-item">
-                <div class="image-container">
-                    <img src="image%202.png" alt="Shubham Aludecor Profile Specification 2">
-                </div>
-                <div class="image-caption">
-                    <h4>Structural Profile Sections</h4>
-                    <p>Heavy-duty build design with exceptional wind-load resistance specifications.</p>
-                </div>
+            <div class="brochure-text">
+                <div class="page-num">01</div>
+                <h3>Architectural Framing Layout</h3>
+                <p>Engineered to deliver exceptional minimalist design without losing framework rigidity. This layout handles clean multi-pane spacing seamlessly.</p>
+                <table class="spec-table">
+                    <tr><td>Profile Width</td><td>25mm Base Slimline</td></tr>
+                    <tr><td>Frame Material</td><td>Premium Grade Aluminum</td></tr>
+                    <tr><td>Ideal Target</td><td>Luxury Glazed Facades</td></tr>
+                </table>
             </div>
+        </article>
 
-            <div class="gallery-item">
-                <div class="image-container">
-                    <img src="image%203.png" alt="Shubham Aludecor Profile Specification 3">
-                </div>
-                <div class="image-caption">
-                    <h4>Tracking Systems Configuration</h4>
-                    <p>Precision multi-track layout setups designed for effortless sliding motion.</p>
-                </div>
+        <article class="brochure-row">
+            <div class="brochure-frame">
+                <img src="image%202.png" alt="Shubham Aludecor Tracking Mechanics">
             </div>
-
-            <div class="gallery-item large">
-                <div class="image-container">
-                    <img src="image%204.png" alt="Shubham Aludecor Profile Specification 4">
-                </div>
-                <div class="image-caption">
-                    <h4>Assembled Frameworks Overview</h4>
-                    <p>Clean alignment and flush corner joins built for modern luxury projects.</p>
-                </div>
+            <div class="brochure-text">
+                <div class="page-num">02</div>
+                <h3>Track Dimensions & Clearance</h3>
+                <p>Precise depth thresholds designed specifically for flawless movement. This structural blueprint balances heavy tracking mechanics with advanced water drainage gaps.</p>
+                <table class="spec-table">
+                    <tr><td>Tracking Types</td><td>Double / Triple Rail Option</td></tr>
+                    <tr><td>Clearance Layer</td><td>Flush Floor Adaptation</td></tr>
+                    <tr><td>Motion System</td><td>Precision Heavy-Duty Rollers</td></tr>
+                </table>
             </div>
+        </article>
 
-            <div class="gallery-item">
-                <div class="image-container">
-                    <img src="image%205.png" alt="Shubham Aludecor Profile Specification 5">
-                </div>
-                <div class="image-caption">
-                    <h4>Interlock Profile Framework</h4>
-                    <p>Slim, optimized interlocks maximizes your views while preserving maximum structural strength.</p>
-                </div>
+        <article class="brochure-row">
+            <div class="brochure-frame">
+                <img src="image%203.png" alt="Shubham Aludecor Infill Layout">
             </div>
+            <div class="brochure-text">
+                <div class="page-num">03</div>
+                <h3>Glass Infill & Gasket Placements</h3>
+                <p>A complete matrix breakdown illustrating the airtight and waterproof rubber gasket locking configurations designed to isolate noise and block wind shear.</p>
+                <table class="spec-table">
+                    <tr><td>Infill Compatibility</td><td>Double / Single Toughened Glass</td></tr>
+                    <tr><td>Insulation Seal</td><td>EPDM Continuous Gaskets</td></tr>
+                    <tr><td>Acoustic Rating</td><td>High Decibel Isolation</td></tr>
+                </table>
+            </div>
+        </article>
 
-        </main>
+        <article class="brochure-row">
+            <div class="brochure-frame">
+                <img src="image%204.png" alt="Shubham Aludecor Hardware Assembly">
+            </div>
+            <div class="brochure-text">
+                <div class="page-num">04</div>
+                <h3>Assembled System Frameworks</h3>
+                <p>Visual detailing displaying corner alignments, heavy interlocking nodes, and hidden hardware assembly slots configured to maximize structural durability.</p>
+                <table class="spec-table">
+                    <tr><td>Corner Connection</td><td>Heavy Mechanical Joint Clamps</td></tr>
+                    <tr><td>Hardware Lock</td><td>Multi-Point Security Integration</td></tr>
+                    <tr><td>Structural Finish</td><td>Matte / Powder-Coated Layering</td></tr>
+                </table>
+            </div>
+        </article>
+
+        <article class="brochure-row">
+            <div class="brochure-frame">
+                <img src="image%205.png" alt="Shubham Aludecor Interlock Profiles">
+            </div>
+            <div class="brochure-text">
+                <div class="page-num">05</div>
+                <h3>Interlock Profile Engineering</h3>
+                <p>Optimized slim interlock segments that hide away perfectly, expanding exterior field-of-views while easily withstanding severe weather and wind pressures.</p>
+                <table class="spec-table">
+                    <tr><td>Sightline Profile</td><td>Ultra-Slim Minimal Silhouette</td></tr>
+                    <tr><td>Wind Load Capacity</td><td>Structural Grade Rating</td></tr>
+                    <tr><td>Operation Type</td><td>Effortless Slide Transition</td></tr>
+                </table>
+            </div>
+        </article>
+
     </div>
 
     <footer>
-        <p>&copy; 2026 Shubham Aludecor. All architectural rights reserved.</p>
-    </footer>
-
-</body>
-</html>
+        <p>&copy; 2026 Shubham Aludecor. High-Performance Architectural
