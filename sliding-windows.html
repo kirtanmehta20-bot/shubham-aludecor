@@ -3,162 +3,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sliding Windows | Shubham Aludecor</title>
+    <title>Premium Sliding Windows | Shubham Aludecor</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
     <style>
-        /* --- BASE STYLES --- */
+        /* --- CORE VARIABLES (Matching Index) --- */
+        :root {
+            --charcoal: #111111;
+            --charcoal-light: #1a1a1a;
+            --gold: #bc9c6c;
+            --gold-hover: #d4b484;
+            --white: #ffffff;
+            --off-white: #f9f9f9;
+            --text-muted: #888888;
+        }
+
         html { scroll-behavior: smooth; }
-        body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; color: #333; background-color: #f8f9fa; line-height: 1.6; }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; letter-spacing: 0.5px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--off-white);
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
 
-        /* --- HEADER --- */
-        header { background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); position: sticky; top: 0; z-index: 1000; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); flex-wrap: wrap; }
-        .logo-container { display: flex; align-items: center; gap: 15px; }
-        .logo-img { height: 60px; width: auto; }
-        nav { margin-top: 10px; }
-        nav a { color: white; text-decoration: none; margin-left: 1.5rem; font-weight: 500; transition: color 0.3s; }
-        nav a:hover { color: #4da6ff; }
+        /* --- PREMIUM HEADER --- */
+        .premium-header {
+            background: rgba(17, 17, 17, 0.9);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(188, 156, 108, 0.2);
+            transition: all 0.3s ease;
+        }
+        .header-container {
+            max-width: 1400px; margin: 0 auto; padding: 20px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .brand-logo { text-decoration: none; }
+        .brand-text {
+            color: var(--white); font-family: 'Playfair Display', serif;
+            font-size: 1.2rem; font-weight: 700; line-height: 1.1;
+            letter-spacing: 2px; text-transform: uppercase;
+        }
+        .accent-text { color: var(--gold); }
+        .main-nav { display: flex; gap: 40px; align-items: center; }
+        .nav-item {
+            text-decoration: none; color: #d1d5db; font-size: 0.85rem; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 1.5px; position: relative; padding-bottom: 5px; transition: color 0.3s ease;
+        }
+        .nav-item:hover { color: var(--gold); }
+        .nav-item::after {
+            content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0;
+            background-color: var(--gold); transition: width 0.3s ease-in-out;
+        }
+        .nav-item:hover::after { width: 100%; }
+        .action-btn {
+            display: inline-block; text-decoration: none; background: transparent; color: var(--gold);
+            border: 1px solid var(--gold); padding: 12px 28px; font-size: 0.85rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 1.5px; transition: all 0.3s ease;
+        }
+        .action-btn:hover { background: var(--gold); color: var(--charcoal); }
 
-        /* --- BUTTONS & FOOTER --- */
-        .btn { background-color: #4da6ff; color: white; padding: 1.2rem 2.5rem; text-decoration: none; letter-spacing: 2px; display: inline-block; transition: all 0.4s ease; font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
-        .btn:hover { background-color: white; color: #000; transform: translateY(-3px); }
-        footer { background-color: #0d1317; color: #718096; text-align: center; padding: 2rem 1.5rem; font-size: 0.9rem; }
+        /* --- PRODUCT HERO SECTION --- */
+        .product-hero {
+            position: relative; height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center;
+            background: url('https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop') no-repeat center center/cover;
+        }
+        .hero-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(17,17,17,0.85) 0%, rgba(17,17,17,0.5) 100%); z-index: 1;
+        }
+        .hero-content { position: relative; z-index: 2; max-width: 900px; padding: 0 20px; }
+        .hero-tag {
+            display: block; color: var(--gold); text-transform: uppercase; letter-spacing: 4px; font-size: 0.9rem; font-weight: 600; margin-bottom: 20px;
+        }
+        .product-hero h1 { font-size: 4.5rem; margin-bottom: 1.5rem; font-weight: 700; color: var(--white); line-height: 1.1; }
+        .product-hero p { font-size: 1.15rem; color: #e0e0e0; font-weight: 300; max-width: 700px; margin: 0 auto; }
 
-        /* --- PAGE SPECIFIC STYLES --- */
-        .page-hero { background: url('https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=2000&q=80') no-repeat center center/cover; height: 45vh; display: flex; align-items: center; justify-content: center; position: relative; color: white; text-align: center; }
-        .page-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.65); }
-        .page-hero h1 { position: relative; z-index: 1; font-size: 3.5rem; margin: 0; text-shadow: 0px 4px 15px rgba(0,0,0,0.6); }
-        .content-section { padding: 4rem 5%; max-width: 1200px; margin: 0 auto; }
+        /* --- SECTION HEADERS --- */
+        .section-padding { padding: 100px 5%; }
+        .section-header { font-size: 2.8rem; color: var(--charcoal); margin-bottom: 20px; text-align: center; }
+        .gold-divider { width: 60px; height: 3px; background: var(--gold); margin: 0 auto 40px auto; }
+        .header-light { color: var(--white); }
 
-        /* --- PROFILES GRID --- */
-        .profiles-section { margin: 3rem 0 5rem 0; }
-        .profiles-section h2 { text-align: center; color: #1a252c; margin-bottom: 2.5rem; font-size: 2.5rem; }
-        .profiles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-        .profile-card { background: white; padding: 2.5rem 2rem; border-radius: 12px; border-top: 5px solid #4da6ff; box-shadow: 0 10px 25px rgba(0,0,0,0.06); text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .profile-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
-        .profile-size { font-size: 3rem; font-weight: bold; color: #4da6ff; font-family: 'Playfair Display', serif; margin-bottom: 0.5rem; line-height: 1; }
-        .profile-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem; color: #1a252c; letter-spacing: 1px; text-transform: uppercase; }
-        .profile-desc { font-size: 0.95rem; color: #555; line-height: 1.6; }
+        /* --- THICKNESS PROFILES GRID --- */
+        .profiles-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1300px; margin: 0 auto;
+        }
+        .profile-card {
+            background: var(--charcoal); padding: 40px; border-top: 3px solid var(--gold); transition: transform 0.4s ease; display: flex; flex-direction: column;
+        }
+        .profile-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .profile-series { color: var(--gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+        .profile-card h3 { color: var(--white); font-size: 1.8rem; margin-bottom: 15px; }
+        .profile-card p { color: #aaaaaa; font-size: 0.95rem; margin-bottom: 30px; flex-grow: 1; }
+        .link-btn {
+            color: var(--gold); text-transform: uppercase; text-decoration: none; font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; display: inline-flex; align-items: center;
+        }
+        .link-btn::after { content: '→'; margin-left: 8px; transition: margin-left 0.3s ease; }
+        .link-btn:hover::after { margin-left: 15px; }
 
-        /* --- SPECS SECTION --- */
-        .specs-container { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); margin-bottom: 5rem; }
-        .specs-container h3 { color: #1a252c; border-bottom: 2px solid #4da6ff; padding-bottom: 0.5rem; display: inline-block; font-size: 1.8rem; margin-top: 0;}
-        .specs-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-        .specs-list li { padding: 1rem; background: #f8f9fa; border-radius: 8px; display: flex; align-items: flex-start; gap: 15px; font-size: 1.05rem; color: #555; }
+        /* --- SPECIFICATIONS SECTION (DARK) --- */
+        .specs-section { background: var(--charcoal); color: var(--white); }
+        .specs-container { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+        .spec-block h3 { color: var(--gold); font-size: 1.5rem; margin-bottom: 15px; display: flex; align-items: center; gap: 15px; }
+        .spec-block p { color: #cccccc; font-size: 1.05rem; line-height: 1.8; }
+        .spec-icon { font-size: 2rem; color: var(--charcoal-light); -webkit-text-stroke: 1px var(--gold); font-family: 'Playfair Display', serif; }
 
-        /* --- GALLERY --- */
-        .gallery-title { text-align: center; margin-bottom: 1rem; font-size: 2.5rem; color: #1a252c; }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top: 2rem; }
-        .gallery-grid img { width: 100%; height: 280px; object-fit: cover; border-radius: 8px; transition: transform 0.4s ease, box-shadow 0.4s ease; cursor: pointer; }
-        .gallery-grid img:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+        /* --- PROJECT GALLERY --- */
+        .gallery-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1400px; margin: 0 auto;
+        }
+        .gallery-item {
+            height: 400px; overflow: hidden; background: var(--charcoal); position: relative;
+        }
+        .gallery-item img {
+            width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; opacity: 0.9;
+        }
+        .gallery-item:hover img { transform: scale(1.08); opacity: 1; }
+
+        /* --- FOOTER --- */
+        footer { background: var(--charcoal); color: var(--white); padding: 80px 5% 40px; text-align: center; border-top: 4px solid var(--gold); }
+        footer h2 { font-size: 2.2rem; margin-bottom: 20px; }
+        footer p { color: var(--text-muted); margin-bottom: 15px; }
+        footer strong { color: var(--white); font-weight: 500; }
+        
+        @media (max-width: 900px) {
+            .main-nav, .header-action { display: none; }
+            .product-hero h1 { font-size: 3rem; }
+            .specs-container { grid-template-columns: 1fr; gap: 40px; }
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="logo-container">
-        <img src="https://i.postimg.cc/NLqWq7mW/logo.png" alt="Shubham Aludecor Logo" class="logo-img">
-    </div>
-    <nav>
-        <a href="index.html">⬅ Back to Home</a>
-        <a href="index.html#contact">Contact Us</a>
-    </nav>
-</header>
+    <header class="premium-header">
+        <div class="header-container">
+            <a href="index.html" class="brand-logo">
+                <span class="brand-text">SHUBHAM<br><span class="accent-text">ALUDECOR</span></span>
+            </a>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-item">Home</a>
+                <a href="index.html#about" class="nav-item">About Us</a>
+                <a href="index.html#products" class="nav-item">Our Products</a>
+                <a href="brochure.html" class="nav-item">Brochures</a>
+            </nav>
+            <div class="header-action">
+                <a href="#contact" class="action-btn">Contact Us</a>
+            </div>
+        </div>
+    </header>
 
-<div class="page-hero">
-    <h1>Premium Sliding Windows</h1>
-</div>
+    <section class="product-hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-tag">Elevating Modern Spaces</span>
+            <h1>Premium Sliding Windows</h1>
+            <p>Our aluminum sliding windows offer maximum natural light and effortless operation without taking up valuable interior space. Perfect for modern homes and commercial spaces.</p>
+        </div>
+    </section>
 
-<div class="content-section">
-    <div style="text-align: center; max-width: 800px; margin: 0 auto 4rem auto;">
-        <p style="font-size: 1.15rem; color: #555;">Our aluminum sliding windows offer maximum natural light and effortless operation without taking up valuable interior space. Perfect for modern homes and commercial spaces.</p>
+    <section class="section-padding">
+        <h2 class="section-header">Our Thickness Profiles</h2>
+        <div class="gold-divider"></div>
         
-        <div style="margin-top: 1.5rem; display: inline-block; padding: 0.5rem 1.5rem; border-left: 4px solid #4da6ff; border-right: 4px solid #4da6ff; background: #eef6ff; border-radius: 4px;">
-            <p style="font-weight: bold; font-size: 1.2rem; color: #1a252c; margin: 0; letter-spacing: 2px;">ELEVATING MODERN SPACES</p>
-        </div>
-    </div>
-
-    <div class="profiles-section">
-        <h2>Our Thickness Profiles</h2>
         <div class="profiles-grid">
-            
-            <a href="27mm-series.html" style="text-decoration: none; color: inherit;">
-                <div class="profile-card" style="cursor: pointer;">
-                    <div class="profile-size">27mm</div>
-                    <div class="profile-title">Standard Series</div>
-                    <div class="profile-desc">Lightweight and highly economical. The perfect choice for standard residential windows with typical wind loads.</div>
-                    <div style="margin-top: 1.5rem; color: #4da6ff; font-weight: bold; font-size: 0.9rem;">VIEW CONFIGURATIONS ➔</div>
-                </div>
-            </a>
+            <div class="profile-card">
+                <span class="profile-series">27mm Series</span>
+                <h3>Standard Profile</h3>
+                <p>Lightweight and highly economical. The perfect choice for standard residential windows with typical wind loads.</p>
+                <a href="#" class="link-btn">View Configurations</a>
+            </div>
 
-            <a href="25mm-series.html" style="text-decoration: none; color: inherit;">
-                <div class="profile-card" style="cursor: pointer;">
-                    <div class="profile-size">25mm</div>
-                    <div class="profile-title">Premium Series</div>
-                    <div class="profile-desc">A step up in strength. Ideal for slightly larger residential windows requiring better stability and smoother operation.</div>
-                    <div style="margin-top: 1.5rem; color: #4da6ff; font-weight: bold; font-size: 0.9rem;">VIEW CONFIGURATIONS ➔</div>
-                </div>
-            </a>
+            <div class="profile-card">
+                <span class="profile-series">25mm Series</span>
+                <h3>Premium Profile</h3>
+                <p>A step up in strength. Ideal for slightly larger residential windows requiring better stability and smoother operation.</p>
+                <a href="25mm-series.html" class="link-btn">View Configurations</a>
+            </div>
 
-            <a href="29mm-series.html" style="text-decoration: none; color: inherit;">
-                <div class="profile-card" style="cursor: pointer;">
-                    <div class="profile-size">29mm</div>
-                    <div class="profile-title">Elite Series</div>
-                    <div class="profile-desc">Superior frame rigidity. Designed for luxury homes, high-end apartments, and light commercial spaces.</div>
-                    <div style="margin-top: 1.5rem; color: #4da6ff; font-weight: bold; font-size: 0.9rem;">VIEW CONFIGURATIONS ➔</div>
-                </div>
-            </a>
+            <div class="profile-card">
+                <span class="profile-series">29mm Series</span>
+                <h3>Elite Profile</h3>
+                <p>Superior frame rigidity. Designed for luxury homes, high-end apartments, and light commercial spaces.</p>
+                <a href="#" class="link-btn">View Configurations</a>
+            </div>
 
-            <a href="30mm-series.html" style="text-decoration: none; color: inherit;">
-                <div class="profile-card" style="cursor: pointer;">
-                    <div class="profile-size">30mm</div>
-                    <div class="profile-title">Heavy-Duty Series</div>
-                    <div class="profile-desc">Maximum durability and wind resistance. Best suited for high-rise buildings and very large spans.</div>
-                    <div style="margin-top: 1.5rem; color: #4da6ff; font-weight: bold; font-size: 0.9rem;">VIEW CONFIGURATIONS ➔</div>
-                </div>
-            </a>
-
+            <div class="profile-card">
+                <span class="profile-series">30mm Series</span>
+                <h3>Heavy-Duty Profile</h3>
+                <p>Maximum durability and wind resistance. Best suited for high-rise buildings and very large architectural spans.</p>
+                <a href="#" class="link-btn">View Configurations</a>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <div class="specs-container">
-        <h3>Additional Specifications</h3>
-        <ul class="specs-list">
-            <li>
-                <span style="font-size: 1.5rem;">🛤️</span>
-                <div>
-                    <strong style="color: #1a252c;">Track Systems:</strong> Choose between 2-Track and 3-Track framing options, with built-in provisions for mosquito mesh.
-                </div>
-            </li>
-            <li>
-                <span style="font-size: 1.5rem;">⚙️</span>
-                <div>
-                    <strong style="color: #1a252c;">Hardware:</strong> Equipped with premium concealed locks, touch locks, and noise-reducing heavy-duty bearing rollers.
-                </div>
-            </li>
-        </ul>
-    </div>
+    <section class="section-padding specs-section">
+        <h2 class="section-header header-light">Engineering Specifications</h2>
+        <div class="gold-divider"></div>
+        
+        <div class="specs-container">
+            <div class="spec-block">
+                <h3><span class="spec-icon">01</span> Track Systems</h3>
+                <p>Choose between seamless 2-Track and 3-Track framing options. Our extrusions feature built-in, concealed provisions for stainless steel mosquito mesh integration, maintaining clean architectural sightlines.</p>
+            </div>
+            <div class="spec-block">
+                <h3><span class="spec-icon">02</span> Hardware & Mechanics</h3>
+                <p>Equipped with premium concealed locks, flush touch locks, and noise-reducing, heavy-duty bearing rollers to ensure a lifetime of silent, effortless gliding under heavy glass loads.</p>
+            </div>
+        </div>
+    </section>
 
-    <h2 class="gallery-title">Project Gallery</h2>
-    <p style="text-align: center; color: #555; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Take a look at some of our recent sliding window installations.</p>
-    
-    <div class="gallery-grid">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Sliding Window 1">
-        <img src="https://images.unsplash.com/photo-1600566753086-00f18efc204b?auto=format&fit=crop&w=800&q=80" alt="Sliding Window 2">
-        <img src="https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?auto=format&fit=crop&w=800&q=80" alt="Sliding Window 3">
-    </div>
+    <section class="section-padding">
+        <h2 class="section-header">Project Gallery</h2>
+        <div class="gold-divider"></div>
+        <p style="text-align: center; color: var(--text-muted); margin-bottom: 40px;">Take a look at some of our recent sliding window installations.</p>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Sliding Window Project 1">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="Sliding Window Project 2">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=800&q=80" alt="Sliding Window Project 3">
+            </div>
+        </div>
+    </section>
 
-</div>
-
-<footer>
-    <h3 style="color: white; margin-bottom: 1rem; font-family: 'Playfair Display', serif;">Contact Shubham Aludecor</h3>
-    <p>Ready to upgrade your space? Get in touch with us today for custom measurements and quotes.</p>
-    <p style="font-size: 1.2rem; color: white; margin: 1.5rem 0;">📞 +91 6356561410</p>
-    <a href="index.html" class="btn" style="margin-top: 1rem; padding: 0.8rem 2rem;">RETURN TO MAIN SITE</a>
-    <p style="margin-top: 3rem; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem;">&copy; 2026 Shubham Aludecor. All rights reserved.</p>
-</footer>
+    <footer id="contact">
+        <h2>Contact Our Studio</h2>
+        <div class="gold-divider" style="margin-bottom: 30px;"></div>
+        <p>Ready to upgrade your space? Get in touch with us today for custom measurements and quotes.</p>
+        
+        <div style="margin-top: 40px; font-size: 1.1rem; line-height: 2;">
+            <p><strong>Email:</strong> info@shubhamaludecor.com</p>
+            <p><strong>Phone:</strong> +91 6356561410</p>
+            <p><strong>Headquarters:</strong> Gujarat, India</p>
+        </div>
+        
+        <p style="margin-top: 40px; font-size: 0.8rem; letter-spacing: 1px;">© 2026 SHUBHAM ALUDECOR. ALL ARCHITECTURAL RIGHTS RESERVED.</p>
+    </footer>
 
 </body>
 </html>
