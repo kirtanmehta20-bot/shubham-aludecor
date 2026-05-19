@@ -161,48 +161,57 @@
             flex-direction: row-reverse;
         }
 
-        /* Digital Branding Mask Wrapper */
+        /* Modern Crop Frame Container */
         .brochure-frame {
-            flex: 1.2;
+            flex: 1.3;
             background: #ffffff;
             border: 1px solid var(--border);
-            padding: 24px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.03);
+            padding: 15px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.03);
             position: relative;
             overflow: hidden;
         }
 
-        /* This mask cleanly covers the old Silver logo position inside the image */
-        .brand-mask-overlay {
-            position: absolute;
-            top: 40px;
-            left: 45px;
-            width: 180px;
-            height: 48px;
-            background: #ffffff; 
-            z-index: 10;
+        /* Dynamic Brand Header to completely replace the cropped space */
+        .new-frame-header {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: flex-start;
+            padding: 12px 20px;
+            background: #ffffff;
+            border-bottom: 2px solid #111111;
+            margin-bottom: 10px;
         }
 
-        .brand-mask-overlay::after {
-            content: "SHUBHAM ALUDECOR";
-            font-size: 0.72rem;
+        .new-frame-header .brand-title {
+            font-size: 0.85rem;
             font-weight: 700;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             color: #111111;
-            border-left: 3px solid var(--accent);
-            padding-left: 10px;
         }
 
+        .new-frame-header .series-tag {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        /* Advanced Viewport Masking Matrix */
+        .image-mask-wrapper {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            background: #ffffff;
+        }
+
+        /* Clips out the old logo headers smoothly at exactly 14.5% depth */
         .brochure-frame img {
             width: 100%;
             height: auto;
             display: block;
             object-fit: contain;
-            position: relative;
-            z-index: 1;
+            transform: scale(1.15) translateY(-5.5%);
+            margin-bottom: -4%;
         }
 
         .brochure-text {
@@ -282,17 +291,8 @@
         @media (max-width: 900px) {
             .brochure-row, .brochure-row:nth-child(even) {
                 flex-direction: column;
-                gap: 30px;
-                margin-bottom: 70px;
-            }
-            .brand-mask-overlay {
-                top: 32px;
-                left: 35px;
-                width: 140px;
-                height: 35px;
-            }
-            .brand-mask-overlay::after {
-                font-size: 0.58rem;
+                gap: 40px;
+                margin-bottom: 80px;
             }
             .hero-banner h1 { font-size: 2.3rem; }
         }
@@ -321,8 +321,13 @@
 
         <article class="brochure-row">
             <div class="brochure-frame">
-                <div class="brand-mask-overlay"></div>
-                <img src="image%201.png" alt="Shubham Aludecor Framing Architecture">
+                <div class="new-frame-header">
+                    <div class="brand-title">SHUBHAM ALUDECOR</div>
+                    <div class="series-tag">25mm FINELINE</div>
+                </div>
+                <div class="image-mask-wrapper">
+                    <img src="image%201.png" alt="Shubham Aludecor Framing Architecture">
+                </div>
             </div>
             <div class="brochure-text">
                 <div class="page-num">01</div>
@@ -338,8 +343,13 @@
 
         <article class="brochure-row">
             <div class="brochure-frame">
-                <div class="brand-mask-overlay"></div>
-                <img src="image%202.png" alt="Shubham Aludecor Tracking Mechanics">
+                <div class="new-frame-header">
+                    <div class="brand-title">SHUBHAM ALUDECOR</div>
+                    <div class="series-tag">25mm FINELINE</div>
+                </div>
+                <div class="image-mask-wrapper">
+                    <img src="image%202.png" alt="Shubham Aludecor Tracking Mechanics">
+                </div>
             </div>
             <div class="brochure-text">
                 <div class="page-num">02</div>
@@ -355,8 +365,13 @@
 
         <article class="brochure-row">
             <div class="brochure-frame">
-                <div class="brand-mask-overlay"></div>
-                <img src="image%203.png" alt="Shubham Aludecor Infill Layout">
+                <div class="new-frame-header">
+                    <div class="brand-title">SHUBHAM ALUDECOR</div>
+                    <div class="series-tag">25mm FINELINE</div>
+                </div>
+                <div class="image-mask-wrapper">
+                    <img src="image%203.png" alt="Shubham Aludecor Infill Layout">
+                </div>
             </div>
             <div class="brochure-text">
                 <div class="page-num">03</div>
@@ -372,8 +387,13 @@
 
         <article class="brochure-row">
             <div class="brochure-frame">
-                <div class="brand-mask-overlay"></div>
-                <img src="image%204.png" alt="Shubham Aludecor Hardware Assembly">
+                <div class="new-frame-header">
+                    <div class="brand-title">SHUBHAM ALUDECOR</div>
+                    <div class="series-tag">25mm FINELINE</div>
+                </div>
+                <div class="image-mask-wrapper">
+                    <img src="image%204.png" alt="Shubham Aludecor Hardware Assembly">
+                </div>
             </div>
             <div class="brochure-text">
                 <div class="page-num">04</div>
@@ -386,3 +406,12 @@
                 </table>
             </div>
         </article>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Shubham Aludecor. High-Performance Architectural Matrix Systems.</p>
+    </footer>
+
+</body>
+</html>
