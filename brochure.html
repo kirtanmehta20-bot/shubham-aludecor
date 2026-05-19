@@ -2,44 +2,352 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Shubham Aludecor Product Brochure</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shubham Aludecor Brochure</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        body { font-family: 'Arial', sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px; }
-        .page { background: white; width: 800px; margin: 20px auto; padding: 40px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        h1 { color: #1e3a8a; }
-        .image-container { width: 100%; height: 300px; background: #ddd; margin: 10px 0; display: flex; align-items: center; justify-content: center; }
-        .content { margin-top: 20px; line-height: 1.6; color: #333; }
+        /* CORE SETUP */
+        * { box-sizing: border-box; }
+        p { margin: 0; margin-bottom: 12px; }
+        body { background-color: #f1f5f9; display: grid; gap: 40px; grid-template-columns: 1fr; margin: 0; min-height: 100vh; padding: 40px 0; place-items: center; }
+
+        .slide-container {
+            align-items: center;
+            background-color: #ffffff;
+            border-radius: 0;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            font-family: 'Inter', sans-serif;
+            height: 720px;
+            justify-content: center;
+            overflow: hidden;
+            padding: 80px;
+            position: relative;
+            width: 1280px;
+        }
+
+        /* DECORATIVE BACKGROUNDS */
+        .slide-container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 0% 0%, rgba(14, 165, 233, 0.05) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .slide-container::after {
+            content: '';
+            position: absolute;
+            top: 40px; right: 40px;
+            width: 120px; height: 120px;
+            border-top: 4px solid #e2e8f0;
+            border-right: 4px solid #e2e8f0;
+            z-index: 0;
+        }
+
+        .slide-container > * { position: relative; z-index: 1; }
+
+        /* TYPOGRAPHY */
+        .slide-container h1, .slide-container h2, .slide-container h3 {
+            color: #0f172a;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+        }
+
+        .slide-container p, .slide-container li, .slide-container td, .slide-container th {
+            color: #475569;
+            font-size: 19px;
+            line-height: 1.5;
+        }
+
+        .slide-container h1 { font-size: 80px; font-weight: 700; color: #1e293b; letter-spacing: -2px; }
+        .slide-container .slide-title { font-size: 42px; font-weight: 600; margin-bottom: 40px; text-align: left; width: 100%; border-bottom: 2px solid #0ea5e9; padding-bottom: 15px; }
+        .slide-container h3 { font-size: 28px; font-weight: 600; color: #0ea5e9; margin-bottom: 10px; }
+
+        .subtitle { font-size: 26px; color: #64748b; margin-top: 15px; font-weight: 400; }
+        .content-area { display: flex; flex-direction: column; flex-grow: 1; width: 100%; justify-content: center; }
+
+        /* LAYOUTS */
+        .title-layout { text-align: center; }
+        .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; width: 100%; align-items: center; }
+        .image-wrapper { border-radius: 8px; overflow: hidden; height: 420px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        .two-column .image-wrapper img { object-fit: contain; background: #f8fafc; }
+
+        .tiled-content { display: flex; gap: 25px; width: 100%; }
+        .tile { flex: 1; padding: 40px; background: #f8fafc; border-top: 4px solid #0ea5e9; display: flex; flex-direction: column; gap: 15px; }
+        .tile .icon { font-size: 36px; color: #0ea5e9; }
+
+        .bullet-list { list-style: none; padding: 0; }
+        .bullet-list li { position: relative; padding-left: 40px; margin-bottom: 20px; font-size: 20px; }
+        .bullet-list i { position: absolute; left: 0; top: 6px; color: #0ea5e9; font-size: 22px; }
+
+        /* Bleed Layout */
+        .slide-container.bleed-image-layout { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0; align-items: start; }
+        .bleed-text-side { padding: 80px; }
+        .bleed-image-side { width: 100%; height: 720px; object-fit: cover; }
+
+        /* Table */
+        table { width: 100%; border-collapse: collapse; }
+        th { background: #1e293b; color: white; padding: 18px; text-align: left; font-family: 'Poppins'; }
+        td { padding: 18px; border-bottom: 1px solid #e2e8f0; }
+        tr:nth-child(even) { background: #f8fafc; }
+
+        /* Chart */
+        .chart-container { display: flex; flex-direction: column; gap: 20px; width: 100%; }
+        .bar { display: flex; align-items: center; gap: 20px; }
+        .bar .label { flex: 0 0 250px; text-align: right; font-weight: 600; }
+        .bar .bar-inner { background: #f1f5f9; height: 35px; flex-grow: 1; border-radius: 4px; overflow: hidden; }
+        .bar .bar-fill { height: 100%; background: #0ea5e9; display: flex; align-items: center; justify-content: flex-end; padding-right: 15px; color: white; font-weight: bold; }
+
+        /* Highlight Numbers */
+        .highlight-numbers-layout { display: flex; align-items: center; gap: 60px; }
+        .number { font-size: 140px; font-weight: 700; color: #0ea5e9; line-height: 1; }
+        .number-label { font-size: 24px; color: #64748b; font-weight: 600; text-transform: uppercase; }
+
+        /* Section Title Layout */
+        .section-title-layout { text-align: center; }
+        .section-title-layout hr { width: 120px; height: 6px; background: #0ea5e9; border: none; margin: 30px auto; }
+        .section-title-layout h2 { font-size: 60px; }
+
+        /* Q&A / Contact */
+        .contact-box { background: #1e293b; color: white; padding: 60px; border-radius: 12px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; width: 100%; margin-top: 40px; }
+        .contact-box h3 { color: #0ea5e9; margin-bottom: 15px; }
+        .contact-box p { color: #cbd5e1; font-size: 17px; }
     </style>
 </head>
 <body>
 
-<div class="page">
-    <h1>Shubham Aludecor</h1>
-    <p>Premium Aluminum Window & Door Solutions</p>
-    
-    <div class="image-container">
-        <img src="img 1.png" alt="Window 1" style="max-height: 100%;">
+<div class="slide-container" id="slide1">
+    <div class="title-layout">
+        <p style="text-transform: uppercase; letter-spacing: 5px; color: #0ea5e9; font-weight: 600;">Architectural Excellence</p>
+        <h1>Shubham Aludecor</h1>
+        <p class="subtitle">Next-Gen Aluminum Fenestration & System Solutions</p>
     </div>
-    
-    <div class="content">
-        <h2>Our Products</h2>
-        <p>Explore our range of high-performance aluminum systems designed for durability and aesthetic excellence.</p>
-    </div>
+</div>
 
-    <div class="image-container">
-        <img src="img 2.png" alt="Window 2" style="max-height: 100%;">
+<div class="slide-container" id="slide2">
+    <div class="section-title-layout">
+        <hr>
+        <h2>Redefining Structural Transparency</h2>
+        <p style="max-width: 800px; margin: 0 auto; font-size: 22px;">At Shubham Aludecor, we blend engineering precision with minimalist design to create windows and doors that aren't just barriers, but bridges to the world outside.</p>
     </div>
-    
-    <div class="image-container">
-        <img src="img 3.png" alt="Window 3" style="max-height: 100%;">
-    </div>
-    
-    <div class="image-container">
-        <img src="img 4.png" alt="Window 4" style="max-height: 100%;">
-    </div>
+</div>
 
+<div class="slide-container" id="slide3">
+    <h2 class="slide-title">The Aluminum Advantage</h2>
+    <div class="content-area">
+        <div class="two-column tiled">
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3>Structural Integrity</h3>
+                <p>Our T6 grade aluminum offers superior strength-to-weight ratios, allowing for larger spans and slimmer frames without compromising safety.</p>
+            </div>
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-leaf"></i></div>
+                <h3>Sustainability</h3>
+                <p>Aluminum is 100% recyclable. Our systems are designed for high thermal efficiency, significantly reducing your building's energy footprint.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container" id="slide4">
+    <h2 class="slide-title">25mm Series: Ultra-Slim Profile</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <h3>Invisible Boundaries</h3>
+                <p>Our flagship 25mm series is designed for modern architecture where minimalist sightlines are paramount.</p>
+                <ul class="bullet-list">
+                    <li><i class="fa-solid fa-check"></i> 25mm interlock for maximum glass view</li>
+                    <li><i class="fa-solid fa-check"></i> High-precision corner crimping technology</li>
+                    <li><i class="fa-solid fa-check"></i> Concealed drainage system for all-weather protection</li>
+                </ul>
+            </div>
+            <div class="image-wrapper">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/16874993529407928476" alt="Ultra-slim 25mm aluminum profile">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container bleed-image-layout" id="slide5">
+    <div class="bleed-text-side">
+        <h2 class="slide-title" style="border:none; padding:0;">2-Track Sliding System</h2>
+        <p>The core of our residential offering. Our 2-track systems are engineered for smooth operation and decades of maintenance-free performance.</p>
+        <p>Featuring heavy-duty rollers and specialized track liners, these systems provide effortless sliding even with large, heavy glass panels.</p>
+    </div>
     <div class="image-container">
-        <img src="img 5.png" alt="Window 5" style="max-height: 100%;">
+        <img class="bleed-image-side" src="http://googleusercontent.com/image_collection/image_retrieval/16035672446410258929" alt="Modern 2-track sliding window">
+    </div>
+</div>
+
+<div class="slide-container" id="slide6">
+    <h2 class="slide-title">Core Performance Pillars</h2>
+    <div class="content-area">
+        <div class="tiled-content">
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-volume-xmark"></i></div>
+                <h3>Acoustical Comfort</h3>
+                <p>Multi-chambered profiles and EPDM gaskets provide noise reduction of up to 35dB, ensuring a peaceful interior.</p>
+            </div>
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-lock"></i></div>
+                <h3>Enhanced Security</h3>
+                <p>Integrated multi-point locking mechanisms and toughened glass options provide a formidable barrier against intrusion.</p>
+            </div>
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-temperature-arrow-down"></i></div>
+                <h3>Thermal Control</h3>
+                <p>Advanced thermal break technology prevents heat transfer, keeping your home cool in summer and warm in winter.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container" id="slide7">
+    <h2 class="slide-title">Technical Specification Matrix</h2>
+    <div class="content-area">
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>2-Track Standard</th>
+                    <th>3-Track Professional</th>
+                    <th>25mm Premium Series</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Wall Thickness</td>
+                    <td>1.2 mm - 1.4 mm</td>
+                    <td>1.4 mm - 1.6 mm</td>
+                    <td>2.0 mm+</td>
+                </tr>
+                <tr>
+                    <td>Glass Capacity</td>
+                    <td>Up to 12 mm</td>
+                    <td>Up to 18 mm</td>
+                    <td>Up to 24 mm (DGU)</td>
+                </tr>
+                <tr>
+                    <td>Sightline (Interlock)</td>
+                    <td>45 mm</td>
+                    <td>52 mm</td>
+                    <td>25 mm</td>
+                </tr>
+                <tr>
+                    <td>Max Shutter Height</td>
+                    <td>2400 mm</td>
+                    <td>2700 mm</td>
+                    <td>3200 mm</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="slide-container" id="slide8">
+    <h2 class="slide-title">Energy Efficiency Benchmarks</h2>
+    <div class="content-area">
+        <div class="chart-container">
+            <div class="bar">
+                <div class="label">Traditional Single Glaze</div>
+                <div class="bar-inner"><div class="bar-fill" style="width: 35%;">35% Efficiency</div></div>
+            </div>
+            <div class="bar">
+                <div class="label">Standard Aluminum</div>
+                <div class="bar-inner"><div class="bar-fill" style="width: 55%;">55% Efficiency</div></div>
+            </div>
+            <div class="bar">
+                <div class="label">Shubham Aludecor System</div>
+                <div class="bar-inner"><div class="bar-fill" style="width: 92%; background: #0ea5e9;">92% Efficiency</div></div>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 30px; font-style: italic;">Measured by Thermal Transmittance (U-Value) reduction against industry baselines.</p>
+    </div>
+</div>
+
+<div class="slide-container" id="slide9">
+    <h2 class="slide-title">3-Track Systems with Integrated Mesh</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <h3>Uninterrupted Protection</h3>
+                <p>Designed for tropical climates, our 3-track systems integrate mosquito mesh without compromising on aesthetics.</p>
+                <ul class="bullet-list">
+                    <li><i class="fa-solid fa-bug-slash"></i> SS-304 Grade invisible mosquito mesh</li>
+                    <li><i class="fa-solid fa-wind"></i> Optimized air-flow design</li>
+                    <li><i class="fa-solid fa-shield"></i> Anti-lift security features</li>
+                </ul>
+            </div>
+            <div class="image-wrapper">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/16469549620660749003" alt="3-track window with mesh">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container" id="slide10">
+    <h2 class="slide-title">Design Innovation & Hardware</h2>
+    <div class="content-area">
+        <div class="tiled-content">
+            <div class="tile" style="padding:0; border:none;">
+                <div class="image-wrapper" style="height:300px;"><img src="http://googleusercontent.com/image_collection/image_retrieval/12471496243038422293" alt="Casement window application"></div>
+                <p style="padding:15px; text-align:center; font-weight:600;">Casement & Fixed Systems</p>
+            </div>
+            <div class="tile" style="padding:0; border:none;">
+                <div class="image-wrapper" style="height:300px;"><img src="http://googleusercontent.com/image_collection/image_retrieval/5587057476567616209" alt="Window hardware collection"></div>
+                <p style="padding:15px; text-align:center; font-weight:600;">Premium Handle Sets</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container" id="slide11">
+    <h2 class="slide-title">Market Presence & Impact</h2>
+    <div class="content-area">
+        <div class="highlight-numbers-layout">
+            <div style="flex: 0 0 40%; text-align: center;">
+                <div class="number">500+</div>
+                <div class="number-label">High-End Projects</div>
+            </div>
+            <div style="flex: 1;">
+                <h3>A Legacy of Trust</h3>
+                <p>From luxury residential villas to massive commercial hubs, Shubham Aludecor has been the preferred partner for architects who refuse to settle for mediocrity.</p>
+                <ul class="bullet-list">
+                    <li><i class="fa-solid fa-star"></i> 15+ years of fabrication expertise</li>
+                    <li><i class="fa-solid fa-handshake"></i> Pan-regional service network</li>
+                    <li><i class="fa-solid fa-award"></i> ISO 9001:2015 certified processes</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container" id="slide12">
+    <div class="title-layout">
+        <h2>Connect With Our Experts</h2>
+        <p class="subtitle">Ready to elevate your architectural vision?</p>
+        <div class="contact-box">
+            <div>
+                <h3>Address</h3>
+                <p>Shubham Aludecor Center<br>Industrial Zone 4, Main Highway<br>New Delhi, India</p>
+            </div>
+            <div>
+                <h3>Contact</h3>
+                <p>Phone: +91 98765 43210<br>Sales: contact@shubhamaludecor.com<br>Support: service@shubhamaludecor.com</p>
+            </div>
+            <div>
+                <h3>Socials</h3>
+                <p>LinkedIn: /shubham-aludecor<br>Instagram: @shubhamaludecor<br>Web: www.shubhamaludecor.com</p>
+            </div>
+        </div>
     </div>
 </div>
 
