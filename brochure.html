@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Brochures | Shubham Aludecor</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #f9f9f9;
-            --card-bg: #ffffff;
-            --text-main: #111111;
-            --text-muted: #666666;
-            --accent: #222222;
-            --accent-hover: #444444;
+            --bg-color: #fafafa;
+            --surface-bg: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --brand-dark: #0f1115;
+            --border-color: #e5e7eb;
         }
 
         * {
@@ -24,19 +24,19 @@
 
         body {
             background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
+            color: var(--text-primary);
+            line-height: 1.5;
             padding: 0;
         }
 
-        /* Premium Header / Navigation */
+        /* Clean Navigation Bar */
         header {
-            background: var(--card-bg);
-            padding: 20px 40px;
+            background: var(--surface-bg);
+            padding: 24px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #eeeeee;
+            border-bottom: 1px solid var(--border-color);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -44,176 +44,168 @@
 
         .logo {
             font-weight: 700;
-            font-size: 1.2rem;
-            letter-spacing: 1px;
+            font-size: 1.15rem;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
         }
 
         .nav-link {
             text-decoration: none;
-            color: var(--text-muted);
+            color: var(--text-secondary);
             font-weight: 500;
-            transition: color 0.3s;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
         }
 
         .nav-link:hover {
-            color: var(--text-main);
+            color: var(--text-primary);
         }
 
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 80px 20px 40px 20px;
-            max-width: 800px;
+        /* Page Layout Wrapper */
+        .page-wrapper {
+            max-width: 1100px;
             margin: 0 auto;
+            padding: 60px 24px 100px 24px;
         }
 
-        .hero h1 {
-            font-size: 2.5rem;
+        .intro-section {
+            margin-bottom: 48px;
+        }
+
+        .intro-section h1 {
+            font-size: 2.25rem;
             font-weight: 700;
             letter-spacing: -0.5px;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
 
-        .hero p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            font-weight: 300;
+        .intro-section p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            font-weight: 400;
+            max-width: 650px;
         }
 
-        /* Grid Layout */
-        .catalog-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px 80px 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        /* Editorial Product Card */
-        .brochure-card {
-            background: var(--card-bg);
-            border-radius: 0px; /* Sharp modern edges */
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+        /* Showcased Document Layout */
+        .showcase-grid {
             display: flex;
             flex-direction: column;
+            gap: 32px;
         }
 
-        .brochure-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 38px rgba(0,0,0,0.08);
-        }
-
-        /* Document Preview Placeholder Mockup */
-        .preview-box {
-            background: #eaeaea;
-            height: 350px;
+        .document-row {
+            background: var(--surface-bg);
+            border: 1px solid var(--border-color);
             display: flex;
-            align-items: center;
+            flex-direction: row;
+            align-items: stretch;
+            min-height: 280px;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+        }
+
+        .document-row:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Minimal Graphic Block */
+        .document-graphic {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            width: 240px;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
+            align-items: center;
+            padding: 40px;
+            color: #ffffff;
             position: relative;
-            overflow: hidden;
-            border-bottom: 1px solid #f0f0f0;
+            flex-shrink: 0;
         }
 
-        .preview-box::before {
-            content: "PDF";
-            font-size: 5rem;
+        .document-type-tag {
+            font-size: 0.75rem;
             font-weight: 700;
-            color: rgba(0,0,0,0.05);
-            position: absolute;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #9ca3af;
+            margin-bottom: 8px;
         }
 
-        /* Document Decorative Emblem */
-        .document-icon {
-            width: 60px;
-            height: 80px;
-            background: #ffffff;
-            border: 2px solid var(--accent);
-            border-radius: 4px;
-            position: relative;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            z-index: 2;
+        .document-title-badge {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            text-align: center;
         }
 
-        .document-icon::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 0;
-            height: 0;
-            border-style: solid;
-            border-width: 0 15px 15px 0;
-            border-color: transparent var(--bg-color) transparent transparent;
-        }
-
-        /* Card Content Details */
-        .card-content {
-            padding: 30px;
+        /* Text & Download Action Area */
+        .document-details {
+            padding: 40px;
             display: flex;
             flex-direction: column;
+            justify-content: center;
             flex-grow: 1;
         }
 
-        .file-badge {
+        .category-badge {
             align-self: flex-start;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
             letter-spacing: 1px;
             text-transform: uppercase;
-            background: #f0f0f0;
-            padding: 4px 10px;
-            margin-bottom: 15px;
-            color: var(--text-muted);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+            padding: 4px 12px;
+            margin-bottom: 16px;
+            border-radius: 4px;
         }
 
-        .card-content h3 {
-            font-size: 1.3rem;
+        .document-details h3 {
+            font-size: 1.4rem;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
-        .card-content p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 25px;
-            flex-grow: 1;
+        .document-details p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 28px;
+            max-width: 600px;
         }
 
-        /* Solid Call To Action Button */
-        .btn-download {
-            display: block;
-            text-align: center;
-            background: var(--accent);
+        .btn-action {
+            align-self: flex-start;
+            display: inline-flex;
+            align-items: center;
+            background: var(--brand-dark);
             color: #ffffff;
             text-decoration: none;
-            padding: 14px;
-            font-weight: 600;
+            padding: 12px 28px;
+            font-weight: 500;
             font-size: 0.95rem;
-            letter-spacing: 0.5px;
-            transition: background 0.3s;
+            transition: background 0.2s ease;
         }
 
-        .btn-download:hover {
-            background: var(--accent-hover);
+        .btn-action:hover {
+            background: #2d3748;
         }
 
+        /* Clean System Footer */
         footer {
+            background: var(--surface-bg);
+            padding: 40px 24px;
             text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid #eeeeee;
-            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
             font-size: 0.9rem;
-            background: var(--card-bg);
         }
 
-        @media (max-width: 600px) {
+        /* Responsive Breakpoint */
+        @media (max-width: 768px) {
             header { padding: 20px; }
-            .hero h1 { font-size: 2rem; }
+            .document-row { flex-direction: column; }
+            .document-graphic { width: 100%; height: 160px; }
+            .document-details { padding: 32px 24px; }
         }
     </style>
 </head>
@@ -221,42 +213,33 @@
 
     <header>
         <div class="logo">Shubham Aludecor</div>
-        <a href="index.html" class="nav-link">← Back to Home</a>
+        <a href="index.html" class="nav-link">← Return to Home</a>
     </header>
 
-    <section class="hero">
-        <h1>Architectural Catalogues</h1>
-        <p>Explore and download our technical specification sheets, design series, and profile frameworks for premium aluminum systems.</p>
-    </section>
+    <div class="page-wrapper">
+        <section class="intro-section">
+            <h1>Product Catalogues</h1>
+            <p>Download our official technical matrices, profile specifications, and structural data frameworks for high-performance installations.</p>
+        </section>
 
-    <main class="catalog-container">
-        <article class="brochure-card">
-            <div class="preview-box">
-                <div class="document-icon"></div>
+        <main class="showcase-grid">
+            <div class="document-row">
+                <div class="document-graphic">
+                    <div class="document-type-tag">Catalogue</div>
+                    <div class="document-title-badge">FINE 25</div>
+                </div>
+                <div class="document-details">
+                    <span class="category-badge">Premium Sliding Series</span>
+                    <h3>FINE 25 System Matrix</h3>
+                    <p>Access complete profile cross-sections, multi-track layout architectures, and load thresholds for our specialized 25mm window systems.</p>
+                    <a href="FINE%2025.pdf" target="_blank" class="btn-action">Download PDF Specifications</a>
+                </div>
             </div>
-            <div class="card-content">
-                <span class="file-badge">PDF • Catalogue</span>
-                <h3>FINE 25 Series</h3>
-                <p>Complete technical data, track profile dimensions, and structural details for our premium 25mm sliding window series.</p>
-                <a href="FINE%2025.pdf" target="_blank" class="btn-download">Download Catalogue</a>
-            </div>
-        </article>
-
-        <article class="brochure-card" style="opacity: 0.6;">
-            <div class="preview-box" style="background: #f2f2f2;">
-                <div class="document-icon" style="border-color:#aaa;"></div>
-            </div>
-            <div class="card-content">
-                <span class="file-badge">Coming Soon</span>
-                <h3>Sliding Systems Overview</h3>
-                <p>Comprehensive layout guides and profile configurations for heavy-duty luxury tracking configurations.</p>
-                <a href="#" onclick="return false;" class="btn-download" style="background: #999; cursor: not-allowed;">Under Review</a>
-            </div>
-        </article>
-    </main>
+        </main>
+    </div>
 
     <footer>
-        <p>&copy; 2026 Shubham Aludecor. Architectural Systems Matrix.</p>
+        <p>&copy; 2026 Shubham Aludecor. All architectural rights reserved.</p>
     </footer>
 
 </body>
