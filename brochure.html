@@ -3,343 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FINE 25 Premium Brochure | Shubham Aludecor</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;500;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Product Brochures | Shubham Aludecor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* 1. GLOBAL SETUP & PURE BLACK/GOLD PALETTE */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        
         :root {
-            --bg-black: #000000; /* Pure Black Background */
-            --bright-gold: #d4af37; /* Bright Luxury Gold */
-            --light-gold: #f4dfa2;
-            --text-muted: #888888;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --text-main: #111111;
+            --text-muted: #666666;
+            --accent: #222222;
+            --accent-hover: #444444;
         }
 
-        body { 
-            background-color: var(--bg-black); 
-            color: #ffffff;
-            font-family: 'Montserrat', sans-serif; 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 0;
+        }
+
+        /* Premium Header / Navigation */
+        header {
+            background: var(--card-bg);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eeeeee;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--text-main);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 20px 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        /* Grid Layout */
+        .catalog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px 80px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        /* Editorial Product Card */
+        .brochure-card {
+            background: var(--card-bg);
+            border-radius: 0px; /* Sharp modern edges */
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
             display: flex;
             flex-direction: column;
+        }
+
+        .brochure-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 38px rgba(0,0,0,0.08);
+        }
+
+        /* Document Preview Placeholder Mockup */
+        .preview-box {
+            background: #eaeaea;
+            height: 350px;
+            display: flex;
             align-items: center;
-            gap: 60px;
-            padding: 60px 0;
-        }
-        
-        /* PREMIUM SLIDE CONTAINER */
-        .slide-container {
-            width: 1280px; 
-            height: 720px;
-            background-color: var(--bg-black);
-            color: #ffffff;
-            position: relative; 
-            overflow: hidden;
-            display: flex; 
-            flex-direction: column;
-            padding: 60px;
-            border: 1px solid #111;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.9);
-        }
-
-        /* TYPOGRAPHY */
-        h1, h2, h3 { font-family: 'Urbanist', sans-serif; margin: 0; font-weight: 700; }
-        h1 { font-size: 80px; line-height: 1.1; letter-spacing: -1px; color: var(--bright-gold); }
-        h1 span { color: #ffffff; }
-        .slide-title { font-size: 38px; font-weight: 700; color: var(--bright-gold); margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; border-bottom: 1px solid #222; padding-bottom: 10px; }
-        p, li { font-size: 18px; line-height: 1.6; color: var(--text-muted); }
-        .subtitle { font-size: 24px; color: var(--light-gold); margin-top: 20px; letter-spacing: 1px; }
-
-        .content-area { display: flex; flex-direction: column; flex-grow: 1; width: 100%; justify-content: center; }
-
-        /* MULTI-COLUMN LAYOUTS */
-        .title-layout { text-align: center; justify-content: center; }
-        .section-title-layout { text-align: center; }
-        .section-title-layout hr { border: none; height: 2px; width: 120px; background: var(--bright-gold); margin: 25px auto; }
-
-        .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; width: 100%; align-items: center; }
-        
-        /* --- THE MAGIC BRIGHT GOLD DRAWING CONTROLLER --- */
-        .image-wrapper { 
+            justify-content: center;
             position: relative;
-            border-radius: 6px; 
-            overflow: hidden; 
-            height: 440px; 
-            width: 100%; 
-            border: 1px solid #222; 
-            background: var(--bg-black);
-        }
-        
-        .image-wrapper img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: contain; 
-            padding: 20px;
-            /* Inverts white image backgrounds to black, and transforms lines and blue details to bright architectural gold */
-            filter: invert(1) sepia(1) saturate(6) hue-rotate(10deg) brightness(1.1) contrast(1.1);
+            overflow: hidden;
+            border-bottom: 1px solid #f0f0f0;
         }
 
-        /* PURE BLACK MASK PLATES (Erases Silver logos and watermarks cleanly) */
-        .eraser-top-left {
+        .preview-box::before {
+            content: "PDF";
+            font-size: 5rem;
+            font-weight: 700;
+            color: rgba(0,0,0,0.05);
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 25%;
-            height: 18%;
-            background-color: var(--bg-black);
-            z-index: 5;
-        }
-        
-        .eraser-center {
-            position: absolute;
-            top: 0;
-            left: 25%;
-            width: 50%;
-            height: 18%;
-            background-color: var(--bg-black);
-            z-index: 5;
         }
 
-        /* TILED SPEC BLOCKS */
-        .tiled-content { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .tile { background: #080808; padding: 40px; border-radius: 6px; border-top: 3px solid var(--bright-gold); border: 1px solid #111; }
-        .tile .icon { font-size: 40px; color: var(--bright-gold); margin-bottom: 20px; }
-        .tile h3 { font-size: 24px; margin-bottom: 15px; color: #fff; }
-
-        /* DATA SPEC TABLE */
-        table { width: 100%; border-collapse: collapse; background: #050505; border-radius: 6px; overflow: hidden; border: 1px solid #111; }
-        th, td { padding: 20px; text-align: left; border-bottom: 1px solid #111; }
-        th { background: var(--bright-gold); color: var(--bg-black); font-family: 'Urbanist'; font-weight: 700; font-size: 20px; }
-        td { font-size: 17px; }
-        tr:hover { background: #0c0c0c; }
-
-        /* HIGHLIGHT ICON LISTS */
-        .highlight-list { list-style: none; padding: 0; }
-        .highlight-list li { position: relative; padding-left: 40px; margin-bottom: 18px; color: #eee; }
-        .highlight-list li i { position: absolute; left: 0; top: 4px; color: var(--bright-gold); font-size: 20px; }
-
-        /* INTERACTIVE SYSTEM BUTTON */
-        .btn {
-            display: inline-block;
-            padding: 15px 40px;
-            background: transparent;
-            color: var(--light-gold);
-            border: 1px solid var(--bright-gold);
-            text-decoration: none;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 30px;
-            transition: all 0.3s ease;
-            align-self: flex-start;
-        }
-        .btn:hover {
-            background: var(--bright-gold);
-            color: var(--bg-black);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-        }
-    </style>
-</head>
-<body>
-
-    <div class="slide-container title-layout">
-        <div class="content-area">
-            <p style="color: var(--bright-gold); font-weight: 600; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 15px;">Shubham Aludecor</p>
-            <h1>FINE 25 <br><span style="color: var(--light-gold);">Premium Series</span></h1>
-            <div style="height: 2px; width: 150px; background: var(--bright-gold); margin: 30px auto;"></div>
-            <p class="subtitle">Architectural Aluminum Perfection</p>
-        </div>
-    </div>
-
-    <div class="slide-container">
-        <div class="section-title-layout content-area">
-            <h2 style="font-size: 55px; color: var(--light-gold);">Engineering Redefined</h2>
-            <hr>
-            <p style="max-width: 850px; margin: 0 auto; font-size: 20px; color: #bbb;">The FINE 25 Sliding Window system offers high-end luxury residential spaces the ultimate combination of structural strength, ultra-slim visibility, and effortless architectural movement.</p>
-        </div>
-    </div>
-
-    <div class="slide-container">
-        <h2 class="slide-title">Core Performance</h2>
-        <div class="content-area">
-            <div class="tiled-content">
-                <div class="tile">
-                    <div class="icon"><i class="fa-solid fa-wind"></i></div>
-                    <h3>Weather Stability</h3>
-                    <p>Tested heavy structural endurance handles wind loads effortlessly up to 2.5 KPA specifications.</p>
-                </div>
-                <div class="tile">
-                    <div class="icon"><i class="fa-solid fa-volume-xmark"></i></div>
-                    <h3>Acoustic Insulation</h3>
-                    <p>Designed with exceptional acoustic drop layers creating peaceful and isolated interiors.</p>
-                </div>
-                <div class="tile">
-                    <div class="icon"><i class="fa-solid fa-sliders"></i></div>
-                    <h3>Precision Gliding</h3>
-                    <p>Engineered hardware support seamlessly handles robust structural loads up to 300kg per pane.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="slide-container">
-        <h2 class="slide-title">01. System Overview</h2>
-        <div class="content-area">
-            <div class="two-column">
-                <div class="image-wrapper">
-                    <div class="eraser-top-left"></div>
-                    <div class="eraser-center"></div>
-                    <img src="image 1.png" alt="System Profile Overview">
-                </div>
-                <div>
-                    <h3 style="color: var(--light-gold); font-size: 28px; margin-bottom: 15px;">Minimalist Frame Profiles</h3>
-                    <p style="margin-bottom: 25px;">Maximum visibility meets structural security. Deep section interlocking blocks make the window outline drop cleanly out of view while reinforcing the frame envelope.</p>
-                    <ul class="highlight-list">
-                        <li><i class="fa-solid fa-square-poll-vertical"></i> Clean Structural Depth Options</li>
-                        <li><i class="fa-solid fa-shield-halved"></i> Hidden Drainage & Gasket Seals</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="slide-container">
-        <h2 class="slide-title">02. Track Dimensions</h2>
-        <div class="content-area">
-            <div class="two-column">
-                <div>
-                    <h3 style="color: var(--light-gold); font-size: 28px; margin-bottom: 15px;">Dimensional Track Sections</h3>
-                    <p style="margin-bottom: 25px;">Versatile threshold solutions engineered dynamically for single, double, and multi-track floor layouts matching modern patio parameters flawlessly.</p>
-                    <ul class="highlight-list">
-                        <li><i class="fa-solid fa-arrows-left-right"></i> Optimized Floor Track Clearances</li>
-                        <li><i class="fa-solid fa-layer-group"></i> Expandable Track System Blocks</li>
-                    </ul>
-                </div>
-                <div class="image-wrapper">
-                    <div class="eraser-top-left"></div>
-                    <div class="eraser-center"></div>
-                    <img src="image 2.png" alt="Track Cross Section">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="slide-container">
-        <h2 class="slide-title">03. Glass & Interlock</h2>
-        <div class="content-area">
-            <div class="two-column">
-                <div class="image-wrapper">
-                    <div class="eraser-top-left"></div>
-                    <div class="eraser-center"></div>
-                    <img src="image 3.png" alt="Glass Configuration & Interlock">
-                </div>
-                <div>
-                    <h3 style="color: var(--light-gold); font-size: 28px; margin-bottom: 15px;">20mm Ultra-Slim Interlocks</h3>
-                    <p style="margin-bottom: 25px;">Eliminate broad profiles. The central sliding meeting points utilize a 20mm slim gauge layer without dropping wind load resistance ratios.</p>
-                    <ul class="highlight-list">
-                        <li><i class="fa-solid fa-compress"></i> Slim Vision Central Stile Line</li>
-                        <li><i class="fa-solid fa-glass-water"></i> Adaptable DGU Glass Multi-Cavity Sections</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="slide-container">
-        <h2 class="slide-title">04. Mounting & Support</h2>
-        <div class="content-area">
-            <div class="two-column">
-                <div>
-                    <h3 style="color: var(--light-gold); font-size: 28px; margin-bottom: 15px;">Masonry & Structural Mounting</h3>
-                    <p style="margin-bottom: 25px;">Clear anchoring blueprint connections provide flawless architectural alignment across concrete walls, subframes, or heavy lintel joints.</p>
-                    <ul class="highlight-list">
-                        <li><i class="fa-solid fa-anchor"></i> Rigid Masonry Fixing Points</li>
-                        <li><i class="fa-solid fa-border-top-left"></i> Weather-tight Insulation Clearances</li>
-                    </ul>
-                </div>
-                <div class="image-wrapper">
-                    <div class="eraser-top-left"></div>
-                    <div class="eraser-center"></div>
-                    <img src="image 4.png" alt="Mounting Blueprints">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="slide-container">
-        <h2 class="slide-title">05. Hardware Specifications</h2>
-        <div class="content-area">
-            <div class="two-column">
-                <div class="image-wrapper">
-                    <div class="eraser-top-left"></div>
-                    <div class="eraser-center"></div>
-                    <img src="image 5.png" alt="Hardware Assembly Specs">
-                </div>
-                <div>
-                    <h3 style="color: var(--light-gold); font-size: 28px; margin-bottom: 15px;">Premium Locking Components</h3>
-                    <p style="margin-bottom: 25px;">European multi-point locks integrate seamlessly into the internally reinforced stiles, securing large layout sections effectively.</p>
-                    <ul class="highlight-list">
-                        <li><i class="fa-solid fa-key"></i> Multi-Point Secure Deadbolts</li>
-                        <li><i class="fa-solid fa-circle-dot"></i> Heavy-Duty Anti-Friction Rolling Wheels</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="slide-container">
-        <h2 class="slide-title">Technical Specification Summary</h2>
-        <div class="content-area">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Parameter Matrix</th>
-                        <th>FINE 25 Standard Profile Dimensions</th>
-                        <th>FINE 25 Heavy-Duty Reinforcement</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Maximum Sash Height</td>
-                        <td>2300 mm</td>
-                        <td>2500 mm Max Elevation</td>
-                    </tr>
-                    <tr>
-                        <td>Glazing Cavity Range</td>
-                        <td>5 mm Monolithic Glass Layers</td>
-                        <td>Up to 18 mm Double Glazing Units (DGU)</td>
-                    </tr>
-                    <tr>
-                        <td>Interlock Visual Width</td>
-                        <td>20 mm Extra-Slim Profile</td>
-                        <td>65 mm Heavy Wind Load Box Section</td>
-                    </tr>
-                    <tr>
-                        <td>Structural Load Ratings</td>
-                        <td>1.5 KPA Wind Capacity</td>
-                        <td>2.5 KPA Extreme High-Rise Structural Capacity</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <div class="slide-container section-title-layout">
-        <div class="content-area">
-            <p style="color: var(--bright-gold); text-transform: uppercase; letter-spacing: 4px; font-weight: 600; margin-bottom: 15px;">Premium Architectural Fenestration</p>
-            <h1 style="font-size: 65px; color: #ffffff;">Elevate Your Structural Canvas</h1>
-            <hr>
-            <p style="color: var(--light-gold); font-weight: 500; font-size: 22px;">Shubham Aludecor | Custom Engineered Elegance</p>
-            <div style="margin-top: 35px; display: flex; flex-direction: column; gap: 8px; font-size: 18px; color: #666;">
-                <span><i class="fa-solid fa-envelope" style="color: var(--bright-gold); margin-right: 10px;"></i> contact@shubhamaludecor.com</span>
-                <span><i class="fa-solid fa-globe" style="color: var(--bright-gold); margin-right: 10px;"></i> www.shubhamaludecor.com</span>
-            </div>
-            <a href="index.html" class="btn" style="margin: 30px auto 0;">Return to Website</a>
-        </div>
-    </div>
-
-</body>
-</html>
+        /* Document
