@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Specifications | Shubham Aludecor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root { --charcoal: #111111; --gold: #bc9c6c; --white: #ffffff; --off-white: #f9f9f9; --text-muted: #888888; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--charcoal); color: var(--white); line-height: 1.6; }
+        h1, h2, .serif { font-family: 'Playfair Display', serif; }
+        
+        /* HEADER */
+        header { padding: 20px 5%; border-bottom: 1px solid rgba(188, 156, 108, 0.2); }
+        .brand { color: var(--white); text-decoration: none; font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; letter-spacing: 2px; }
+        .brand span { color: var(--gold); }
+        
+        /* CONTENT SECTION */
+        .content-wrapper { max-width: 1200px; margin: 80px auto; padding: 0 5%; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .text-box h1 { font-size: 3rem; margin-bottom: 10px; color: var(--gold); }
+        .text-box h2 { font-size: 1.5rem; margin-bottom: 30px; font-weight: 300; color: #d1d5db; font-family: 'Montserrat', sans-serif; }
+        .text-box p { font-size: 1.1rem; color: #aaaaaa; margin-bottom: 40px; }
+        
+        /* FEATURES LIST */
+        .feature-list { list-style: none; }
+        .feature-list li { margin-bottom: 20px; font-size: 1.05rem; display: flex; align-items: flex-start; gap: 15px; }
+        .feature-list i { color: var(--gold); margin-top: 5px; }
+        
+        /* IMAGE BOX */
+        .image-box { border: 1px solid rgba(188, 156, 108, 0.3); border-radius: 4px; overflow: hidden; height: 500px; background: #1a1a1a; display: flex; align-items: center; justify-content: center; }
+        .image-box img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
+        
+        /* BACK BUTTON */
+        .back-btn { display: inline-block; margin-top: 40px; color: var(--gold); text-decoration: none; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; font-weight: 600; border-bottom: 1px solid transparent; transition: all 0.3s ease; }
+        .back-btn:hover { border-bottom: 1px solid var(--gold); }
+
+        @media (max-width: 900px) { .content-wrapper { grid-template-columns: 1fr; } .image-box { height: 350px; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="brand">SHUBHAM<br><span>ALUDECOR</span></a>
+    </header>
+
+    <div class="content-wrapper">
+        <div class="text-box">
+            <h1 id="page-title">Loading...</h1>
+            <h2 id="page-subtitle"></h2>
+            <p id="page-desc"></p>
+            
+            <ul class="feature-list" id="page-features">
+                </ul>
+
+            <a href="#" id="back-link" class="back-btn">← Back to Series Configurations</a>
+        </div>
+        <div class="image-box">
+            <img id="page-image" src="" alt="Product Image">
+        </div>
+    </div>
+
+    <script>
+        // THE DATABASE OF ALL 12 CONFIGURATIONS
+        const productData = {
+            // --- 27MM SERIES ---
+            "27mm-2-track": {
+                title: "27mm Standard 2-Track",
+                subtitle: "Streamlined residential sliding.",
+                desc: "Our most economical dual-track solution. Designed specifically for standard bedroom and living room windows, it offers clean aesthetics and smooth operation for everyday spaces with typical wind exposure.",
+                features: [
+                    "Lightweight operation with precision nylon rollers.",
+                    "Highly cost-effective for large-scale residential projects.",
+                    "Space-saving 27mm frame depth.",
+                    "Reliable EPDM weather sealing against dust and rain."
+                ],
+                image: "2-TRACK-IMAGE.png",
+                backLink: "27mm-series.html"
+            },
+            "27mm-3-track": {
+                title: "27mm Standard 3-Track",
+                subtitle: "Added versatility for everyday living.",
+                desc: "Incorporates a dedicated third track for an independent mosquito mesh panel. This allows you to invite fresh air in while keeping insects out, without adding heavy bulk to your window frame.",
+                features: [
+                    "Integrated sliding insect screen rail.",
+                    "Smooth, independent gliding of glass and mesh panels.",
+                    "Practical residential use with minimal maintenance.",
+                    "Prevents rattling with anti-vibration brush seals."
+                ],
+                image: "3-TRACK-IMAGE.png",
+                backLink: "27mm-series.html"
+            },
+            "27mm-2-track-grill": {
+                title: "27mm 2-Track with Grill",
+                subtitle: "Safety meets simplicity.",
+                desc: "Combines our lightweight 2-track sliding mechanism with a sturdy, integrated aluminum grill. Ideal for ground-floor apartments and accessible windows where fundamental security is required.",
+                features: [
+                    "Built-in safety grill directly on the outer frame.",
+                    "Seamless aesthetic eliminates the need for ugly exterior ironwork.",
+                    "Secure, internal multi-point locking mechanisms.",
+                    "Optimal for lower floors and residential complexes."
+                ],
+                image: "2-TRACK-IMAGE.png",
+                backLink: "27mm-series.html"
+            },
+            "27mm-3-track-grill": {
+                title: "27mm 3-Track with Grill",
+                subtitle: "Complete residential protection.",
+                desc: "The ultimate standard window configuration. Enjoy dual glass sliding, a dedicated mosquito mesh track, and a fixed safety grill—all contained within one highly efficient 27mm framing system.",
+                features: [
+                    "3-in-1 functionality (Glass, Mesh, Grill).",
+                    "Maximum insect and intrusion protection.",
+                    "Excellent airflow control for tropical climates.",
+                    "Economical total-security solution."
+                ],
+                image: "3-TRACK-IMAGE.png",
+                backLink: "27mm-series.html"
+            },
+
+            // --- 29MM SERIES ---
+            "29mm-2-track": {
+                title: "29mm Elite 2-Track",
+                subtitle: "Sophisticated spans for luxury spaces.",
+                desc: "Engineered with superior frame rigidity, this premium dual-track system supports larger, heavier glass panels. It provides expansive, unobstructed views and elevated acoustic insulation for high-end apartments and villas.",
+                features: [
+                    "Enhanced structural integrity for wider, taller sashes.",
+                    "Accommodates thicker architectural glass profiles.",
+                    "Premium acoustic insulation for a quieter interior.",
+                    "Sleek, modern sightlines with concealed hardware."
+                ],
+                image: "2-TRACK-IMAGE.png",
+                backLink: "29mm-series.html"
+            },
+            "29mm-3-track": {
+                title: "29mm Elite 3-Track",
+                subtitle: "Uncompromised airflow and elegance.",
+                desc: "A robust three-track configuration designed for premium properties. Seamlessly conceals a heavy-duty SS-304 mosquito mesh behind expansive sliding glass, offering uninterrupted luxury and comfort.",
+                features: [
+                    "Heavy-duty mesh track with smooth-glide technology.",
+                    "Vibration-free sliding, even on massive architectural openings.",
+                    "Superior European-grade weather-stripping.",
+                    "The ideal choice for luxury bedroom balconies and patios."
+                ],
+                image: "3-TRACK-IMAGE.png",
+                backLink: "29mm-series.html"
+            },
+            "29mm-2-track-grill": {
+                title: "29mm Elite 2-Track with Grill",
+                subtitle: "Architectural security.",
+                desc: "A high-end sliding window that integrates a designer safety grill directly into the rigid 29mm elite frame. It ensures absolute safety without forcing you to compromise on modern, sophisticated aesthetics.",
+                features: [
+                    "Elegant, contemporary grill integration.",
+                    "High-grade security for luxury ground-level spaces.",
+                    "Supports heavier safety glazing and toughened glass.",
+                    "Flawless architectural powder-coat finishes."
+                ],
+                image: "2-TRACK-IMAGE.png",
+                backLink: "29mm-series.html"
+            },
+            "29mm-3-track-grill": {
+                title: "29mm Elite 3-Track with Grill",
+                subtitle: "The apex of luxury and defense.",
+                desc: "Designed for premium accessible spaces requiring zero compromises. Features heavy-duty glass sliding, invisible mesh integration, and an architectural-grade security grill in a masterfully crafted 29mm frame.",
+                features: [
+                    "Unyielding frame strength with a luxury finish.",
+                    "Complete environmental control (temperature, bugs, security).",
+                    "Custom designer safety grill patterns available.",
+                    "Flawless multi-track rolling via premium tandem rollers."
+                ],
+                image: "3-TRACK-IMAGE.png",
+                backLink: "29mm-series.html"
+            },
+
+            // --- 30MM SERIES ---
+            "30mm-2-track": {
+                title: "30mm Heavy-Duty 2-Track",
+                subtitle: "Defying extreme wind loads.",
+                desc: "Built explicitly for high-rise towers and monumental architectural spans. This massive 30mm 2-track frame ensures absolute structural stability and zero deflection under intense environmental pressure and high altitudes.",
+                features: [
+                    "Extreme wind-load resistance for skyscrapers.",
+                    "Accommodates heavy Double Glazed Units (DGU) up to 24mm.",
+                    "Fabricated from aerospace-grade AA 6063-T6 aluminum.",
+                    "Certified for high-altitude commercial and residential use."
+                ],
+                image: "2-TRACK-IMAGE.png",
+                backLink: "30mm-series.html"
+            },
+            "30mm-3-track": {
+                title: "30mm Heavy-Duty 3-Track",
+                subtitle: "Maximum spans, maximum protection.",
+                desc: "The ultimate commercial and high-rise multi-track system. Effortlessly glides massive, floor-to-ceiling glass panels alongside heavy-duty commercial mesh screens without any derailing, friction, or frame torsion.",
+                features: [
+                    "Unmatched structural depth and interlock strength.",
+                    "Heavy-duty commercial rollers engineered for massive weights.",
+                    "Panoramic span capability for luxury penthouses.",
+                    "Extreme weather endurance and water-tight sealing."
+                ],
+                image: "3-TRACK-IMAGE.png",
+                backLink: "30mm-series.html"
+            },
+            "30mm-2-track-grill": {
+                title: "30mm Heavy-Duty 2-Track w/ Grill",
+                subtitle: "Fortified structural integrity.",
+                desc: "A monumental window system combining our thickest 30mm profile with an unbreakable integrated grill. Designed for commercial properties, institutions, and high-security zones where failure is not an option.",
+                features: [
+                    "Vault-like security and intrusion prevention.",
+                    "Massive profile wall thickness to prevent tampering.",
+                    "Impact-resistant design architecture.",
+                    "Compatible with commercial-grade multi-point locking."
+                ],
+                image: "2-TRACK-IMAGE.png",
+                backLink: "30mm-series.html"
+            },
+            "30mm-3-track-grill": {
+                title: "30mm Heavy-Duty 3-Track w/ Grill",
+                subtitle: "The absolute fortress system.",
+                desc: "The most robust configuration we fabricate. Combines extreme high-rise wind resistance, commercial mesh screening, and impenetrable grill security into one massive 30mm master frame.",
+                features: [
+                    "Ultimate multi-layer environmental and physical protection.",
+                    "Hurricane-grade frame depth and structural rigidity.",
+                    "Supports immense glass weight without operational drag.",
+                    "Complete sensory and physical isolation from the exterior."
+                ],
+                image: "3-TRACK-IMAGE.png",
+                backLink: "30mm-series.html"
+            }
+        };
+
+        // Get the ID from the URL (e.g., specs.html?id=27mm-2-track)
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id');
+
+        // Populate the page with the correct data
+        if (productId && productData[productId]) {
+            const data = productData[productId];
+            
+            document.title = data.title + " | Shubham Aludecor";
+            document.getElementById('page-title').textContent = data.title;
+            document.getElementById('page-subtitle').textContent = data.subtitle;
+            document.getElementById('page-desc').textContent = data.desc;
+            document.getElementById('page-image').src = data.image;
+            document.getElementById('page-image').alt = data.title;
+            document.getElementById('back-link').href = data.backLink;
+
+            // Generate feature list
+            const featuresList = document.getElementById('page-features');
+            data.features.forEach(feature => {
+                const li = document.createElement('li');
+                li.innerHTML = `<i class="fa-solid fa-check"></i> ${feature}`;
+                featuresList.appendChild(li);
+            });
+        } else {
+            // Fallback if the URL doesn't have a valid ID
+            document.getElementById('page-title').textContent = "Configuration Not Found";
+            document.getElementById('page-desc').textContent = "Please select a valid configuration from the series menu.";
+            document.getElementById('back-link').href = "sliding-windows.html";
+            document.getElementById('page-image').style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
