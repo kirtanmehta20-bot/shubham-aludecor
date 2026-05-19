@@ -3,266 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shubham Aludecor - Architectural Precision</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Shubham Aludecor - Technical Specifications</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* CORE DESIGN */
-        * { box-sizing: border-box; }
+        /* CORE RESET & TYPOGRAPHY */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            background-color: #0F172A;
-            margin: 0;
-            padding: 0;
-            font-family: 'Lato', sans-serif;
-            color: #F8FAFC;
-            overflow-x: hidden;
+            background-color: #0f172a; /* Deep Slate */
+            color: #e2e8f0;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
         }
+        h1, h2, h3 { color: #ffffff; text-transform: uppercase; letter-spacing: 1px; }
+        
+        /* HEADER */
+        .tech-header {
+            background-color: #1e293b;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 4px solid #d97706; /* Gold accent */
+        }
+        .tech-header h1 { font-size: 2.5rem; margin-bottom: 10px; color: #d97706; }
+        .tech-header p { font-size: 1.2rem; color: #94a3b8; max-width: 600px; margin: 0 auto; }
 
-        /* TYPOGRAPHY */
-        h1, h2, h3 {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        p, li, td { font-size: 18px; line-height: 1.6; color: #CBD5E1; }
-        
-        .section-title { font-size: 32px; font-weight: 600; margin-bottom: 30px; color: #D97706; }
-        
         /* CONTAINERS */
-        .section-container {
-            padding: 80px 5%;
+        .container {
             max-width: 1200px;
             margin: 0 auto;
-            position: relative;
+            padding: 60px 20px;
         }
 
-        /* FULL HERO BANNER */
-        .hero {
-            background-image: url('img%201.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed; /* Parallax effect */
-            height: 80vh;
+        /* TECHNICAL SPEC BLOCK */
+        .spec-block {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            margin-bottom: 50px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 900px) {
+            .spec-block { flex-direction: row; }
+            /* Alternate layout: even items have text on left, odd have text on right */
+            .spec-block:nth-child(even) { flex-direction: row-reverse; }
+        }
+
+        /* TEXT AREA */
+        .spec-details {
+            padding: 40px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .spec-details h2 { font-size: 1.8rem; margin-bottom: 20px; color: #d97706; border-bottom: 1px solid #334155; padding-bottom: 10px; }
+        .spec-details ul { list-style: none; margin-top: 20px; }
+        .spec-details li { margin-bottom: 12px; padding-left: 20px; position: relative; }
+        .spec-details li::before { content: '■'; color: #d97706; position: absolute; left: 0; font-size: 0.8rem; top: 4px; }
+
+        /* DIAGRAM DISPLAY AREA */
+        .spec-diagram {
+            flex: 1;
+            background-color: #0b1120; /* Very dark background to make CAD lines pop */
+            padding: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            position: relative;
+            border-left: 1px solid #334155;
         }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(15, 23, 42, 0.85); /* Dark overlay */
+        .spec-block:nth-child(even) .spec-diagram {
+            border-left: none;
+            border-right: 1px solid #334155;
         }
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            padding: 20px;
-        }
-        .hero h1 { font-size: 4rem; color: #FFFFFF; margin-bottom: 20px; }
-        .hero p { font-size: 1.5rem; color: #D97706; letter-spacing: 4px; font-weight: 300; }
-
-        /* GRID LAYOUTS */
-        .two-column {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-            margin-bottom: 60px;
-        }
-        @media (max-width: 768px) {
-            .two-column { grid-template-columns: 1fr; }
-        }
-
-        .three-column {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        /* IMAGES & TILES */
-        .image-wrapper {
-            border: 1px solid rgba(217, 119, 6, 0.3);
-            border-radius: 4px;
-            overflow: hidden;
-            background-color: #1E293B;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .image-wrapper img {
+        
+        /* CRITICAL: object-fit contain prevents the CAD drawing from being cropped */
+        .spec-diagram img {
             width: 100%;
-            height: auto;
-            display: block;
+            max-height: 400px;
+            object-fit: contain; 
         }
 
-        .tile {
-            background: #1E293B;
-            padding: 40px;
-            border-left: 4px solid #D97706;
-            height: 100%;
-        }
-        .tile h3 { font-size: 20px; margin-bottom: 15px; color: #FFFFFF; }
-
-        /* LISTS & TABLES */
-        .bullet-list { list-style: none; padding: 0; }
-        .bullet-list li { margin-bottom: 15px; padding-left: 35px; position: relative; }
-        .bullet-list i { position: absolute; left: 0; top: 5px; color: #D97706; font-size: 20px; }
-
-        table { width: 100%; border-collapse: collapse; background-color: #1E293B; margin-top: 20px; }
-        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #334155; }
-        th { color: #D97706; font-family: 'Poppins', sans-serif; font-size: 16px; }
-
-        /* DIVIDER */
-        .divider { width: 80px; height: 4px; background: #D97706; margin: 30px 0; }
-        .center-divider { margin: 30px auto; }
+        /* DATA TABLE */
+        .data-table { width: 100%; border-collapse: collapse; margin-top: 40px; background: #1e293b; }
+        .data-table th, .data-table td { padding: 15px 20px; text-align: left; border: 1px solid #334155; }
+        .data-table th { background: #0f172a; color: #d97706; }
     </style>
 </head>
 <body>
 
-    <header class="hero">
-        <div class="hero-content">
-            <p>SHUBHAM ALUDECOR</p>
-            <h1>Architectural Precision</h1>
-            <p style="color: #FFFFFF; font-size: 1.2rem; margin-top: 20px; letter-spacing: 1px;">Premium Aluminum Systems for Modern Luxury Spaces</p>
-        </div>
+    <header class="tech-header">
+        <h1>Shubham Aludecor</h1>
+        <p>Architectural Precision | Technical Specifications & Profile Blueprints</p>
     </header>
 
-    <section class="section-container" style="text-align: center;">
-        <h2 style="font-size: 2.5rem; color: #D97706;">The Aludecor Standard</h2>
-        <div class="divider center-divider"></div>
-        <p style="max-width: 800px; margin: 0 auto; font-size: 1.2rem;">Expert manufacturing and flawless installation. We provide end-to-end solutions for aluminum fenestration, prioritizing durability, sleek aesthetics, and uncompromising security.</p>
-    </section>
+    <div class="container">
 
-    <section class="section-container">
-        <h2 class="section-title">25mm Premium Slim Series</h2>
-        <div class="three-column">
-            <div class="tile">
-                <h3>Minimalist Design</h3>
-                <p>Ultra-slim 25mm sightlines designed to maximize your view without structural compromise.</p>
-            </div>
-            <div class="tile">
-                <h3>Superior Interlock</h3>
-                <p>Sophisticated interlocking sections ensure absolute weatherproofing and air-tight insulation.</p>
-            </div>
-            <div class="tile">
-                <h3>High Load Bearing</h3>
-                <p>Engineered for high-rise requirements with heavy-duty aluminum alloys and precision rollers.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-container" style="background-color: #162032;">
-        <div class="two-column">
-            <div>
-                <h2 class="section-title">The 2-Track Advantage</h2>
-                <p>Designed for compact spaces, our 2-track sliding windows provide streamlined movement and high functional efficiency.</p>
-                <div class="divider"></div>
-                <ul class="bullet-list">
-                    <li><i class="fa-solid fa-check"></i> 1.5mm Profile Wall Thickness</li>
-                    <li><i class="fa-solid fa-check"></i> High-performance Powder Coating Finish</li>
-                    <li><i class="fa-solid fa-check"></i> Multipoint Locking System</li>
-                    <li><i class="fa-solid fa-check"></i> Weather Strip Grooves for Insulation</li>
+        <div class="spec-block">
+            <div class="spec-details">
+                <h2>Extrusion Overview & Architecture</h2>
+                <p>Detailed sectional analysis of our foundational aluminum profiles. Designed for maximum structural integrity and wind-load resistance in high-rise applications.</p>
+                <ul>
+                    <li>Alloy Grade: AA 6063-T6</li>
+                    <li>Wall Thickness: 1.2mm - 2.0mm</li>
+                    <li>Application: Heavy-duty residential and commercial systems.</li>
                 </ul>
             </div>
-            <div class="image-wrapper">
-                <img src="img%202.png" alt="2-Track Aluminum Window">
+            <div class="spec-diagram">
+                <img src="img%201.png" alt="Profile Section Diagram 1">
             </div>
         </div>
-    </section>
 
-    <section class="section-container">
-        <div class="two-column">
-            <div class="image-wrapper">
-                <img src="img%203.png" alt="Aluminum Profile Detail">
-            </div>
-            <div>
-                <h2 class="section-title">Unrivaled Profile Specs</h2>
-                <p>Our 25mm Series is the gold standard for luxury residential projects. The profile depth and wall thickness are optimized to support expansive glass shutters up to 10 feet in height.</p>
-                <p style="color: #D97706; font-weight: 700; font-size: 1.5rem; margin-top: 20px;">"Max View, Min Frame."</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-container" style="background-color: #162032;">
-        <div class="two-column">
-            <div>
-                <h2 class="section-title">3-Track Functional System</h2>
-                <p>Enhanced protection without compromising on airflow. The 3-track system allows for 2 glass shutters and 1 dedicated mesh track.</p>
-                <div class="divider"></div>
-                <ul class="bullet-list">
-                    <li><i class="fa-solid fa-shield-virus"></i> SS 304 Grade Mosquito Mesh</li>
-                    <li><i class="fa-solid fa-wind"></i> Optimized Ventilation Control</li>
-                    <li><i class="fa-solid fa-eye"></i> High-transparency Mesh Material</li>
+        <div class="spec-block">
+            <div class="spec-details">
+                <h2>2-Track Sliding System Profile</h2>
+                <p>Technical schematic of the standard 2-track outer frame and shutter assembly. Engineered for minimal friction and maximum water drainage.</p>
+                <ul>
+                    <li>Compact footprint for optimized space utilization.</li>
+                    <li>Integrated weather strip grooves.</li>
+                    <li>Supports up to 12mm glass thickness.</li>
                 </ul>
             </div>
-            <div class="image-wrapper">
-                <img src="img%204.png" alt="3-Track Window with Mosquito Mesh">
+            <div class="spec-diagram">
+                <img src="img%202.png" alt="2-Track Diagram">
             </div>
         </div>
-    </section>
 
-    <section class="section-container">
-        <h2 class="section-title">Technical Matrix & Specs</h2>
-        <div style="overflow-x: auto;">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Feature</th>
-                        <th>Slim Series (25mm)</th>
-                        <th>Professional Series</th>
-                        <th>Heavy Duty Series</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Sightline Width</td>
-                        <td>25 mm</td>
-                        <td>35 mm</td>
-                        <td>45 mm</td>
-                    </tr>
-                    <tr>
-                        <td>Track Options</td>
-                        <td>2-Track / 3-Track</td>
-                        <td>2-Track / 3-Track</td>
-                        <td>Up to 4-Track</td>
-                    </tr>
-                    <tr>
-                        <td>Glass Thickness</td>
-                        <td>5mm - 12mm Toughened</td>
-                        <td>6mm - 18mm DGU</td>
-                        <td>Up to 24mm DGU</td>
-                    </tr>
-                    <tr>
-                        <td>Alloy Grade</td>
-                        <td>AA 6063-T6</td>
-                        <td>AA 6063-T6</td>
-                        <td>AA 6063-T6</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <section class="hero" style="background-image: url('img%205.png'); height: 60vh;">
-        <div class="hero-content">
-            <h2 style="font-size: 3rem; color: #FFFFFF;">Questions?</h2>
-            <p style="color: #D97706; margin-bottom: 40px;">Let's Build Your Dream Space Together</p>
-            
-            <div style="display: flex; gap: 40px; justify-content: center; flex-wrap: wrap;">
-                <div style="background: rgba(30, 41, 59, 0.8); padding: 20px 40px; border-radius: 4px; border: 1px solid #D97706;">
-                    <h3 style="color: #FFFFFF; font-size: 1.2rem;">Visit Us</h3>
-                    <p style="font-size: 1rem;">Modern Industrial Hub, Phase II</p>
-                </div>
-                <div style="background: rgba(30, 41, 59, 0.8); padding: 20px 40px; border-radius: 4px; border: 1px solid #D97706;">
-                    <h3 style="color: #FFFFFF; font-size: 1.2rem;">Contact</h3>
-                    <p style="font-size: 1rem;">Phone: +91 6356561410<br>info@shubhamaludecor.com</p>
-                </div>
+        <div class="spec-block">
+            <div class="spec-details">
+                <h2>25mm Premium Slim Series</h2>
+                <p>The architectural gold standard. This schematic details the ultra-slim 25mm interlock section, providing maximum glass area with concealed reinforcement.</p>
+                <ul>
+                    <li>"Max View, Min Frame" minimalist design.</li>
+                    <li>High-precision corner crimping architecture.</li>
+                    <li>Capable of spanning shutter heights up to 10 feet.</li>
+                </ul>
+            </div>
+            <div class="spec-diagram">
+                <img src="img%203.png" alt="25mm Series Diagram">
             </div>
         </div>
-    </section>
+
+        <div class="spec-block">
+            <div class="spec-details">
+                <h2>3-Track System with Integrated Mesh</h2>
+                <p>Detailed view of the 3-track profile accommodating two glass shutters and an integrated mosquito mesh track without compromising the slim sightline.</p>
+                <ul>
+                    <li>Dedicated track for SS 304 Grade mesh.</li>
+                    <li>Enhanced anti-lift security design.</li>
+                    <li>Optimized for tropical climate ventilation.</li>
+                </ul>
+            </div>
+            <div class="spec-diagram">
+                <img src="img%204.png" alt="3-Track Diagram">
+            </div>
+        </div>
+
+        <h2 style="color: #d97706; margin-bottom: 20px;">System Comparisons</h2>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Slim Series (25mm)</th>
+                    <th>Standard 2-Track</th>
+                    <th>Heavy Duty 3-Track</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sightline Width</td>
+                    <td>25 mm</td>
+                    <td>45 mm</td>
+                    <td>52 mm</td>
+                </tr>
+                <tr>
+                    <td>Glass Capacity</td>
+                    <td>Up to 12mm Toughened</td>
+                    <td>5mm - 8mm</td>
+                    <td>Up to 18mm DGU</td>
+                </tr>
+                <tr>
+                    <td>Hardware Compatibility</td>
+                    <td>Concealed Multipoint</td>
+                    <td>Standard Touch Lock</td>
+                    <td>Heavy Duty Pop-up Handle</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
 
 </body>
 </html>
