@@ -93,22 +93,112 @@
         letter-spacing: 0.5px;
     }
 
-    /* --- 2. PREMIUM HEADER --- */
-    header {
-        background: rgba(0, 0, 0, 0.85);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        padding: 1rem 5%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        flex-wrap: wrap;
-    }
+    /* Premium Header Styling */
+.premium-header {
+    background: rgba(17, 17, 17, 0.85); /* Deep charcoal with transparency */
+    backdrop-filter: blur(12px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
 
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Brand Text Styling */
+.brand-logo {
+    text-decoration: none;
+}
+
+.brand-text {
+    color: #ffffff;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.accent-text {
+    color: #bc9c6c; /* Architectural Gold */
+}
+
+/* Navigation Links */
+.main-nav {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #d1d5db;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.nav-item:hover {
+    color: #ffffff;
+}
+
+/* Expanding Gold Underline Animation */
+.nav-item::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #bc9c6c;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-item:hover::after {
+    width: 100%;
+}
+
+/* Standout Contact Button */
+.action-btn {
+    display: inline-block;
+    text-decoration: none;
+    background: transparent;
+    color: #bc9c6c;
+    border: 1px solid #bc9c6c;
+    padding: 10px 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+    background: #bc9c6c;
+    color: #111111;
+}
+
+/* Mobile Breakpoint */
+@media (max-width: 900px) {
+    .main-nav { display: none; /* Can be replaced with a hamburger menu later */ }
+    .header-action { display: none; }
+}
     .logo-container { display: flex; align-items: center; gap: 15px; }
     .logo-img { height: 60px; width: auto; }
     
@@ -336,18 +426,24 @@
 <body>
 
    <header>
-        <div class="logo-container">
-            <img src="https://i.postimg.cc/NLqWq7mW/logo.png" alt="Shubham Aludecor Logo" class="logo-img">
-            </div>
-        
-      <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About Us</a>
-    <a href="#products">Our Products</a>
-    <a href="#contact">Contact Us</a>
-    <a href="https://maps.app.goo.gl/SZkPXY2w3YZgbwCL8" target="_blank" class="nav-location">📍 Location</a>
-</nav>
-    </header>
+       <header class="premium-header">
+    <div class="header-container">
+        <a href="index.html" class="brand-logo">
+            <span class="brand-text">SHUBHAM<br><span class="accent-text">ALUDECOR</span></span>
+        </a>
+
+        <nav class="main-nav">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="#about" class="nav-item">About Us</a>
+            <a href="#products" class="nav-item">Our Products</a>
+            <a href="#location" class="nav-item">📍 Location</a>
+        </nav>
+
+        <div class="header-action">
+            <a href="#contact" class="action-btn">Contact Us</a>
+        </div>
+    </div>
+</header>
    <section class="hero" id="home">
     <div class="hero-overlay"></div>
     <div class="hero-content">
