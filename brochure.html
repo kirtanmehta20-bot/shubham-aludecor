@@ -8,7 +8,7 @@
     <style>
         :root {
             --primary: #111111;
-            --accent: #bc9c6c; /* Elegant Architectural Gold/Bronze accent */
+            --accent: #bc9c6c;
             --bg-light: #fdfdfd;
             --surface: #ffffff;
             --text-dark: #1a1a1a;
@@ -29,7 +29,6 @@
             line-height: 1.7;
         }
 
-        /* Luxury Header Navigation */
         header {
             background: var(--surface);
             padding: 24px 5%;
@@ -63,7 +62,6 @@
             color: var(--accent);
         }
 
-        /* Editorial Hero Banner Section */
         .hero-banner {
             background: linear-gradient(135deg, #111111 0%, #222222 100%);
             color: #ffffff;
@@ -128,7 +126,6 @@
             transform: translateY(-2px);
         }
 
-        /* Brochure Content Container */
         .brochure-container {
             max-width: 1200px;
             margin: 80px auto;
@@ -153,7 +150,6 @@
             margin: 0 auto 15px auto;
         }
 
-        /* Alternating Magazine Layout Blocks */
         .brochure-row {
             display: flex;
             align-items: center;
@@ -165,7 +161,7 @@
             flex-direction: row-reverse;
         }
 
-        /* Image Display Frame */
+        /* Digital Branding Mask Wrapper */
         .brochure-frame {
             flex: 1.2;
             background: #ffffff;
@@ -173,28 +169,42 @@
             padding: 24px;
             box-shadow: 0 15px 40px rgba(0,0,0,0.03);
             position: relative;
+            overflow: hidden;
         }
 
-        .brochure-frame::after {
-            content: "";
+        /* This mask cleanly covers the old Silver logo position inside the image */
+        .brand-mask-overlay {
             position: absolute;
-            width: 40px;
-            height: 40px;
-            border: 2px solid var(--accent);
-            z-index: -1;
+            top: 40px;
+            left: 45px;
+            width: 180px;
+            height: 48px;
+            background: #ffffff; 
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
         }
 
-        .brochure-row:nth-child(odd) .brochure-frame::after { bottom: -10px; right: -10px; border-top: none; border-left: none; }
-        .brochure-row:nth-child(even) .brochure-frame::after { top: -10px; left: -10px; border-bottom: none; border-right: none; }
+        .brand-mask-overlay::after {
+            content: "SHUBHAM ALUDECOR";
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #111111;
+            border-left: 3px solid var(--accent);
+            padding-left: 10px;
+        }
 
         .brochure-frame img {
             width: 100%;
             height: auto;
             display: block;
             object-fit: contain;
+            position: relative;
+            z-index: 1;
         }
 
-        /* Specification Narrative Block */
         .brochure-text {
             flex: 1;
         }
@@ -233,7 +243,6 @@
             font-size: 0.95rem;
         }
 
-        /* Tech Spec Mini Table */
         .spec-table {
             width: 100%;
             border-collapse: collapse;
@@ -256,7 +265,6 @@
             text-align: right;
         }
 
-        /* Premium Brand Footer */
         footer {
             background: #111111;
             color: #ffffff;
@@ -271,12 +279,20 @@
             color: #888888;
         }
 
-        /* Responsive Adapting */
         @media (max-width: 900px) {
             .brochure-row, .brochure-row:nth-child(even) {
                 flex-direction: column;
                 gap: 30px;
                 margin-bottom: 70px;
+            }
+            .brand-mask-overlay {
+                top: 32px;
+                left: 35px;
+                width: 140px;
+                height: 35px;
+            }
+            .brand-mask-overlay::after {
+                font-size: 0.58rem;
             }
             .hero-banner h1 { font-size: 2.3rem; }
         }
@@ -305,6 +321,7 @@
 
         <article class="brochure-row">
             <div class="brochure-frame">
+                <div class="brand-mask-overlay"></div>
                 <img src="image%201.png" alt="Shubham Aludecor Framing Architecture">
             </div>
             <div class="brochure-text">
@@ -321,6 +338,7 @@
 
         <article class="brochure-row">
             <div class="brochure-frame">
+                <div class="brand-mask-overlay"></div>
                 <img src="image%202.png" alt="Shubham Aludecor Tracking Mechanics">
             </div>
             <div class="brochure-text">
@@ -337,6 +355,7 @@
 
         <article class="brochure-row">
             <div class="brochure-frame">
+                <div class="brand-mask-overlay"></div>
                 <img src="image%203.png" alt="Shubham Aludecor Infill Layout">
             </div>
             <div class="brochure-text">
@@ -353,6 +372,7 @@
 
         <article class="brochure-row">
             <div class="brochure-frame">
+                <div class="brand-mask-overlay"></div>
                 <img src="image%204.png" alt="Shubham Aludecor Hardware Assembly">
             </div>
             <div class="brochure-text">
@@ -366,24 +386,3 @@
                 </table>
             </div>
         </article>
-
-        <article class="brochure-row">
-            <div class="brochure-frame">
-                <img src="image%205.png" alt="Shubham Aludecor Interlock Profiles">
-            </div>
-            <div class="brochure-text">
-                <div class="page-num">05</div>
-                <h3>Interlock Profile Engineering</h3>
-                <p>Optimized slim interlock segments that hide away perfectly, expanding exterior field-of-views while easily withstanding severe weather and wind pressures.</p>
-                <table class="spec-table">
-                    <tr><td>Sightline Profile</td><td>Ultra-Slim Minimal Silhouette</td></tr>
-                    <tr><td>Wind Load Capacity</td><td>Structural Grade Rating</td></tr>
-                    <tr><td>Operation Type</td><td>Effortless Slide Transition</td></tr>
-                </table>
-            </div>
-        </article>
-
-    </div>
-
-    <footer>
-        <p>&copy; 2026 Shubham Aludecor. High-Performance Architectural
