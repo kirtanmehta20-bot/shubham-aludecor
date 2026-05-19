@@ -127,4 +127,137 @@
             position: absolute;
         }
 
-        /* Document
+        /* Document Decorative Emblem */
+        .document-icon {
+            width: 60px;
+            height: 80px;
+            background: #ffffff;
+            border: 2px solid var(--accent);
+            border-radius: 4px;
+            position: relative;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 2;
+        }
+
+        .document-icon::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 15px 15px 0;
+            border-color: transparent var(--bg-color) transparent transparent;
+        }
+
+        /* Card Content Details */
+        .card-content {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .file-badge {
+            align-self: flex-start;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            background: #f0f0f0;
+            padding: 4px 10px;
+            margin-bottom: 15px;
+            color: var(--text-muted);
+        }
+
+        .card-content h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .card-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        /* Solid Call To Action Button */
+        .btn-download {
+            display: block;
+            text-align: center;
+            background: var(--accent);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: background 0.3s;
+        }
+
+        .btn-download:hover {
+            background: var(--accent-hover);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid #eeeeee;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            background: var(--card-bg);
+        }
+
+        @media (max-width: 600px) {
+            header { padding: 20px; }
+            .hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Shubham Aludecor</div>
+        <a href="index.html" class="nav-link">← Back to Home</a>
+    </header>
+
+    <section class="hero">
+        <h1>Architectural Catalogues</h1>
+        <p>Explore and download our technical specification sheets, design series, and profile frameworks for premium aluminum systems.</p>
+    </section>
+
+    <main class="catalog-container">
+        <article class="brochure-card">
+            <div class="preview-box">
+                <div class="document-icon"></div>
+            </div>
+            <div class="card-content">
+                <span class="file-badge">PDF • Catalogue</span>
+                <h3>FINE 25 Series</h3>
+                <p>Complete technical data, track profile dimensions, and structural details for our premium 25mm sliding window series.</p>
+                <a href="FINE%2025.pdf" target="_blank" class="btn-download">Download Catalogue</a>
+            </div>
+        </article>
+
+        <article class="brochure-card" style="opacity: 0.6;">
+            <div class="preview-box" style="background: #f2f2f2;">
+                <div class="document-icon" style="border-color:#aaa;"></div>
+            </div>
+            <div class="card-content">
+                <span class="file-badge">Coming Soon</span>
+                <h3>Sliding Systems Overview</h3>
+                <p>Comprehensive layout guides and profile configurations for heavy-duty luxury tracking configurations.</p>
+                <a href="#" onclick="return false;" class="btn-download" style="background: #999; cursor: not-allowed;">Under Review</a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Shubham Aludecor. Architectural Systems Matrix.</p>
+    </footer>
+
+</body>
+</html>
