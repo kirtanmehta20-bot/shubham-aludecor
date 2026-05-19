@@ -1,1 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[PAGE TITLE] | Shubham Aludecor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root { --charcoal: #111111; --gold: #bc9c6c; --white: #ffffff; --off-white: #f9f9f9; --text-muted: #888888; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--charcoal); color: var(--white); line-height: 1.6; }
+        h1, h2, .serif { font-family: 'Playfair Display', serif; }
+        
+        /* HEADER */
+        header { padding: 20px 5%; border-bottom: 1px solid rgba(188, 156, 108, 0.2); }
+        .brand { color: var(--white); text-decoration: none; font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; letter-spacing: 2px; }
+        .brand span { color: var(--gold); }
+        
+        /* CONTENT SECTION */
+        .content-wrapper { max-width: 1200px; margin: 80px auto; padding: 0 5%; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .text-box h1 { font-size: 3rem; margin-bottom: 10px; color: var(--gold); }
+        .text-box h2 { font-size: 1.5rem; margin-bottom: 30px; font-weight: 300; color: #d1d5db; font-family: 'Montserrat', sans-serif; }
+        .text-box p { font-size: 1.1rem; color: #aaaaaa; margin-bottom: 40px; }
+        
+        /* FEATURES LIST */
+        .feature-list { list-style: none; }
+        .feature-list li { margin-bottom: 20px; font-size: 1.05rem; display: flex; align-items: flex-start; gap: 15px; }
+        .feature-list i { color: var(--gold); margin-top: 5px; }
+        
+        /* IMAGE BOX */
+        .image-box { border: 1px solid rgba(188, 156, 108, 0.3); border-radius: 4px; overflow: hidden; height: 500px; background: #1a1a1a; display: flex; align-items: center; justify-content: center; }
+        .image-box img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
+        
+        /* BACK BUTTON */
+        .back-btn { display: inline-block; margin-top: 40px; color: var(--gold); text-decoration: none; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; font-weight: 600; border-bottom: 1px solid transparent; transition: all 0.3s ease; }
+        .back-btn:hover { border-bottom: 1px solid var(--gold); }
 
+        @media (max-width: 900px) { .content-wrapper { grid-template-columns: 1fr; } .image-box { height: 350px; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="brand">SHUBHAM<br><span>ALUDECOR</span></a>
+    </header>
+
+    <div class="content-wrapper">
+        <div class="text-box">
+            <h1>[PAGE TITLE]</h1>
+            <h2>[HERO SUBTITLE]</h2>
+            <p>[MAIN DESCRIPTION]</p>
+            
+            <ul class="feature-list">
+                <li><i class="fa-solid fa-check"></i> [FEATURE 1]</li>
+                <li><i class="fa-solid fa-check"></i> [FEATURE 2]</li>
+                <li><i class="fa-solid fa-check"></i> [FEATURE 3]</li>
+                <li><i class="fa-solid fa-check"></i> [FEATURE 4]</li>
+            </ul>
+
+            <a href="[BACK LINK URL]" class="back-btn">← Back to Series Configurations</a>
+        </div>
+        <div class="image-box">
+            <img src="[IMAGE URL]" alt="[PAGE TITLE]">
+        </div>
+    </div>
+
+</body>
+</html>
