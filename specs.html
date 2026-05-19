@@ -13,28 +13,31 @@
         h1, h2, .serif { font-family: 'Playfair Display', serif; }
         
         /* HEADER */
-        header { padding: 20px 5%; border-bottom: 1px solid rgba(188, 156, 108, 0.2); }
+        header { padding: 20px 5%; border-bottom: 1px solid rgba(188, 156, 108, 0.2); display: flex; justify-content: space-between; align-items: center;}
         .brand { color: var(--white); text-decoration: none; font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; letter-spacing: 2px; }
         .brand span { color: var(--gold); }
         
         /* CONTENT SECTION */
         .content-wrapper { max-width: 1200px; margin: 80px auto; padding: 0 5%; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .text-box h1 { font-size: 3rem; margin-bottom: 10px; color: var(--gold); }
+        .text-box h1 { font-size: 3rem; margin-bottom: 10px; color: var(--gold); line-height: 1.1;}
         .text-box h2 { font-size: 1.5rem; margin-bottom: 30px; font-weight: 300; color: #d1d5db; font-family: 'Montserrat', sans-serif; }
         .text-box p { font-size: 1.1rem; color: #aaaaaa; margin-bottom: 40px; }
         
         /* FEATURES LIST */
-        .feature-list { list-style: none; }
+        .feature-list { list-style: none; margin-bottom: 40px;}
         .feature-list li { margin-bottom: 20px; font-size: 1.05rem; display: flex; align-items: flex-start; gap: 15px; }
         .feature-list i { color: var(--gold); margin-top: 5px; }
         
         /* IMAGE BOX */
         .image-box { border: 1px solid rgba(188, 156, 108, 0.3); border-radius: 4px; overflow: hidden; height: 500px; background: #1a1a1a; display: flex; align-items: center; justify-content: center; }
-        .image-box img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
+        .image-box img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
         
-        /* BACK BUTTON */
-        .back-btn { display: inline-block; margin-top: 40px; color: var(--gold); text-decoration: none; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; font-weight: 600; border-bottom: 1px solid transparent; transition: all 0.3s ease; }
-        .back-btn:hover { border-bottom: 1px solid var(--gold); }
+        /* BUTTONS */
+        .button-group { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+        .brochure-btn { display: inline-block; text-decoration: none; color: var(--charcoal); background: var(--gold); border: 1px solid var(--gold); padding: 12px 28px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; transition: all 0.3s ease; }
+        .brochure-btn:hover { background: transparent; color: var(--gold); }
+        .back-btn { display: inline-block; color: #d1d5db; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; font-weight: 500; border-bottom: 1px solid transparent; transition: all 0.3s ease; }
+        .back-btn:hover { color: var(--gold); border-bottom: 1px solid var(--gold); }
 
         @media (max-width: 900px) { .content-wrapper { grid-template-columns: 1fr; } .image-box { height: 350px; } }
     </style>
@@ -43,6 +46,7 @@
 
     <header>
         <a href="index.html" class="brand">SHUBHAM<br><span>ALUDECOR</span></a>
+        <a href="brochure.html" class="brochure-btn" style="padding: 8px 16px; font-size: 0.75rem;">View Full Brochure</a>
     </header>
 
     <div class="content-wrapper">
@@ -54,7 +58,10 @@
             <ul class="feature-list" id="page-features">
                 </ul>
 
-            <a href="#" id="back-link" class="back-btn">← Back to Series Configurations</a>
+            <div class="button-group">
+                <a href="brochure.html" class="brochure-btn"><i class="fa-solid fa-file-pdf" style="margin-right: 8px;"></i> View Brochure</a>
+                <a href="#" id="back-link" class="back-btn">← Back to Series</a>
+            </div>
         </div>
         <div class="image-box">
             <img id="page-image" src="" alt="Product Image">
@@ -62,8 +69,62 @@
     </div>
 
     <script>
-        // THE DATABASE OF ALL 12 CONFIGURATIONS
+        // THE FULL DATABASE OF ALL 16 CONFIGURATIONS
         const productData = {
+            // --- 25MM SERIES ---
+            "25mm-2-track": {
+                title: "25mm Premium 2-Track",
+                subtitle: "Maximized views, minimal frames.",
+                desc: "Our flagship slim profile. The 25mm interlock maximizes your view while the heavy-duty framing supports expansive floor-to-ceiling glass without structural compromise.",
+                features: [
+                    "Ultra-slim 25mm central interlock.",
+                    "Supports glass heights up to 10 feet.",
+                    "Accommodates up to 12mm toughened glass.",
+                    "Concealed drainage and heavy-duty rollers."
+                ],
+                image: "img%201.png",
+                backLink: "25mm-series.html"
+            },
+            "25mm-3-track": {
+                title: "25mm Premium 3-Track",
+                subtitle: "Unrestricted airflow, invisible protection.",
+                desc: "Seamlessly incorporates a high-visibility mosquito mesh track. Enjoy unrestricted tropical airflow while maintaining the ultra-slim 25mm architectural sightlines.",
+                features: [
+                    "Dedicated invisible mesh track.",
+                    "Maintains 25mm slim sightlines.",
+                    "Anti-rattle brush seals.",
+                    "Perfect for luxury balconies and patios."
+                ],
+                image: "img%202.png",
+                backLink: "25mm-series.html"
+            },
+            "25mm-2-track-grill": {
+                title: "25mm Premium 2-Track w/ Grill",
+                subtitle: "Minimalist aesthetics, maximum security.",
+                desc: "Combines the minimalist 25mm profile with a robust, integrated safety grill. Uncompromised ground-floor security with high-end modern aesthetics.",
+                features: [
+                    "Integrated designer safety grill.",
+                    "No exterior ironwork required.",
+                    "Multi-point locking compatible.",
+                    "Luxury powder-coat finishes."
+                ],
+                image: "img%203.png",
+                backLink: "25mm-series.html"
+            },
+            "25mm-3-track-grill": {
+                title: "25mm Premium 3-Track w/ Grill",
+                subtitle: "The ultimate luxury fortress.",
+                desc: "Maximum functionality in a premium package. Effortless dual-glass sliding, invisible mesh screening, and structural grill security fused into one sleek frame.",
+                features: [
+                    "3-in-1 complete window solution.",
+                    "Premium hardware and tandem rollers.",
+                    "High acoustic and thermal insulation.",
+                    "Unobstructed panoramic framing."
+                ],
+                image: "img%204.png",
+                backLink: "25mm-series.html"
+            },
+
             // --- 27MM SERIES ---
             "27mm-2-track": {
                 title: "27mm Standard 2-Track",
@@ -75,7 +136,7 @@
                     "Space-saving 27mm frame depth.",
                     "Reliable EPDM weather sealing against dust and rain."
                 ],
-                image: "2-TRACK-IMAGE.png",
+                image: "img%201.png",
                 backLink: "27mm-series.html"
             },
             "27mm-3-track": {
@@ -88,7 +149,7 @@
                     "Practical residential use with minimal maintenance.",
                     "Prevents rattling with anti-vibration brush seals."
                 ],
-                image: "3-TRACK-IMAGE.png",
+                image: "img%202.png",
                 backLink: "27mm-series.html"
             },
             "27mm-2-track-grill": {
@@ -101,7 +162,7 @@
                     "Secure, internal multi-point locking mechanisms.",
                     "Optimal for lower floors and residential complexes."
                 ],
-                image: "2-TRACK-IMAGE.png",
+                image: "img%203.png",
                 backLink: "27mm-series.html"
             },
             "27mm-3-track-grill": {
@@ -114,7 +175,7 @@
                     "Excellent airflow control for tropical climates.",
                     "Economical total-security solution."
                 ],
-                image: "3-TRACK-IMAGE.png",
+                image: "img%204.png",
                 backLink: "27mm-series.html"
             },
 
@@ -129,7 +190,7 @@
                     "Premium acoustic insulation for a quieter interior.",
                     "Sleek, modern sightlines with concealed hardware."
                 ],
-                image: "2-TRACK-IMAGE.png",
+                image: "img%201.png",
                 backLink: "29mm-series.html"
             },
             "29mm-3-track": {
@@ -142,7 +203,7 @@
                     "Superior European-grade weather-stripping.",
                     "The ideal choice for luxury bedroom balconies and patios."
                 ],
-                image: "3-TRACK-IMAGE.png",
+                image: "img%202.png",
                 backLink: "29mm-series.html"
             },
             "29mm-2-track-grill": {
@@ -155,7 +216,7 @@
                     "Supports heavier safety glazing and toughened glass.",
                     "Flawless architectural powder-coat finishes."
                 ],
-                image: "2-TRACK-IMAGE.png",
+                image: "img%203.png",
                 backLink: "29mm-series.html"
             },
             "29mm-3-track-grill": {
@@ -168,7 +229,7 @@
                     "Custom designer safety grill patterns available.",
                     "Flawless multi-track rolling via premium tandem rollers."
                 ],
-                image: "3-TRACK-IMAGE.png",
+                image: "img%204.png",
                 backLink: "29mm-series.html"
             },
 
@@ -183,7 +244,7 @@
                     "Fabricated from aerospace-grade AA 6063-T6 aluminum.",
                     "Certified for high-altitude commercial and residential use."
                 ],
-                image: "2-TRACK-IMAGE.png",
+                image: "img%201.png",
                 backLink: "30mm-series.html"
             },
             "30mm-3-track": {
@@ -196,7 +257,7 @@
                     "Panoramic span capability for luxury penthouses.",
                     "Extreme weather endurance and water-tight sealing."
                 ],
-                image: "3-TRACK-IMAGE.png",
+                image: "img%202.png",
                 backLink: "30mm-series.html"
             },
             "30mm-2-track-grill": {
@@ -209,7 +270,7 @@
                     "Impact-resistant design architecture.",
                     "Compatible with commercial-grade multi-point locking."
                 ],
-                image: "2-TRACK-IMAGE.png",
+                image: "img%203.png",
                 backLink: "30mm-series.html"
             },
             "30mm-3-track-grill": {
@@ -222,12 +283,12 @@
                     "Supports immense glass weight without operational drag.",
                     "Complete sensory and physical isolation from the exterior."
                 ],
-                image: "3-TRACK-IMAGE.png",
+                image: "img%204.png",
                 backLink: "30mm-series.html"
             }
         };
 
-        // Get the ID from the URL (e.g., specs.html?id=27mm-2-track)
+        // Get the ID from the URL (e.g., specs.html?id=25mm-3-track)
         const urlParams = new URLSearchParams(window.location.search);
         const productId = urlParams.get('id');
 
