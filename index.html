@@ -119,15 +119,27 @@
 
         /* --- 3. CINEMATIC HERO SECTION --- */
         .hero {
-            position: relative;
-            height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
-            background-attachment: fixed;
-        }
+  position: relative;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--charcoal); /* Fallback color */
+  overflow: hidden; /* Keeps the video contained */
+}
+        .hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translateX(-50%) translateY(-50%);
+  object-fit: cover;
+  z-index: 0;
+}
         
         .hero-overlay {
             position: absolute;
@@ -427,14 +439,19 @@
     </header>
 
     <section class="hero" id="home">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <span class="hero-tag">Architectural Precision</span>
-            <h2>Premium Aluminum<br>Systems</h2>
-            <p>Expert manufacturing and flawless installation for modern, luxury spaces.</p>
-            <a href="#products" class="action-btn" style="background: var(--gold); color: var(--charcoal);">Explore Collection</a>
-        </div>
-    </section>
+  <!-- Add your video here. Make sure to match the src filename! -->
+  <video autoplay loop muted playsinline class="hero-video">
+    <source src="background.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-tag">Architectural Precision</span>
+    <h2>Premium Aluminum<br>Systems</h2>
+    <p>Expert manufacturing and flawless installation for modern, luxury spaces.</p>
+    <a href="#products" class="action-btn" style="background: var(--gold); color: var(--charcoal);">Explore Collection</a>
+  </div>
+</section>
 
     <section id="about" class="about-section">
         <div class="about-container">
