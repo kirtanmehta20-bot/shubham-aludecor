@@ -131,11 +131,11 @@
                 subtitle: "Streamlined residential sliding.",
                 desc: "Our most economical dual-track solution. Designed specifically for standard bedroom and living room windows, it offers clean aesthetics and smooth operation for everyday spaces with typical wind exposure.",
                 features: [
-                    <li>🪶 Lightweight operation with precision nylon rollers.</li>
-<li>🏢 Highly cost-effective for large-scale residential projects.</li>
-<li>📏 Space-saving 27mm frame depth.</li>
-<li>🛡️ Reliable EPDM weather sealing against dust and rain.</li>
-                ],
+    "🪶 Lightweight operation with precision nylon rollers.",
+    "🏢 Highly cost-effective for large-scale residential projects.",
+    "📏 Space-saving 27mm frame depth.",
+    "🛡️ Reliable EPDM weather sealing against dust and rain."
+],
                 image: "img%201.png",
                 backLink: "27mm-series.html"
             },
@@ -308,7 +308,7 @@
             const featuresList = document.getElementById('page-features');
             data.features.forEach(feature => {
                 const li = document.createElement('li');
-                li.innerHTML = `<i class="fa-solid fa-check"></i> ${feature}`;
+                li.innerHTML = `${feature}`;
                 featuresList.appendChild(li);
             });
         } else {
